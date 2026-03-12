@@ -332,7 +332,7 @@ p {
 .hero-subpage .hero-copy {
   grid-column: 1 / -1;
   gap: 12px;
-  max-width: 72ch;
+  max-width: none;
 }
 
 .hero-subpage h1 {
@@ -341,7 +341,7 @@ p {
 }
 
 .hero-subpage .lead {
-  max-width: 64ch;
+  max-width: 82ch;
 }
 
 .hero-subpage.hero-with-panel .hero-copy {
@@ -572,7 +572,7 @@ pre code {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: var(--content-narrow);
+  max-width: none;
 }
 
 .step {

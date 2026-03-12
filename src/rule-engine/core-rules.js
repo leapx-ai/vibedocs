@@ -1,3 +1,5 @@
+import { inferAffectedDocs } from "./affected-docs.js";
+
 const MINIMAL_DOCS = [
   "docs/governance/PROJECT-CONSTITUTION.md",
   "docs/governance/DOCUMENT-MAP.md",
@@ -22,6 +24,7 @@ function makeResult(overrides) {
     context: "repository",
     reason: "",
     evidence: [],
+    suggested_docs: [],
     suggestion: "",
     owner_hint: "project-owner",
     snapshot_key: "",
@@ -461,6 +464,7 @@ export const coreRules = [
     run(context) {
       const changedDocs = context.changedPaths.filter((entry) => entry.startsWith("docs/"));
       const changedNonDocs = context.changedPaths.filter((entry) => !entry.startsWith("docs/"));
+      const suggestedDocs = inferAffectedDocs(context, changedNonDocs);
 
       if (context.changedPaths.length === 0) {
         return makeResult({
@@ -485,7 +489,10 @@ export const coreRules = [
           context: context.mode,
           reason: "Code or non-doc files changed without any matching docs updates in the changed set.",
           evidence: changedNonDocs,
-          suggestion: "Review whether ROADMAP, FEATURE-PRD, TECH-SPEC, ACCEPTANCE, or feature package docs should be updated alongside this change.",
+          suggested_docs: suggestedDocs,
+          suggestion: suggestedDocs.length > 0
+            ? `Review the suggested docs touchpoints: ${suggestedDocs.join(", ")}.`
+            : "Review whether ROADMAP, FEATURE-PRD, TECH-SPEC, ACCEPTANCE, or feature package docs should be updated alongside this change.",
           owner_hint: "feature-owner",
           snapshot_key: this.id,
         });

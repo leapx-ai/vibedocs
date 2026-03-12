@@ -237,6 +237,7 @@ CLI 第一版负责“本地执行”和“本地建议”。
 - 稳定 JSON envelope：`schemaVersion / tool / run / summary / results`
 - `--rule-pack` 本地只读规则包加载
 - `rulePacks` 配置项
+- diff audit 的 `suggested_docs` 结果字段
 
 ## 12. 结论
 

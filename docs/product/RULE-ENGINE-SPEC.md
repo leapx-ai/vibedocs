@@ -165,6 +165,7 @@ Status: Active
 | `context` | 本次运行上下文 |
 | `reason` | 为什么命中 |
 | `evidence` | 相关文件或字段证据 |
+| `suggested_docs` | 推荐优先检查的文档触点 |
 | `suggestion` | 修复建议 |
 | `owner_hint` | 建议负责人角色 |
 | `snapshot_key` | 用于历史聚合的稳定标识 |

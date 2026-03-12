@@ -7,7 +7,7 @@
 仓库现在分成两层：
 
 1. 运行资产：`bin/`、`src/`、`tests/`、`package.json`
-2. 文档资产：`docs/`、`templates/`、`scaffold/`
+2. 文档资产：`docs/`、`templates/`、`scaffold/`、`website/`
 
 ## 仓库结构
 
@@ -22,6 +22,7 @@
 
 - `templates/`：单份文档模板，适合按需复制
 - `scaffold/`：一套完整的 `docs/` 初始骨架，适合直接拷进项目
+- `website/`：公开使用文档站源码，仅承载对外产品与使用说明
 
 ### 开发中实现
 
@@ -29,6 +30,8 @@
 - `src/index.js`：对外 programmatic API 入口
 - `src/commands/`：命令实现
 - `src/rule-engine/`：共享规则引擎最小实现
+- `scripts/`：发布与验收辅助脚本
+- `.github/workflows/`：CI、GitHub Pages、npm 发布自动化
 - `schemas/`：report 与 rule pack schema
 - `examples/`：配置和 rule pack 示例
 - `tests/`：CLI 与规则引擎基础测试
@@ -114,6 +117,7 @@ JSON 输出现在使用稳定 envelope：
 
 - `npm test`
 - `npm run pack:check`
+- `npm run smoke:install`
 
 ## 分发与依赖
 
@@ -155,7 +159,20 @@ console.log(report.summary);
 - `@leapx-ai/vibedocs/reporting`
 - `@leapx-ai/vibedocs/rule-engine`
 
-发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md`。
+发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md` 和 `docs/product/VERSIONING.md`。
+
+## Public Docs Site
+
+公开站点源码位于 `website/`，通过 `.github/workflows/pages.yml` 部署到 GitHub Pages。
+
+这个站点只承载：
+
+- 产品定位
+- 快速开始
+- CLI 使用方式
+- 配置与 schema 参考
+
+它不应直接镜像仓库内的内部策略、规划或未公开能力说明。
 
 ## 选择哪一层
 
@@ -175,6 +192,7 @@ console.log(report.summary);
 8. `docs/product/PAID-WORKFLOWS.md`
 9. `docs/plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
 10. `docs/product/PUBLISHING.md`
-11. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
-12. `scaffold/README.md`
-13. `templates/README.md`
+11. `docs/product/VERSIONING.md`
+12. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+13. `scaffold/README.md`
+14. `templates/README.md`

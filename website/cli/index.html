@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CLI · VibeDocs</title>
+    <meta name="description" content="Command reference for vibedocs init, feature create, audit, and glossary check.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="../">
+            <span class="brand-mark">VD</span>
+            <span>VibeDocs</span>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="../">Home</a>
+            <a href="../quickstart/">Quickstart</a>
+            <a href="./" aria-current="page">CLI</a>
+            <a href="../concepts/">Concepts</a>
+            <a href="../reference/">Reference</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="shell hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">CLI</span>
+              <h1>The local execution layer.</h1>
+              <p class="lead">
+                The CLI is intentionally narrow: initialize, expand, audit, and check terminology.
+                It is not a cloud workflow product and it should stay local-first.
+              </p>
+            </div>
+            <aside class="hero-panel">
+              <div class="glass">
+                <div class="kicker">Binary</div>
+                <h3><code>vibedocs</code></h3>
+                <p>Exposed from the public package and suitable for repository-local usage.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="cards-2">
+              <article class="card">
+                <h3><code>vibedocs init</code></h3>
+                <p>Create a docs system from the scaffold with hydrated placeholders.</p>
+                <pre>npx vibedocs init [target]
+  --mode minimal|standard|full
+  --project-name "Demo"
+  --owner "Berlin"
+  --force
+  --dry-run</pre>
+              </article>
+              <article class="card">
+                <h3><code>vibedocs feature create</code></h3>
+                <p>Create a feature package under <code>docs/features/&lt;feature&gt;/</code>.</p>
+                <pre>npx vibedocs feature create focus-mode [target]
+  --owner "Berlin"
+  --force
+  --dry-run</pre>
+              </article>
+              <article class="card">
+                <h3><code>vibedocs audit</code></h3>
+                <p>Run structure, SSOT, metadata, terminology, freshness, and diff checks.</p>
+                <pre>npx vibedocs audit [target]
+  --format text|json|markdown
+  --changed src/app.js
+  --rule-pack rule-packs/team.json
+  --output artifacts/audit.json</pre>
+              </article>
+              <article class="card">
+                <h3><code>vibedocs glossary check</code></h3>
+                <p>Run terminology checks on selected paths or configured glossary scopes.</p>
+                <pre>npx vibedocs glossary check [target]
+  --path docs/product
+  --path docs/features
+  --rule-pack rule-packs/team.json
+  --format json</pre>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">Config</span>
+              <h2>Supported local config files</h2>
+            </div>
+            <div class="cards-2">
+              <article class="card">
+                <h3><code>vibedocs.config.json</code></h3>
+                <pre>{
+  "projectName": "Demo Project",
+  "owner": "Berlin",
+  "defaultMode": "standard",
+  "featureSlugStyle": "snake",
+  "glossaryPaths": ["docs/product", "docs/features"],
+  "rulePacks": ["rule-packs/team-defaults.json"]
+}</pre>
+              </article>
+              <article class="card">
+                <h3>Design constraint</h3>
+                <p>
+                  Configuration is intentionally small. The free layer should not grow a complex
+                  rules DSL or recreate paid governance inside local config.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

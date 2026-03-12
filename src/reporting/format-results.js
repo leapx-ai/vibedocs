@@ -44,12 +44,12 @@ export function formatResults(results, options = {}) {
     }
 
     lines.push(
-      "| Status | Severity | Category | Rule | Target | Reason |",
-      "|---|---|---|---|---|---|",
+      "| Status | Severity | Category | Rule | Target | Reason | Suggested Docs |",
+      "|---|---|---|---|---|---|---|",
     );
 
     for (const result of results) {
-      lines.push(`| ${result.status} | ${result.severity} | ${result.category} | ${result.rule_id} | ${result.target} | ${result.reason} |`);
+      lines.push(`| ${result.status} | ${result.severity} | ${result.category} | ${result.rule_id} | ${result.target} | ${result.reason} | ${(result.suggested_docs ?? []).join(", ")} |`);
     }
 
     return `${lines.join("\n")}\n`;
@@ -90,6 +90,10 @@ export function formatResults(results, options = {}) {
 
     if (result.suggestion) {
       lines.push(`  suggestion: ${result.suggestion}`);
+    }
+
+    if (result.suggested_docs?.length) {
+      lines.push(`  suggested_docs: ${result.suggested_docs.join(", ")}`);
     }
 
     if (result.owner_hint) {

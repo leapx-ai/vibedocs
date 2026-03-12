@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VibeDocs</title>
+    <meta
+      name="description"
+      content="Open-core documentation operations for AI-native teams. Templates, scaffold, CLI, and rule engine in one system."
+    >
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="./">
+            <span class="brand-mark">VD</span>
+            <span>VibeDocs</span>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="./" aria-current="page">Home</a>
+            <a href="quickstart/">Quickstart</a>
+            <a href="cli/">CLI</a>
+            <a href="concepts/">Concepts</a>
+            <a href="reference/">Reference</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="shell hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Open Core Documentation Ops</span>
+              <h1>Ship docs that stay useful after the first build.</h1>
+              <p class="lead">
+                VibeDocs turns documentation from scattered markdown into an operating layer:
+                reusable templates, a project scaffold, a local CLI, and a shared rule engine
+                that can later power paid workflows.
+              </p>
+              <div class="cta-row">
+                <a class="button button-primary" href="quickstart/">Start in 5 minutes</a>
+                <a class="button button-secondary" href="https://github.com/leapx-ai/vibecoding-template">View repository</a>
+              </div>
+              <div class="pill-row">
+                <span class="pill">CLI: <code>vibedocs</code></span>
+                <span class="pill">Package: <code>@leapx-ai/vibedocs</code></span>
+                <span class="pill">License: Apache-2.0</span>
+              </div>
+            </div>
+
+            <aside class="hero-panel">
+              <div class="glass panel-stack">
+                <div>
+                  <div class="kicker">What you get</div>
+                  <h3>One free layer, built to feed future workflows</h3>
+                </div>
+                <div class="stats">
+                  <div class="stat">
+                    <strong>4</strong>
+                    <span>Local commands: init, feature create, audit, glossary check</span>
+                  </div>
+                  <div class="stat">
+                    <strong>2</strong>
+                    <span>Reusable asset systems: templates and scaffold</span>
+                  </div>
+                  <div class="stat">
+                    <strong>1</strong>
+                    <span>Shared rule engine ready for PR checks and scheduled audits</span>
+                  </div>
+                </div>
+                <pre class="code-block">npm install @leapx-ai/vibedocs
+npx vibedocs init --mode minimal
+npx vibedocs audit --format json</pre>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">Product Shape</span>
+              <h2>Open core for setup. Paid workflows for enforcement.</h2>
+              <p class="lead">
+                The free layer gets teams started locally. The paid layer will eventually handle
+                PR checks, health dashboards, scheduled audits, team rule packs, migration help,
+                and vertical packs.
+              </p>
+            </div>
+            <div class="cards-2">
+              <article class="card">
+                <div class="kicker">Free Layer</div>
+                <h3>Templates, scaffold, CLI, shared rules</h3>
+                <p>
+                  Local-first and plain-file-first. No hosted dependency is required to create a docs
+                  system, generate feature packages, or run structural audits.
+                </p>
+                <div class="pill-row">
+                  <span class="pill">Templates</span>
+                  <span class="pill">Scaffold</span>
+                  <span class="pill">CLI</span>
+                  <span class="pill">Rule engine</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="kicker">Paid Layer</div>
+                <h3>Workflow pressure where teams actually feel pain</h3>
+                <p>
+                  The commercial layer is not “more markdown.” It is execution pressure:
+                  merge-time checks, scheduled drift detection, team policy packs, and migration tooling.
+                </p>
+                <div class="pill-row">
+                  <span class="pill">PR checks</span>
+                  <span class="pill">Scheduled audits</span>
+                  <span class="pill">Health dashboard</span>
+                  <span class="pill">Team packs</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">Workflow</span>
+              <h2>Start with a docs system. Keep it from drifting.</h2>
+            </div>
+            <div class="cards-3">
+              <article class="card">
+                <h3>1. Bootstrap</h3>
+                <p>Generate a Minimal, Standard, or Full docs layout from the scaffold.</p>
+                <pre>npx vibedocs init --mode minimal</pre>
+              </article>
+              <article class="card">
+                <h3>2. Expand by feature</h3>
+                <p>Create a feature package with PRD, wireflow, tech spec, acceptance, and analytics.</p>
+                <pre>npx vibedocs feature create focus-mode</pre>
+              </article>
+              <article class="card">
+                <h3>3. Audit continuously</h3>
+                <p>Run diff-aware checks locally and get suggested docs touchpoints before you merge.</p>
+                <pre>npx vibedocs audit --changed src/app.js</pre>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">Why it works</span>
+              <h2>The system is opinionated about structure, not about your stack.</h2>
+            </div>
+            <div class="cards-3">
+              <article class="card">
+                <h3>Role × lifecycle model</h3>
+                <p>
+                  Documentation is treated as a matrix of roles and lifecycle stages, not a single
+                  flat folder of notes.
+                </p>
+              </article>
+              <article class="card">
+                <h3>SSOT by design</h3>
+                <p>
+                  The system assumes documentation needs clear ownership and a declared single
+                  source of truth to avoid status drift.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Local rules first</h3>
+                <p>
+                  The same result model can later feed hosted checks, but the free layer stays fully useful on its own.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="callout">
+              <div class="kicker">Public docs only</div>
+              <h3>This site is the public product layer, not the internal planning workspace.</h3>
+              <p>
+                Public installation, CLI, concepts, and schemas live here. Internal strategy and future
+                roadmap detail should not be used as the source for this site.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="shell footer-card">
+          <div>
+            <strong>VibeDocs</strong>
+            <div>Open-core documentation operations for AI-native teams.</div>
+          </div>
+          <div class="pill-row">
+            <a class="pill" href="quickstart/">Quickstart</a>
+            <a class="pill" href="cli/">CLI</a>
+            <a class="pill" href="reference/">Reference</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -41,12 +41,22 @@ Status: Active
 - scaffold 目录
 - 开源 / 付费产品边界文档
 - 共享规则引擎规格文档
+- 可运行 CLI：`init / feature create / audit / glossary check`
+- 共享规则引擎最小实现
+- 稳定 JSON report envelope
+- 本地只读 rule pack 消费
+- 对外 package 元数据与发布说明
+- 公开使用文档站源码：`website/`
+- GitHub Actions：CI / Pages / publish
+- 干净安装验收脚本：`npm run smoke:install`
+- versioning / changelog 基线
+- diff audit 的初始 `suggested_docs` 映射能力
 
 当前缺少：
 
-- CLI 工程骨架
-- 共享规则引擎的代码实现
-- `init / feature create / audit / glossary check` 命令
+- GitHub Pages 首次启用与线上回验
+- npm trusted publisher 配置与首次正式发布
+- 更广覆盖的 affected-doc mapping
 
 ## 4. 成功标准
 
@@ -317,6 +327,40 @@ tests/
 免费层现在不再缺“方向”，而是缺“执行入口”。
 
 所以最合理的推进方式不是继续补理论，而是按下面顺序实做：
+
+## 13. 当前下一阶段任务
+
+在免费层第一轮核心闭环完成后，下一阶段按下面 6 项推进：
+
+1. 回写免费层实施计划状态
+   Status: Completed
+2. 建公开使用文档站
+   Status: Completed
+3. 补 CI / release automation
+   Status: Completed
+4. 做干净环境安装验收
+   Status: Completed
+5. 定 versioning / changelog 流程
+   Status: Completed
+6. 做更准确的 affected-doc mapping
+   Status: In Progress
+
+这个顺序的原则是：
+
+- 先把对外入口和当前状态说清楚
+- 再把自动化和发布链补齐
+- 最后继续增强规则能力
+
+## 14. 延后处理事项
+
+关于“公开仓库与私有仓库如何拆分，以避免暴露内部理念、方法论、计划”的问题，当前先不立即处理。
+
+执行约束如下：
+
+- 先完成上面的 6 项任务
+- 在这 6 项任务完成前，不调整仓库拆分策略
+- 免费层实现所依赖的执行文档，继续保留在当前仓库
+- 待 6 项任务完成后，再统一评估公开 / 私有内容边界、仓库拆分方式和文档站公开范围
 
 1. CLI 骨架
 2. 规则引擎最小实现

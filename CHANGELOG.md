@@ -1,0 +1,22 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format follows Keep a Changelog and the versioning policy is documented in `docs/product/VERSIONING.md`.
+
+## [Unreleased]
+
+### Added
+
+- Public docs site source in `website/`
+- GitHub Actions for CI, Pages deployment, and package publishing
+- Clean-install smoke verification via `npm run smoke:install`
+- Initial affected-doc suggestion mapping for diff audits
+
+## [0.1.0] - 2026-03-12
+
+### Added
+
+- Open-core VibeDocs CLI with `init`, `feature create`, `audit`, and `glossary check`
+- Shared rule engine, report schema, rule pack schema, templates, and scaffold assets
+- Public package metadata for `@leapx-ai/vibedocs`

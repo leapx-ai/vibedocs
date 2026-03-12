@@ -9,6 +9,7 @@
 - license：`Apache-2.0`
 - 发布 registry：`https://registry.npmjs.org/`
 - 包访问级别：`public`
+- 发布自动化：GitHub Actions + npm trusted publishing
 
 这组决定的目标不是追求最短名字，而是保证品牌、仓库归属、未来多包扩展和付费层产品线都还能继续生长。
 
@@ -50,23 +51,30 @@
 每次发版前，至少完成以下动作：
 
 1. 更新版本号。
-2. 确认 README、examples、schema 与当前 CLI 行为一致。
-3. 运行 `npm test`。
-4. 运行 `npm run pack:check`。
-5. 检查 `npm pack --dry-run` 产物是否只包含应发布文件。
-6. 确认 `LICENSE` 已包含在包内。
-7. 确认没有把付费工作流代码、私有规则或内部凭据打进包。
+2. 更新 `CHANGELOG.md`。
+3. 确认 README、website、examples、schema 与当前 CLI 行为一致。
+4. 运行 `npm test`。
+5. 运行 `npm run pack:check`。
+6. 运行 `npm run smoke:install`。
+7. 检查 `npm pack --dry-run` 产物是否只包含应发布文件。
+8. 确认 `LICENSE` 已包含在包内。
+9. 确认没有把付费工作流代码、私有规则或内部凭据打进包。
+
+版本更新与 changelog 规则，见 `VERSIONING.md`。
 
 ## Publish Flow
 
 推荐发布顺序：
 
-1. 在主分支完成版本变更。
+1. 在主分支完成版本变更和 changelog 回写。
 2. 创建对应 git tag。
-3. 从 CI 或受控环境执行 `npm publish --provenance`。
-4. 发布后拉取 npm 页面，确认 README、license、bin 和版本元数据正确。
+3. 从该 tag 创建 GitHub Release。
+4. 由 `.github/workflows/publish.yml` 执行 `npm test`、`npm run pack:check`、`npm run smoke:install` 后发布包。
+5. 发布后拉取 npm 页面，确认 README、license、bin 和版本元数据正确。
 
-如果使用 GitHub Actions Trusted Publishing，仍保持 `publishConfig.registry` 和 `publishConfig.access` 在仓库内显式声明，不把这些约束只放在 CI 配置里。
+仓库当前采用 GitHub Actions + npm trusted publishing 形态。启用前，需要先在 npm 上为该仓库配置 trusted publisher。
+
+同时，GitHub Pages 站点由 `.github/workflows/pages.yml` 从 `website/` 部署，站点内容与 npm 包发布解耦。
 
 ## Non-Goals
 

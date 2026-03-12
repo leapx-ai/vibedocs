@@ -25,10 +25,12 @@
   "scripts": {
     "test": "node --test",
     "vibedocs": "node ./bin/vibedocs.js",
-    "pack:check": "npm pack --dry-run --cache ./.npm-cache"
+    "pack:check": "npm pack --dry-run --cache ./.npm-cache",
+    "smoke:install": "node ./scripts/smoke-install.mjs"
   },
   "files": [
     "bin/",
+    "CHANGELOG.md",
     "docs/",
     "examples/",
     "LICENSE",

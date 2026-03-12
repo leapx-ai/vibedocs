@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quickstart · VibeDocs</title>
+    <meta name="description" content="Install VibeDocs, initialize a docs system, create a feature package, and run your first audit.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="../">
+            <span class="brand-mark">VD</span>
+            <span>VibeDocs</span>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="../">Home</a>
+            <a href="./" aria-current="page">Quickstart</a>
+            <a href="../cli/">CLI</a>
+            <a href="../concepts/">Concepts</a>
+            <a href="../reference/">Reference</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="shell hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Quickstart</span>
+              <h1>Go from zero docs system to first audit in minutes.</h1>
+              <p class="lead">
+                This path is intentionally short. Use it to get a Minimal system running before
+                you activate more documents or team-specific rules.
+              </p>
+            </div>
+            <aside class="hero-panel">
+              <div class="glass">
+                <div class="kicker">Prerequisites</div>
+                <h3>Node.js 22 or newer</h3>
+                <p>Everything else is generated as plain files inside your repository.</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="steps">
+              <article class="step">
+                <span class="step-index">1</span>
+                <h3>Install the package</h3>
+                <p>Use the public npm package. The CLI binary is exposed as <code>vibedocs</code>.</p>
+                <pre>npm install @leapx-ai/vibedocs</pre>
+              </article>
+
+              <article class="step">
+                <span class="step-index">2</span>
+                <h3>Initialize a docs system</h3>
+                <p>Start with Minimal unless you already know you need Standard or Full.</p>
+                <pre>npx vibedocs init --mode minimal --project-name "Demo" --owner "Berlin"</pre>
+              </article>
+
+              <article class="step">
+                <span class="step-index">3</span>
+                <h3>Generate a feature package</h3>
+                <p>Use feature packages for scoped work that needs its own PRD, tech spec, and acceptance criteria.</p>
+                <pre>npx vibedocs feature create focus-mode</pre>
+              </article>
+
+              <article class="step">
+                <span class="step-index">4</span>
+                <h3>Run your first audit</h3>
+                <p>Start with a full repository scan, then use diff mode as part of daily work.</p>
+                <pre>npx vibedocs audit --format text
+npx vibedocs audit --changed src/app.js --format json</pre>
+              </article>
+
+              <article class="step">
+                <span class="step-index">5</span>
+                <h3>Check terminology drift</h3>
+                <p>Run targeted glossary checks when product, feature, or content language starts to diverge.</p>
+                <pre>npx vibedocs glossary check --path docs/product --path docs/features</pre>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">Minimal Files</span>
+              <h2>The eight baseline documents</h2>
+            </div>
+            <div class="cards-2">
+              <article class="card">
+                <h3>Governance</h3>
+                <ul class="list">
+                  <li><code>docs/governance/PROJECT-CONSTITUTION.md</code></li>
+                  <li><code>docs/governance/DOCUMENT-MAP.md</code></li>
+                  <li><code>docs/governance/GLOSSARY.md</code></li>
+                </ul>
+              </article>
+              <article class="card">
+                <h3>Strategy, product, delivery</h3>
+                <ul class="list">
+                  <li><code>docs/strategy/PRODUCT-PRINCIPLES.md</code></li>
+                  <li><code>docs/strategy/ROADMAP-STATUS.md</code></li>
+                  <li><code>docs/product/FEATURE-PRD.md</code></li>
+                  <li><code>docs/engineering/TECH-SPEC.md</code></li>
+                  <li><code>docs/delivery/ACCEPTANCE-CHECKLIST.md</code></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="callout">
+              <div class="kicker">Next</div>
+              <h3>Once the baseline exists, the real job is drift control.</h3>
+              <p>
+                The free layer is designed to make initialization cheap and audits habitual.
+                If you only generate files once and never run audits again, you lose most of the value.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

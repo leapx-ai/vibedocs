@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VibeDocs">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f06d4f" />
+      <stop offset="100%" stop-color="#c44b2f" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#g)" />
+  <path d="M18 18h12l8 18 8-18h0" fill="none" stroke="#fff6f1" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+  <path d="M18 46h28" fill="none" stroke="#fff6f1" stroke-linecap="round" stroke-width="6" />
+</svg>

@@ -67,7 +67,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["rule_id", "status", "severity", "category", "target", "context", "reason", "evidence", "suggestion", "owner_hint", "snapshot_key"],
+        "required": ["rule_id", "status", "severity", "category", "target", "context", "reason", "evidence", "suggested_docs", "suggestion", "owner_hint", "snapshot_key"],
         "properties": {
           "rule_id": { "type": "string" },
           "status": { "type": "string" },
@@ -77,6 +77,10 @@
           "context": { "type": "string" },
           "reason": { "type": "string" },
           "evidence": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "suggested_docs": {
             "type": "array",
             "items": { "type": "string" }
           },

@@ -27,6 +27,7 @@
 - `RULE-ENGINE-SPEC.md`
 - `PAID-WORKFLOWS.md`
 - `PUBLISHING.md`
+- `VERSIONING.md`
 
 ## Plans
 
@@ -43,6 +44,7 @@
 - `scaffold/`：可直接复制的 `docs/` 初始骨架
 - `src/`：CLI 与规则引擎实现
 - `tests/`：实现验证
+- `website/`：公开使用文档站源码
 
 ## 推荐阅读顺序
 
@@ -55,4 +57,5 @@
 7. `product/PAID-WORKFLOWS.md`
 8. `plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
 9. `product/PUBLISHING.md`
-10. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+10. `product/VERSIONING.md`
+11. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`

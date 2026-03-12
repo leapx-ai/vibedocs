@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Concepts · VibeDocs</title>
+    <meta name="description" content="Understand the documentation role matrix, SSOT discipline, and local-first rule engine model.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="../">
+            <span class="brand-mark">VD</span>
+            <span>VibeDocs</span>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            <a href="../">Home</a>
+            <a href="../quickstart/">Quickstart</a>
+            <a href="../cli/">CLI</a>
+            <a href="./" aria-current="page">Concepts</a>
+            <a href="../reference/">Reference</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="shell hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Concepts</span>
+              <h1>The docs model is deliberate, not decorative.</h1>
+              <p class="lead">
+                VibeDocs treats documentation as operational infrastructure. The core system cares about
+                role boundaries, lifecycle stages, terminology discipline, and declared ownership.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="cards-3">
+              <article class="card">
+                <div class="kicker">Structure</div>
+                <h3>Role × lifecycle matrix</h3>
+                <p>
+                  Documents are not just grouped by topic. They are organized by the role they play
+                  and the lifecycle stage they serve.
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">Ownership</div>
+                <h3>SSOT is declared, not implied</h3>
+                <p>
+                  A document map should name the single source of truth for status, scope, and other
+                  shared concerns. Without this, duplication becomes drift.
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">Operations</div>
+                <h3>Rules belong in one engine</h3>
+                <p>
+                  Local audits, PR checks, and future scheduled audits should share the same rule
+                  semantics instead of re-implementing checks in each layer.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">Core ideas</span>
+              <h2>What the free layer is opinionated about</h2>
+            </div>
+            <div class="cards-2">
+              <article class="card">
+                <h3>Minimal is a product decision</h3>
+                <p>
+                  The Minimal set is not “less documentation.” It is the smallest viable system that still
+                  allows a team and an AI agent to share reliable context.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Feature packages keep local work local</h3>
+                <p>
+                  Not every change belongs in a single monolithic product doc. Feature packages make it cheap
+                  to add focused documents without polluting global status or governance files.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Diff mode is the bridge to workflow automation</h3>
+                <p>
+                  Once a local audit can reason about changed paths and suggested docs touchpoints, it becomes
+                  a credible precursor to PR checks and scheduled drift detection.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Public docs should be curated</h3>
+                <p>
+                  A public docs site should explain the product and usage model. It should not mirror an entire
+                  internal planning directory.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

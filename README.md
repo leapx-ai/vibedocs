@@ -53,13 +53,57 @@
 - `node bin/vibedocs.js init --mode minimal --project-name "Demo" --owner "Berlin"`
 - `node bin/vibedocs.js feature create focus-mode`
 - `node bin/vibedocs.js audit --format text`
+- `node bin/vibedocs.js audit --changed src/app.js --output artifacts/audit.json --format json`
 - `node bin/vibedocs.js glossary check --path docs/product --format json`
+
+当前还支持项目级配置文件：
+
+- `vibedocs.config.json`
+- `.vibedocsrc.json`
+
+最小示例：
+
+```json
+{
+  "projectName": "Demo Project",
+  "owner": "Berlin",
+  "defaultMode": "standard",
+  "featureSlugStyle": "snake",
+  "glossaryPaths": ["docs/product", "docs/features"],
+  "rulePacks": ["rule-packs/team-defaults.json"]
+}
+```
+
+本地 rule pack 示例：
+
+```json
+{
+  "id": "team-defaults",
+  "name": "Team Defaults",
+  "rules": {
+    "core.diff.docs_touchpoint_present": {
+      "severity": "high",
+      "ownerHint": "tech-lead",
+      "suggestion": "Update the affected docs before merge."
+    }
+  }
+}
+```
 
 本轮实现选择了零依赖 Node 方案，优先保证：
 
 - 本地可直接运行
 - 不依赖额外安装 CLI 框架
 - 共享规则结果可被后续付费工作流复用
+- 能提前为 PR 检查准备 diff-ready 结果上下文
+
+JSON 输出现在使用稳定 envelope：
+
+- `schemaVersion`
+- `tool`
+- `run`
+- `summary`
+- `results`
 
 验证方式：
 

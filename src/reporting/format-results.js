@@ -1,64 +1,99 @@
-function summarize(results) {
-  const summary = {
-    passed: 0,
-    warned: 0,
-    failed: 0,
-    skipped: 0,
-  };
+import { createReport } from "./create-report.js";
 
-  for (const result of results) {
-    if (result.status === "pass") {
-      summary.passed += 1;
-    } else if (result.status === "warn") {
-      summary.warned += 1;
-    } else if (result.status === "fail") {
-      summary.failed += 1;
-    } else if (result.status === "skip") {
-      summary.skipped += 1;
-    }
-  }
-
-  return summary;
-}
-
-export function formatResults(results, format) {
-  const summary = summarize(results);
+export function formatResults(results, options = {}) {
+  const format = options.format ?? "text";
+  const report = createReport(results, options);
+  const summary = report.summary;
 
   if (format === "json") {
-    return JSON.stringify({ summary, results }, null, 2);
+    return JSON.stringify(report, null, 2);
   }
 
   if (format === "markdown") {
     const lines = [
       "# Audit Results",
       "",
+      `- Schema: ${report.schemaVersion}`,
+      `- Tool: ${report.tool.name}@${report.tool.version}`,
+      `- Mode: ${report.run.mode}`,
       `- Passed: ${summary.passed}`,
       `- Warned: ${summary.warned}`,
       `- Failed: ${summary.failed}`,
       `- Skipped: ${summary.skipped}`,
       "",
-      "| Status | Severity | Rule | Target | Reason |",
-      "|---|---|---|---|---|",
     ];
 
+    if (report.run.configPath) {
+      lines.push(`- Config: ${report.run.configPath}`);
+      lines.push("");
+    }
+
+    if (report.run.rulePacks.length > 0) {
+      lines.push(`- Rule Packs: ${report.run.rulePacks.map((pack) => pack.id).join(", ")}`);
+      lines.push("");
+    }
+
+    if (report.run.selectedPaths.length > 0) {
+      lines.push(`- Selected Paths: ${report.run.selectedPaths.join(", ")}`);
+      lines.push("");
+    }
+
+    if (report.run.changedPaths.length > 0) {
+      lines.push(`- Changed Paths: ${report.run.changedPaths.join(", ")}`);
+      lines.push("");
+    }
+
+    lines.push(
+      "| Status | Severity | Category | Rule | Target | Reason |",
+      "|---|---|---|---|---|---|",
+    );
+
     for (const result of results) {
-      lines.push(`| ${result.status} | ${result.severity} | ${result.rule_id} | ${result.target} | ${result.reason} |`);
+      lines.push(`| ${result.status} | ${result.severity} | ${result.category} | ${result.rule_id} | ${result.target} | ${result.reason} |`);
     }
 
     return `${lines.join("\n")}\n`;
   }
 
   const lines = [
+    `Schema: ${report.schemaVersion}`,
+    `Tool: ${report.tool.name}@${report.tool.version}`,
+    `Mode: ${report.run.mode}`,
     `Passed: ${summary.passed}  Warned: ${summary.warned}  Failed: ${summary.failed}  Skipped: ${summary.skipped}`,
     "",
   ];
 
+  if (report.run.configPath) {
+    lines.push(`Config: ${report.run.configPath}`);
+    lines.push("");
+  }
+
+  if (report.run.rulePacks.length > 0) {
+    lines.push(`Rule Packs: ${report.run.rulePacks.map((pack) => pack.id).join(", ")}`);
+    lines.push("");
+  }
+
+  if (report.run.selectedPaths.length > 0) {
+    lines.push(`Selected Paths: ${report.run.selectedPaths.join(", ")}`);
+    lines.push("");
+  }
+
+  if (report.run.changedPaths.length > 0) {
+    lines.push(`Changed Paths: ${report.run.changedPaths.join(", ")}`);
+    lines.push("");
+  }
+
   for (const result of results) {
-    lines.push(`[${result.status.toUpperCase()}][${result.severity}] ${result.rule_id} -> ${result.target}`);
+    lines.push(`[${result.status.toUpperCase()}][${result.severity}][${result.category}] ${result.rule_id} -> ${result.target}`);
+    lines.push(`  context: ${result.context}`);
     lines.push(`  reason: ${result.reason}`);
 
     if (result.suggestion) {
       lines.push(`  suggestion: ${result.suggestion}`);
+    }
+
+    if (result.owner_hint) {
+      lines.push(`  owner_hint: ${result.owner_hint}`);
     }
 
     if (result.evidence?.length) {

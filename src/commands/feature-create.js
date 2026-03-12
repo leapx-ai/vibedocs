@@ -3,6 +3,7 @@ import path from "node:path";
 
 import { templatesDir } from "../assets.js";
 import { parseArgs, getBooleanOption, getStringOption } from "../cli/args.js";
+import { loadProjectConfig } from "../config/load-config.js";
 import { collectConflicts, ensureDirectory } from "../filesystem/fs.js";
 import { hydrateTemplateContent } from "../filesystem/placeholders.js";
 import { currentDateIso } from "../lib/date.js";
@@ -26,11 +27,12 @@ export async function handleFeatureCreateCommand(argv, io) {
   }
 
   const explicitTarget = positionals[1];
-  const owner = getStringOption(options, "owner");
   const dryRun = getBooleanOption(options, "dry-run");
   const force = getBooleanOption(options, "force");
   const projectRoot = resolveProjectRoot(explicitTarget, io.cwd);
-  const slug = toSlug(rawName);
+  const config = await loadProjectConfig(projectRoot);
+  const owner = getStringOption(options, "owner", config.values.owner);
+  const slug = toSlug(rawName, config.values.featureSlugStyle ?? "kebab");
 
   if (!slug) {
     throw new Error(`Could not derive a feature slug from "${rawName}".`);
@@ -69,6 +71,9 @@ export async function handleFeatureCreateCommand(argv, io) {
   }
 
   io.stdout.write(`${dryRun ? "Planned" : "Created"} feature package at ${featureDir}\n`);
+  if (config.path) {
+    io.stdout.write(`Config: ${config.path}\n`);
+  }
   io.stdout.write("Remember to update docs/governance/DOCUMENT-MAP.md if this feature becomes a new SSOT boundary.\n");
 
   return 0;

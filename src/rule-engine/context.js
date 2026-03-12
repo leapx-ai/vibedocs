@@ -29,6 +29,9 @@ export async function buildRepositoryContext(targetPath, cwd, options = {}) {
   const docsDir = resolveDocsDir(projectRoot);
   const docsExists = await pathExists(docsDir);
   const selectedPaths = options.selectedPaths?.map((entry) => path.resolve(projectRoot, entry)) ?? [];
+  const relativeSelectedPaths = selectedPaths.map((entry) => path.relative(projectRoot, entry));
+  const changedPaths = (options.changedPaths ?? []).map((entry) => path.resolve(projectRoot, entry));
+  const relativeChangedPaths = changedPaths.map((entry) => path.relative(projectRoot, entry));
 
   const files = new Map();
 
@@ -58,6 +61,8 @@ export async function buildRepositoryContext(targetPath, cwd, options = {}) {
     docsDir,
     docsExists,
     files,
+    changedPaths: relativeChangedPaths,
+    selectedPaths: relativeSelectedPaths,
     mode: options.mode ?? "repository",
   };
 }

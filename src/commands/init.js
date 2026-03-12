@@ -3,6 +3,7 @@ import path from "node:path";
 
 import { scaffoldDocsDir } from "../assets.js";
 import { parseArgs, getBooleanOption, getStringOption } from "../cli/args.js";
+import { loadProjectConfig } from "../config/load-config.js";
 import { collectConflicts, ensureDirectory, listFilesRecursive } from "../filesystem/fs.js";
 import { hydrateScaffoldContent } from "../filesystem/placeholders.js";
 import { currentDateIso } from "../lib/date.js";
@@ -64,12 +65,13 @@ async function collectFilesForMode(mode) {
 
 export async function handleInitCommand(argv, io) {
   const { positionals, options } = parseArgs(argv);
-  const mode = resolveMode(getStringOption(options, "mode", "minimal"));
-  const projectName = getStringOption(options, "project-name");
-  const owner = getStringOption(options, "owner", "TODO");
   const dryRun = getBooleanOption(options, "dry-run");
   const force = getBooleanOption(options, "force");
   const targetRoot = resolveProjectRoot(positionals[0], io.cwd);
+  const config = await loadProjectConfig(targetRoot);
+  const mode = resolveMode(getStringOption(options, "mode", config.values.defaultMode ?? "minimal"));
+  const projectName = getStringOption(options, "project-name", config.values.projectName);
+  const owner = getStringOption(options, "owner", config.values.owner ?? "TODO");
   const docsDir = resolveDocsDir(targetRoot);
   const relativeFiles = await collectFilesForMode(mode);
   const targetPaths = relativeFiles.map((relativePath) => path.join(docsDir, relativePath));
@@ -107,6 +109,9 @@ export async function handleInitCommand(argv, io) {
 
   io.stdout.write(`${dryRun ? "Planned" : "Created"} ${relativeFiles.length} docs files in ${docsDir}\n`);
   io.stdout.write(`Mode: ${mode}\n`);
+  if (config.path) {
+    io.stdout.write(`Config: ${config.path}\n`);
+  }
 
   return 0;
 }

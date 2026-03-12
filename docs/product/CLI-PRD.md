@@ -175,6 +175,16 @@ CLI 负责展示和格式化结果，不负责维护另一套规则语义。
 
 但不应在第一版就引入复杂规则 DSL。
 
+当前配置文件命名约定：
+
+- `vibedocs.config.json`
+- `.vibedocsrc.json`
+
+推荐的 Phase 3 配置扩展：
+
+- `glossaryPaths`
+- `rulePacks`
+
 ## 9. 成功标准
 
 基础 CLI 第一版上线后，至少应满足：
@@ -221,6 +231,12 @@ CLI 第一版负责“本地执行”和“本地建议”。
 - 为付费工作流提供标准化本地输出接口
 - 与 PR 检查共享规则定义，但不共享托管能力
 - 支持团队规则包的本地只读消费
+
+当前 Phase 3 对应的本地接口包括：
+
+- 稳定 JSON envelope：`schemaVersion / tool / run / summary / results`
+- `--rule-pack` 本地只读规则包加载
+- `rulePacks` 配置项
 
 ## 12. 结论
 

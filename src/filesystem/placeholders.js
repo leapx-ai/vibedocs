@@ -34,7 +34,15 @@ export function hydrateTemplateContent(content, options) {
   nextContent = nextContent.replace(/^更新时间：\s*$/m, `更新时间：${options.date}`);
 
   if (options.owner) {
-    nextContent = nextContent.replace(/^Owner:\s*.+$/m, `Owner: ${options.owner}`);
+    if (/^Owner:\s*.+$/m.test(nextContent)) {
+      nextContent = nextContent.replace(/^Owner:\s*.+$/m, `Owner: ${options.owner}`);
+    } else if (/^状态：.*$/m.test(nextContent)) {
+      nextContent = nextContent.replace(/^状态：.*$/m, (match) => `${match}\nOwner: ${options.owner}`);
+    } else if (/^Status:\s*.+$/m.test(nextContent)) {
+      nextContent = nextContent.replace(/^Status:\s*.+$/m, (match) => `${match}\nOwner: ${options.owner}`);
+    } else if (/^更新时间：.*$/m.test(nextContent)) {
+      nextContent = nextContent.replace(/^更新时间：.*$/m, (match) => `${match}\nOwner: ${options.owner}`);
+    }
   }
 
   return nextContent;

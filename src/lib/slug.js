@@ -1,10 +1,18 @@
-export function toSlug(value) {
+function normalizeBase(value, separator) {
   return value
     .trim()
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-{2,}/g, "-");
+    .replace(/[^a-z0-9]+/g, separator)
+    .replace(new RegExp(`^${separator}+|${separator}+$`, "g"), "")
+    .replace(new RegExp(`${separator}{2,}`, "g"), separator);
+}
+
+export function toSlug(value, style = "kebab") {
+  if (style === "snake") {
+    return normalizeBase(value, "_");
+  }
+
+  return normalizeBase(value, "-");
 }
 
 export function toDisplayName(value) {

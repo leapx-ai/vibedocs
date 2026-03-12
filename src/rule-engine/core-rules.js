@@ -19,6 +19,7 @@ function makeResult(overrides) {
     severity: "info",
     category: "structure",
     target: "repo",
+    context: "repository",
     reason: "",
     evidence: [],
     suggestion: "",
@@ -52,7 +53,7 @@ export const coreRules = [
     title: "Minimal docs exist",
     category: "structure",
     severity: "high",
-    contexts: ["repository"],
+    contexts: ["repository", "diff"],
     run(context) {
       if (!context.docsExists) {
         return makeResult({
@@ -61,6 +62,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "Missing docs/ directory in the target repository.",
           suggestion: "Run `vibedocs init --mode minimal` to create the baseline document set.",
           snapshot_key: this.id,
@@ -76,6 +78,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "The repository is missing one or more minimal documents.",
           evidence: missing,
           suggestion: "Re-run `vibedocs init` or create the missing files manually.",
@@ -86,6 +89,7 @@ export const coreRules = [
       return makeResult({
         rule_id: this.id,
         target: "docs",
+        context: context.mode,
         reason: "All minimal documents are present.",
         snapshot_key: this.id,
       });
@@ -96,7 +100,7 @@ export const coreRules = [
     title: "Active docs have required metadata",
     category: "metadata",
     severity: "medium",
-    contexts: ["repository"],
+    contexts: ["repository", "diff"],
     run(context) {
       const activeDocs = [...context.files.values()].filter((file) => file.status?.startsWith("Active"));
 
@@ -107,6 +111,7 @@ export const coreRules = [
           severity: "info",
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "No Active documents found, so metadata completeness was skipped.",
           snapshot_key: this.id,
         });
@@ -128,6 +133,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "Some Active documents are missing required metadata fields.",
           evidence: offenders,
           suggestion: "Fill in the standard metadata fields before relying on these files as SSOT.",
@@ -138,6 +144,7 @@ export const coreRules = [
       return makeResult({
         rule_id: this.id,
         target: "docs",
+        context: context.mode,
         reason: "All Active documents contain the required metadata fields.",
         snapshot_key: this.id,
       });
@@ -148,7 +155,7 @@ export const coreRules = [
     title: "Document map exists",
     category: "ssot",
     severity: "high",
-    contexts: ["repository"],
+    contexts: ["repository", "diff"],
     run(context) {
       const relativePath = "docs/governance/DOCUMENT-MAP.md";
       const exists = context.files.has(relativePath);
@@ -158,6 +165,7 @@ export const coreRules = [
             rule_id: this.id,
             category: this.category,
             target: relativePath,
+            context: context.mode,
             reason: "DOCUMENT-MAP is present.",
             snapshot_key: this.id,
           })
@@ -167,6 +175,7 @@ export const coreRules = [
             severity: this.severity,
             category: this.category,
             target: relativePath,
+            context: context.mode,
             reason: "DOCUMENT-MAP is missing, so SSOT ownership cannot be verified.",
             suggestion: "Create `docs/governance/DOCUMENT-MAP.md` and assign core SSOT ownership.",
             snapshot_key: this.id,
@@ -178,7 +187,7 @@ export const coreRules = [
     title: "Single status source",
     category: "ssot",
     severity: "high",
-    contexts: ["repository"],
+    contexts: ["repository", "diff"],
     run(context) {
       const allowedPath = "docs/strategy/ROADMAP-STATUS.md";
       const offenders = [...context.files.values()]
@@ -193,6 +202,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "Multiple documents appear to maintain execution status sections.",
           evidence: offenders,
           suggestion: "Keep Done / In Progress / Blocked / Next Up only in `docs/strategy/ROADMAP-STATUS.md`.",
@@ -204,6 +214,7 @@ export const coreRules = [
         rule_id: this.id,
         category: this.category,
         target: allowedPath,
+        context: context.mode,
         reason: "Execution status headings are limited to the roadmap status document.",
         snapshot_key: this.id,
       });
@@ -214,7 +225,7 @@ export const coreRules = [
     title: "Feature packages are complete",
     category: "structure",
     severity: "medium",
-    contexts: ["repository"],
+    contexts: ["repository", "diff"],
     run(context) {
       const featureDirs = new Map();
 
@@ -247,6 +258,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs/features",
+          context: context.mode,
           reason: "Some feature packages are missing required files.",
           evidence: offenders,
           suggestion: "Run `vibedocs feature create <name>` or fill the missing files manually.",
@@ -258,6 +270,7 @@ export const coreRules = [
         rule_id: this.id,
         category: this.category,
         target: "docs/features",
+        context: context.mode,
         reason: "All feature packages contain the required file set.",
         snapshot_key: this.id,
       });
@@ -268,7 +281,7 @@ export const coreRules = [
     title: "Glossary exists",
     category: "terminology",
     severity: "high",
-    contexts: ["repository", "path"],
+    contexts: ["repository", "path", "diff"],
     run(context) {
       const relativePath = "docs/governance/GLOSSARY.md";
       const exists = context.files.has(relativePath);
@@ -278,6 +291,7 @@ export const coreRules = [
             rule_id: this.id,
             category: this.category,
             target: relativePath,
+            context: context.mode,
             reason: "GLOSSARY is present.",
             snapshot_key: this.id,
           })
@@ -287,6 +301,7 @@ export const coreRules = [
             severity: this.severity,
             category: this.category,
             target: relativePath,
+            context: context.mode,
             reason: "GLOSSARY is missing, so terminology checks cannot be anchored.",
             suggestion: "Create `docs/governance/GLOSSARY.md` before running terminology checks.",
             snapshot_key: this.id,
@@ -298,7 +313,7 @@ export const coreRules = [
     title: "Glossary term drift",
     category: "terminology",
     severity: "medium",
-    contexts: ["repository", "path"],
+    contexts: ["repository", "path", "diff"],
     run(context) {
       const glossary = context.files.get("docs/governance/GLOSSARY.md");
 
@@ -309,6 +324,7 @@ export const coreRules = [
           severity: "info",
           category: this.category,
           target: "docs/governance/GLOSSARY.md",
+          context: context.mode,
           reason: "GLOSSARY is missing, so term drift was skipped.",
           snapshot_key: this.id,
         });
@@ -323,6 +339,7 @@ export const coreRules = [
           severity: "info",
           category: this.category,
           target: glossary.relativePath,
+          context: context.mode,
           reason: "GLOSSARY does not define any banned synonyms yet.",
           snapshot_key: this.id,
         });
@@ -351,6 +368,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "Some documents still use banned glossary variants.",
           evidence: offenders,
           suggestion: "Normalize the flagged terms to the glossary-approved wording.",
@@ -362,6 +380,7 @@ export const coreRules = [
         rule_id: this.id,
         category: this.category,
         target: "docs",
+        context: context.mode,
         reason: "No banned glossary variants were found in the scanned documents.",
         snapshot_key: this.id,
       });
@@ -372,7 +391,7 @@ export const coreRules = [
     title: "Snapshot files are not active entrypoints",
     category: "freshness",
     severity: "medium",
-    contexts: ["repository"],
+    contexts: ["repository", "diff"],
     run(context) {
       const snapshotDocs = new Set(
         [...context.files.values()]
@@ -387,6 +406,7 @@ export const coreRules = [
           severity: "info",
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "No Snapshot documents were found.",
           snapshot_key: this.id,
         });
@@ -414,6 +434,7 @@ export const coreRules = [
           severity: this.severity,
           category: this.category,
           target: "docs",
+          context: context.mode,
           reason: "Snapshot documents are still referenced by active entrypoints.",
           evidence: offenders,
           suggestion: "Remove or demote snapshot links from active navigation and SSOT maps.",
@@ -425,7 +446,58 @@ export const coreRules = [
         rule_id: this.id,
         category: this.category,
         target: "docs",
+        context: context.mode,
         reason: "Snapshot documents are not referenced by active entrypoints.",
+        snapshot_key: this.id,
+      });
+    },
+  },
+  {
+    id: "core.diff.docs_touchpoint_present",
+    title: "Changed paths include a docs touchpoint",
+    category: "diff",
+    severity: "medium",
+    contexts: ["diff"],
+    run(context) {
+      const changedDocs = context.changedPaths.filter((entry) => entry.startsWith("docs/"));
+      const changedNonDocs = context.changedPaths.filter((entry) => !entry.startsWith("docs/"));
+
+      if (context.changedPaths.length === 0) {
+        return makeResult({
+          rule_id: this.id,
+          status: "skip",
+          severity: "info",
+          category: this.category,
+          target: "repo",
+          context: context.mode,
+          reason: "No changed paths were provided for diff mode.",
+          snapshot_key: this.id,
+        });
+      }
+
+      if (changedNonDocs.length > 0 && changedDocs.length === 0) {
+        return makeResult({
+          rule_id: this.id,
+          status: "warn",
+          severity: this.severity,
+          category: this.category,
+          target: "repo",
+          context: context.mode,
+          reason: "Code or non-doc files changed without any matching docs updates in the changed set.",
+          evidence: changedNonDocs,
+          suggestion: "Review whether ROADMAP, FEATURE-PRD, TECH-SPEC, ACCEPTANCE, or feature package docs should be updated alongside this change.",
+          owner_hint: "feature-owner",
+          snapshot_key: this.id,
+        });
+      }
+
+      return makeResult({
+        rule_id: this.id,
+        category: this.category,
+        target: "repo",
+        context: context.mode,
+        reason: "The changed set already includes at least one docs touchpoint.",
+        evidence: changedDocs,
         snapshot_key: this.id,
       });
     },

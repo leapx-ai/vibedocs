@@ -1,0 +1,16 @@
+{
+  "name": "vibecoding-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "vibedocs": "./bin/vibedocs.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "vibedocs": "node ./bin/vibedocs.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

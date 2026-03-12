@@ -18,7 +18,7 @@ This keeps the repo publish-ready even when local code changes and external acco
 As of 2026-03-12:
 
 - CI workflow is passing.
-- The first GitHub Pages deployment attempt failed because the repository does not yet have Pages enabled for GitHub Actions.
+- GitHub Pages has been enabled for the repository, and a fresh deployment should be triggered after enablement.
 - npm CLI on the current machine is not logged in, and trusted publishing has not yet been configured.
 
 ## 3. GitHub Pages One-Time Setup

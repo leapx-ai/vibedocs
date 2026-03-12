@@ -33,11 +33,13 @@ test("package exports expose the stable programmatic API", async (t) => {
 
   const report = await runAudit(undefined, tempDir, {
     changedPaths: ["src/app.js"],
+    semantic: "heuristic",
   });
 
   assert.equal(report.schemaVersion, "v1alpha1");
   assert.equal(report.tool.name, "vibedocs");
   assert.equal(report.run.mode, "diff");
+  assert.equal(report.run.semanticMode, "heuristic");
   assert.ok(Array.isArray(report.results));
 
   const synthetic = createReport([], { mode: "repository" });

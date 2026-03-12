@@ -16,6 +16,7 @@ export function formatResults(results, options = {}) {
       `- Schema: ${report.schemaVersion}`,
       `- Tool: ${report.tool.name}@${report.tool.version}`,
       `- Mode: ${report.run.mode}`,
+      `- Semantic: ${report.run.semanticMode}`,
       `- Passed: ${summary.passed}`,
       `- Warned: ${summary.warned}`,
       `- Failed: ${summary.failed}`,
@@ -59,6 +60,7 @@ export function formatResults(results, options = {}) {
     `Schema: ${report.schemaVersion}`,
     `Tool: ${report.tool.name}@${report.tool.version}`,
     `Mode: ${report.run.mode}`,
+    `Semantic: ${report.run.semanticMode}`,
     `Passed: ${summary.passed}  Warned: ${summary.warned}  Failed: ${summary.failed}  Skipped: ${summary.skipped}`,
     "",
   ];
@@ -94,6 +96,14 @@ export function formatResults(results, options = {}) {
 
     if (result.suggested_docs?.length) {
       lines.push(`  suggested_docs: ${result.suggested_docs.join(", ")}`);
+    }
+
+    if (result.semantic_type) {
+      lines.push(`  semantic_type: ${result.semantic_type}`);
+    }
+
+    if (result.trigger_signals?.length) {
+      lines.push(`  trigger_signals: ${result.trigger_signals.join(", ")}`);
     }
 
     if (result.owner_hint) {

@@ -7,12 +7,14 @@ export async function handleAuditCommand(argv, io) {
   const { positionals, options } = parseArgs(argv);
   const format = getStringOption(options, "format", "text");
   const outputPath = getStringOption(options, "output");
+  const semanticMode = getStringOption(options, "semantic", "off");
   const targetPath = positionals[0];
   const changedPaths = getListOption(options, "changed");
   const rulePackPaths = getListOption(options, "rule-pack");
   const report = await runAudit(targetPath, io.cwd, {
     changedPaths,
     rulePackPaths,
+    semantic: semanticMode,
   });
   const content = formatResults(report.results, {
     format,

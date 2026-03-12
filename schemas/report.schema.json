@@ -19,10 +19,11 @@
     },
     "run": {
       "type": "object",
-      "required": ["generatedAt", "mode", "changedPaths", "selectedPaths", "rulePacks"],
+      "required": ["generatedAt", "mode", "semanticMode", "changedPaths", "selectedPaths", "rulePacks"],
       "properties": {
         "generatedAt": { "type": "string" },
         "mode": { "type": "string" },
+        "semanticMode": { "type": "string" },
         "projectRoot": { "type": ["string", "null"] },
         "docsDir": { "type": ["string", "null"] },
         "configPath": { "type": ["string", "null"] },

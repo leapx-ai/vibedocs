@@ -40,6 +40,7 @@ test("audit passes on a freshly initialized minimal repository", async (t) => {
   assert.equal(report.schemaVersion, "v1alpha1");
   assert.equal(report.tool.name, "vibedocs");
   assert.equal(report.run.mode, "repository");
+  assert.equal(report.run.semanticMode, "off");
   assert.equal(report.summary.failed, 0);
   assert.ok(ruleIds.includes("core.structure.minimal_docs_exist"));
   assert.ok(ruleIds.includes("core.ssot.document_map_exists"));

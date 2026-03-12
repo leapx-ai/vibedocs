@@ -38,6 +38,7 @@ export function createReport(results, options = {}) {
     run: {
       generatedAt: new Date().toISOString(),
       mode: options.mode ?? "repository",
+      semanticMode: options.semanticMode ?? "off",
       projectRoot: options.projectRoot ?? null,
       docsDir: options.docsDir ?? null,
       configPath: options.configPath ?? null,

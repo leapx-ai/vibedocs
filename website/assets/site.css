@@ -144,20 +144,20 @@ a {
 }
 
 .hero {
-  padding: 64px 0 28px;
+  padding: 56px 0 24px;
 }
 
 .hero-grid,
 .section-grid {
   display: grid;
-  gap: 24px;
+  gap: 20px;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .hero-copy {
   grid-column: span 8;
   display: grid;
-  gap: 18px;
+  gap: 16px;
   animation: rise-in 520ms ease both;
 }
 
@@ -193,27 +193,50 @@ h2,
 h3 {
   margin: 0;
   font-family: "Fraunces", serif;
-  line-height: 1.02;
+  line-height: 1.06;
 }
 
 h1 {
-  font-size: clamp(3rem, 5vw, 5rem);
-  max-width: 10ch;
+  font-size: clamp(2.5rem, 4vw, 4rem);
 }
 
 h2 {
-  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 1.18rem;
 }
 
 .lead {
   color: var(--muted);
   max-width: 62ch;
-  font-size: 1.04rem;
-  line-height: 1.78;
+  font-size: 1rem;
+  line-height: 1.74;
+}
+
+.hero-home h1 {
+  font-size: clamp(2.9rem, 4.4vw, 4.4rem);
+  max-width: 11ch;
+}
+
+.hero-subpage {
+  padding: 42px 0 18px;
+}
+
+.hero-subpage .hero-copy {
+  grid-column: span 9;
+  gap: 14px;
+}
+
+.hero-subpage h1 {
+  font-size: clamp(2rem, 2.8vw, 2.9rem);
+  max-width: 16ch;
+  line-height: 1.12;
+}
+
+.hero-subpage .lead {
+  max-width: 58ch;
 }
 
 .cta-row {
@@ -279,15 +302,16 @@ h3 {
 .stat {
   display: grid;
   gap: 6px;
-  padding: 18px;
+  padding: 16px;
   border-radius: var(--radius-md);
   background: rgba(250, 248, 244, 0.96);
   border: 1px solid rgba(23, 23, 21, 0.05);
 }
 
 .stat strong {
-  font-size: 1.3rem;
+  font-size: 0.98rem;
   color: var(--accent);
+  line-height: 1.35;
 }
 
 .section {
@@ -303,7 +327,7 @@ h3 {
 .cards-3,
 .cards-2 {
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
 .cards-3 {
@@ -315,9 +339,9 @@ h3 {
 }
 
 .card {
-  padding: 22px;
+  padding: 20px;
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .card p,
@@ -348,7 +372,7 @@ h3 {
 .code-block,
 pre {
   margin: 0;
-  padding: 18px;
+  padding: 16px;
   border-radius: var(--radius-md);
   background: #171715;
   color: #f7f5f0;
@@ -363,7 +387,7 @@ pre {
 }
 
 .step {
-  padding: 22px;
+  padding: 20px;
 }
 
 .step-index {
@@ -387,7 +411,7 @@ pre {
 }
 
 .callout {
-  padding: 24px;
+  padding: 22px;
   background: rgba(255, 255, 255, 0.92);
 }
 
@@ -443,7 +467,7 @@ html[lang^="zh"] h1,
 html[lang^="zh"] h2,
 html[lang^="zh"] h3 {
   font-family: "Noto Serif SC", "Fraunces", serif;
-  line-height: 1.18;
+  line-height: 1.16;
 }
 
 html[lang^="zh"] .eyebrow,
@@ -492,11 +516,17 @@ html[lang^="zh"] .kicker {
 
 @media (max-width: 640px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.15rem;
   }
 
   .hero {
-    padding-top: 48px;
+    padding-top: 42px;
+  }
+
+  .hero-home h1,
+  .hero-subpage h1 {
+    font-size: 2.1rem;
+    max-width: none;
   }
 
   .shell,

@@ -37,15 +37,15 @@
       </header>
 
       <main>
-        <section class="hero">
+        <section class="hero hero-home">
           <div class="shell hero-grid">
             <div class="hero-copy">
               <span class="eyebrow">Open-source docs toolkit</span>
-              <h1>VibeDocs helps projects explain themselves.</h1>
+              <h1>VibeDocs keeps project documentation understandable.</h1>
               <p class="lead">
-                VibeDocs is an open-source toolkit for structuring project documentation.
-                It gives you reusable templates, a scaffolded docs tree, and a local CLI
-                to initialize docs, create feature packages, and audit drift.
+                VibeDocs is built for teams whose docs start useful, then drift as the product
+                changes. It gives you a repeatable structure, feature-level document packages,
+                and local checks so humans and AI tools can work from the same context.
               </p>
               <div class="cta-row">
                 <a class="button button-primary" href="quickstart/">Start in 5 minutes</a>
@@ -61,21 +61,21 @@
             <aside class="hero-panel">
               <div class="glass panel-stack">
                 <div>
-                  <div class="kicker">Start here</div>
-                  <h3>Install, initialize, audit.</h3>
+                  <div class="kicker">What you get</div>
+                  <h3>Structure, feature packages, and local checks.</h3>
                 </div>
                 <div class="stats">
                   <div class="stat">
-                    <strong>1</strong>
-                    <span>Install the package and get the <code>vibedocs</code> CLI.</span>
+                    <strong>Docs scaffold</strong>
+                    <span>Generate a Minimal, Standard, or Full docs tree inside the repository.</span>
                   </div>
                   <div class="stat">
-                    <strong>2</strong>
-                    <span>Generate a docs system and create focused feature packages.</span>
+                    <strong>Feature packages</strong>
+                    <span>Create scoped document sets for PRD, spec, acceptance, analytics, and more.</span>
                   </div>
                   <div class="stat">
-                    <strong>3</strong>
-                    <span>Run audits and glossary checks to keep files aligned with the codebase.</span>
+                    <strong>Local checks</strong>
+                    <span>Run audit and glossary check before drift spreads through the repo.</span>
                   </div>
                 </div>
                 <pre class="code-block">npm install @leapx-ai/vibedocs
@@ -89,11 +89,50 @@ npx vibedocs audit --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">What it is</span>
-              <h2>A small toolkit for predictable project documentation.</h2>
+              <span class="eyebrow">Why it exists</span>
+              <h2>Built for projects where docs drift faster than code.</h2>
               <p class="lead">
-                VibeDocs stays close to plain files. You can adopt it inside an existing repository
-                without moving your docs into a hosted platform or learning a new editor.
+                When context lives across README fragments, issue threads, chats, and stale specs,
+                teams keep repeating the same explanations and AI tools work from outdated context.
+              </p>
+            </div>
+            <div class="cards-3">
+              <article class="card">
+                <div class="kicker">Scattered context</div>
+                <h3>Information is hard to find and harder to trust</h3>
+                <p>
+                  Product decisions, technical intent, and delivery status end up split across
+                  unrelated files, tickets, and conversations.
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">Ad-hoc structure</div>
+                <h3>Each project reinvents the docs system from scratch</h3>
+                <p>
+                  Without a shared structure, it is hard to know which document should exist, what
+                  belongs in it, and what should stay out.
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">Drift after launch</div>
+                <h3>Docs are created once, then stop reflecting reality</h3>
+                <p>
+                  Even good documents lose value quickly if nobody has a lightweight way to update
+                  and check them during normal development.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">What it provides</span>
+              <h2>A docs system you can adopt inside an existing repo.</h2>
+              <p class="lead">
+                VibeDocs stays close to plain files. You do not need a hosted platform or a new
+                editor to make documentation more structured and maintainable.
               </p>
             </div>
             <div class="cards-3">
@@ -104,10 +143,6 @@ npx vibedocs audit --format json</pre>
                   Start from opinionated templates for governance, product, engineering, delivery,
                   operations, and feature-level documentation.
                 </p>
-                <div class="pill-row">
-                  <span class="pill">Templates</span>
-                  <span class="pill">Markdown</span>
-                </div>
               </article>
               <article class="card">
                 <div class="kicker">Scaffold</div>
@@ -116,11 +151,6 @@ npx vibedocs audit --format json</pre>
                   Generate a Minimal, Standard, or Full structure so the first version of the docs
                   system is created consistently instead of by hand.
                 </p>
-                <div class="pill-row">
-                  <span class="pill">Minimal</span>
-                  <span class="pill">Standard</span>
-                  <span class="pill">Full</span>
-                </div>
               </article>
               <article class="card">
                 <div class="kicker">CLI</div>
@@ -129,11 +159,6 @@ npx vibedocs audit --format json</pre>
                   Use <code>init</code>, <code>feature create</code>, <code>audit</code>, and
                   <code>glossary check</code> to keep documentation practical and current.
                 </p>
-                <div class="pill-row">
-                  <span class="pill">init</span>
-                  <span class="pill">feature create</span>
-                  <span class="pill">audit</span>
-                </div>
               </article>
             </div>
           </div>
@@ -142,8 +167,8 @@ npx vibedocs audit --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">How to use it</span>
-              <h2>Three steps are enough to get started.</h2>
+              <span class="eyebrow">How to start</span>
+              <h2>Three steps are enough for the first run.</h2>
             </div>
             <div class="cards-3">
               <article class="card">

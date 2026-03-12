@@ -37,15 +37,15 @@
       </header>
 
       <main>
-        <section class="hero">
+        <section class="hero hero-home">
           <div class="shell hero-grid">
             <div class="hero-copy">
               <span class="eyebrow">开源文档工具包</span>
-              <h1>VibeDocs 让项目更容易把自己说清楚。</h1>
+              <h1>VibeDocs 让项目文档保持可理解。</h1>
               <p class="lead">
-                VibeDocs 是一套开源文档工具包，用来整理项目文档结构。
-                它提供可复用模板、可直接落仓库的 scaffold，以及本地 CLI，
-                帮你初始化文档系统、生成功能包并持续做巡检。
+                它为那些文档一开始有用、但随着产品迭代很快失真的团队而生。
+                VibeDocs 提供可重复的文档结构、功能级文档包和本地巡检，让人和 AI
+                都能基于同一套上下文工作。
               </p>
               <div class="cta-row">
                 <a class="button button-primary" href="quickstart/">5 分钟上手</a>
@@ -61,21 +61,21 @@
             <aside class="hero-panel">
               <div class="glass panel-stack">
                 <div>
-                  <div class="kicker">从这里开始</div>
-                  <h3>安装、初始化、巡检。</h3>
+                  <div class="kicker">你会得到什么</div>
+                  <h3>结构、功能包与本地巡检。</h3>
                 </div>
                 <div class="stats">
                   <div class="stat">
-                    <strong>1</strong>
-                    <span>安装包并获得 <code>vibedocs</code> 这个本地命令。</span>
+                    <strong>文档骨架</strong>
+                    <span>在仓库内生成 Minimal、Standard、Full 三档文档结构。</span>
                   </div>
                   <div class="stat">
-                    <strong>2</strong>
-                    <span>生成文档系统，并为真实功能补齐专属 package。</span>
+                    <strong>功能包</strong>
+                    <span>为具体功能生成 PRD、技术说明、验收与埋点等成组文档。</span>
                   </div>
                   <div class="stat">
-                    <strong>3</strong>
-                    <span>把 audit 和 glossary check 接进日常开发，保持文档不漂移。</span>
+                    <strong>本地巡检</strong>
+                    <span>用 audit 和 glossary check 在漂移扩散前发现问题。</span>
                   </div>
                 </div>
                 <pre class="code-block">npm install @leapx-ai/vibedocs
@@ -89,11 +89,46 @@ npx vibedocs audit --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">它是什么</span>
-              <h2>一套小而稳的项目文档工具。</h2>
+              <span class="eyebrow">它为了解决什么问题而生</span>
+              <h2>当上下文分散、文档失真时，协作成本会持续上升。</h2>
               <p class="lead">
-                VibeDocs 尽量贴近普通文件工作流。你可以把它放进现有仓库里用，
-                不需要迁移到托管平台，也不需要学习新的编辑器。
+                当信息散落在 README、需求记录、聊天和过期说明里，团队会不断重复解释，
+                AI 也会基于陈旧上下文工作。
+              </p>
+            </div>
+            <div class="cards-3">
+              <article class="card">
+                <div class="kicker">上下文分散</div>
+                <h3>信息难找，也更难确认是否可信</h3>
+                <p>
+                  产品决策、技术意图和交付状态散落在不同文件、任务单和对话里，很难形成稳定上下文。
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">结构临时拼装</div>
+                <h3>每个项目都在重新发明一套文档系统</h3>
+                <p>
+                  如果没有统一结构，就很难知道哪些文档应该存在、各自写什么，以及哪些内容不该混在一起。
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">迭代后失真</div>
+                <h3>文档生成一次后，很快就不再反映真实情况</h3>
+                <p>
+                  即使一开始写得不错，如果没有低成本的更新和检查手段，文档价值也会快速下降。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">它提供什么能力</span>
+              <h2>一套可以直接放进现有仓库的文档系统。</h2>
+              <p class="lead">
+                VibeDocs 尽量贴近普通文件工作流。你不需要迁移到托管平台，也不需要学习新的编辑器。
               </p>
             </div>
             <div class="cards-3">
@@ -103,10 +138,6 @@ npx vibedocs audit --format json</pre>
                 <p>
                   从治理、产品、工程、交付、运营到功能包，直接复用一套结构明确的文档模板。
                 </p>
-                <div class="pill-row">
-                  <span class="pill">Templates</span>
-                  <span class="pill">Markdown</span>
-                </div>
               </article>
               <article class="card">
                 <div class="kicker">Scaffold</div>
@@ -114,11 +145,6 @@ npx vibedocs audit --format json</pre>
                 <p>
                   通过 Minimal、Standard、Full 三档目录骨架，快速把第一版文档系统生成出来。
                 </p>
-                <div class="pill-row">
-                  <span class="pill">Minimal</span>
-                  <span class="pill">Standard</span>
-                  <span class="pill">Full</span>
-                </div>
               </article>
               <article class="card">
                 <div class="kicker">CLI</div>
@@ -127,11 +153,6 @@ npx vibedocs audit --format json</pre>
                   用 <code>init</code>、<code>feature create</code>、<code>audit</code>、
                   <code>glossary check</code> 让文档持续可维护。
                 </p>
-                <div class="pill-row">
-                  <span class="pill">init</span>
-                  <span class="pill">feature create</span>
-                  <span class="pill">audit</span>
-                </div>
               </article>
             </div>
           </div>
@@ -140,8 +161,8 @@ npx vibedocs audit --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">怎么使用</span>
-              <h2>先做这三步就够了。</h2>
+              <span class="eyebrow">如何开始使用</span>
+              <h2>第一次跑通，先做这三步就够了。</h2>
             </div>
             <div class="cards-3">
               <article class="card">

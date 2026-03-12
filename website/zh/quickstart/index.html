@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quickstart · VibeDocs</title>
-    <meta name="description" content="Install VibeDocs, initialize a docs system, create a feature package, and run your first audit.">
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/site.css">
-    <script src="../assets/locale.js" defer></script>
+    <title>快速开始 · VibeDocs</title>
+    <meta name="description" content="安装 VibeDocs，初始化第一套文档系统，生成功能包并完成第一次 audit。">
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <script src="../../assets/locale.js" defer></script>
   </head>
   <body>
     <div class="page">
@@ -18,16 +18,16 @@
             <span>VibeDocs</span>
           </a>
           <div class="topbar-meta">
-            <nav class="nav" aria-label="Primary">
-              <a href="../">Home</a>
-              <a href="./" aria-current="page">Quickstart</a>
+            <nav class="nav" aria-label="主导航">
+              <a href="../">首页</a>
+              <a href="./" aria-current="page">快速开始</a>
               <a href="../cli/">CLI</a>
-              <a href="../concepts/">Concepts</a>
-              <a href="../reference/">Reference</a>
+              <a href="../concepts/">概念</a>
+              <a href="../reference/">参考</a>
             </nav>
-            <div class="locale-switch" aria-label="Language switch">
-              <a class="locale-link" href="./" aria-current="true">EN</a>
-              <a class="locale-link" href="../zh/quickstart/">中文</a>
+            <div class="locale-switch" aria-label="语言切换">
+              <a class="locale-link" href="../../quickstart/">EN</a>
+              <a class="locale-link" href="./" aria-current="true">中文</a>
             </div>
           </div>
         </div>
@@ -37,18 +37,17 @@
         <section class="hero">
           <div class="shell hero-grid">
             <div class="hero-copy">
-              <span class="eyebrow">Quickstart</span>
-              <h1>Go from zero docs system to first audit in minutes.</h1>
+              <span class="eyebrow">快速开始</span>
+              <h1>从零到第一次文档巡检，控制在几分钟内。</h1>
               <p class="lead">
-                This path is intentionally short. Use it to get a Minimal system running before
-                you activate more documents or team-specific rules.
+                这条路径故意压得很短。先把 Minimal 文档系统跑起来，再考虑更完整的文档层级和团队规则扩展。
               </p>
             </div>
             <aside class="hero-panel">
               <div class="glass">
-                <div class="kicker">Prerequisites</div>
-                <h3>Node.js 22 or newer</h3>
-                <p>Everything else is generated as plain files inside your repository.</p>
+                <div class="kicker">前置条件</div>
+                <h3>Node.js 22 或更高版本</h3>
+                <p>其余内容都会以普通文件形式生成在你的仓库里。</p>
               </div>
             </aside>
           </div>
@@ -59,37 +58,37 @@
             <div class="steps">
               <article class="step">
                 <span class="step-index">1</span>
-                <h3>Install the package</h3>
-                <p>Use the public npm package. The CLI binary is exposed as <code>vibedocs</code>.</p>
+                <h3>安装包</h3>
+                <p>公共 npm 包会暴露出 <code>vibedocs</code> 这个 CLI 命令。</p>
                 <pre>npm install @leapx-ai/vibedocs</pre>
               </article>
 
               <article class="step">
                 <span class="step-index">2</span>
-                <h3>Initialize a docs system</h3>
-                <p>Start with Minimal unless you already know you need Standard or Full.</p>
+                <h3>初始化文档系统</h3>
+                <p>除非你已经明确知道需要更多文档，否则建议从 Minimal 开始。</p>
                 <pre>npx vibedocs init --mode minimal --project-name "Demo" --owner "Berlin"</pre>
               </article>
 
               <article class="step">
                 <span class="step-index">3</span>
-                <h3>Generate a feature package</h3>
-                <p>Use feature packages for scoped work that needs its own PRD, tech spec, and acceptance criteria.</p>
+                <h3>生成功能包</h3>
+                <p>当一个功能需要独立 PRD、技术说明、验收标准时，直接生成 feature package。</p>
                 <pre>npx vibedocs feature create focus-mode</pre>
               </article>
 
               <article class="step">
                 <span class="step-index">4</span>
-                <h3>Run your first audit</h3>
-                <p>Start with a full repository scan, then use diff mode as part of daily work.</p>
+                <h3>运行第一次 audit</h3>
+                <p>先做全仓扫描，再把 diff 模式接进日常开发节奏。</p>
                 <pre>npx vibedocs audit --format text
 npx vibedocs audit --changed src/app.js --format json</pre>
               </article>
 
               <article class="step">
                 <span class="step-index">5</span>
-                <h3>Check terminology drift</h3>
-                <p>Run targeted glossary checks when product, feature, or content language starts to diverge.</p>
+                <h3>检查术语漂移</h3>
+                <p>当产品、功能或运营语言开始分叉时，用 glossary check 控制口径一致性。</p>
                 <pre>npx vibedocs glossary check --path docs/product --path docs/features</pre>
               </article>
             </div>
@@ -99,12 +98,12 @@ npx vibedocs audit --changed src/app.js --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">Minimal Files</span>
-              <h2>The eight baseline documents</h2>
+              <span class="eyebrow">Minimal 起步包</span>
+              <h2>8 份基线文档</h2>
             </div>
             <div class="cards-2">
               <article class="card">
-                <h3>Governance</h3>
+                <h3>治理层</h3>
                 <ul class="list">
                   <li><code>docs/governance/PROJECT-CONSTITUTION.md</code></li>
                   <li><code>docs/governance/DOCUMENT-MAP.md</code></li>
@@ -112,7 +111,7 @@ npx vibedocs audit --changed src/app.js --format json</pre>
                 </ul>
               </article>
               <article class="card">
-                <h3>Strategy, product, delivery</h3>
+                <h3>策略、产品、交付</h3>
                 <ul class="list">
                   <li><code>docs/strategy/PRODUCT-PRINCIPLES.md</code></li>
                   <li><code>docs/strategy/ROADMAP-STATUS.md</code></li>
@@ -128,11 +127,10 @@ npx vibedocs audit --changed src/app.js --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="callout">
-              <div class="kicker">Next</div>
-              <h3>Once the baseline exists, the real job is drift control.</h3>
+              <div class="kicker">下一步</div>
+              <h3>真正重要的不是第一次生成，而是之后不失真。</h3>
               <p>
-                The free layer is designed to make initialization cheap and audits habitual.
-                If you only generate files once and never run audits again, you lose most of the value.
+                免费层的目标是让初始化足够便宜，让巡检足够习惯化。如果只生成一次文件、之后不再巡检，系统价值会快速缩水。
               </p>
             </div>
           </div>

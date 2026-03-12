@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CLI · VibeDocs</title>
-    <meta name="description" content="Command reference for vibedocs init, feature create, audit, and glossary check.">
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/site.css">
-    <script src="../assets/locale.js" defer></script>
+    <meta name="description" content="vibedocs init、feature create、audit、glossary check 的命令参考。">
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <script src="../../assets/locale.js" defer></script>
   </head>
   <body>
     <div class="page">
@@ -18,16 +18,16 @@
             <span>VibeDocs</span>
           </a>
           <div class="topbar-meta">
-            <nav class="nav" aria-label="Primary">
-              <a href="../">Home</a>
-              <a href="../quickstart/">Quickstart</a>
+            <nav class="nav" aria-label="主导航">
+              <a href="../">首页</a>
+              <a href="../quickstart/">快速开始</a>
               <a href="./" aria-current="page">CLI</a>
-              <a href="../concepts/">Concepts</a>
-              <a href="../reference/">Reference</a>
+              <a href="../concepts/">概念</a>
+              <a href="../reference/">参考</a>
             </nav>
-            <div class="locale-switch" aria-label="Language switch">
-              <a class="locale-link" href="./" aria-current="true">EN</a>
-              <a class="locale-link" href="../zh/cli/">中文</a>
+            <div class="locale-switch" aria-label="语言切换">
+              <a class="locale-link" href="../../cli/">EN</a>
+              <a class="locale-link" href="./" aria-current="true">中文</a>
             </div>
           </div>
         </div>
@@ -38,17 +38,16 @@
           <div class="shell hero-grid">
             <div class="hero-copy">
               <span class="eyebrow">CLI</span>
-              <h1>The local execution layer.</h1>
+              <h1>本地执行层，而不是另一个文档平台。</h1>
               <p class="lead">
-                The CLI is intentionally narrow: initialize, expand, audit, and check terminology.
-                It is not a cloud workflow product and it should stay local-first.
+                这个 CLI 的边界很窄：初始化、扩展、巡检、术语检查。它不是云端工作流，也不应该在免费层里长成一个治理后台。
               </p>
             </div>
             <aside class="hero-panel">
               <div class="glass">
-                <div class="kicker">Binary</div>
+                <div class="kicker">命令名</div>
                 <h3><code>vibedocs</code></h3>
-                <p>Exposed from the public package and suitable for repository-local usage.</p>
+                <p>来自公共包的二进制入口，适合在项目仓库内直接使用。</p>
               </div>
             </aside>
           </div>
@@ -59,7 +58,7 @@
             <div class="cards-2">
               <article class="card">
                 <h3><code>vibedocs init</code></h3>
-                <p>Create a docs system from the scaffold with hydrated placeholders.</p>
+                <p>基于 scaffold 初始化文档系统，并回填最基本的占位信息。</p>
                 <pre>npx vibedocs init [target]
   --mode minimal|standard|full
   --project-name "Demo"
@@ -69,7 +68,7 @@
               </article>
               <article class="card">
                 <h3><code>vibedocs feature create</code></h3>
-                <p>Create a feature package under <code>docs/features/&lt;feature&gt;/</code>.</p>
+                <p>在 <code>docs/features/&lt;feature&gt;/</code> 下生成一个功能包。</p>
                 <pre>npx vibedocs feature create focus-mode [target]
   --owner "Berlin"
   --force
@@ -77,7 +76,7 @@
               </article>
               <article class="card">
                 <h3><code>vibedocs audit</code></h3>
-                <p>Run structure, SSOT, metadata, terminology, freshness, and diff checks.</p>
+                <p>运行结构、SSOT、元信息、术语、新鲜度以及 diff 相关检查。</p>
                 <pre>npx vibedocs audit [target]
   --format text|json|markdown
   --changed src/app.js
@@ -86,7 +85,7 @@
               </article>
               <article class="card">
                 <h3><code>vibedocs glossary check</code></h3>
-                <p>Run terminology checks on selected paths or configured glossary scopes.</p>
+                <p>在指定路径或配置的术语路径上运行术语一致性检查。</p>
                 <pre>npx vibedocs glossary check [target]
   --path docs/product
   --path docs/features
@@ -100,8 +99,8 @@
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">Config</span>
-              <h2>Supported local config files</h2>
+              <span class="eyebrow">配置</span>
+              <h2>支持的本地配置文件</h2>
             </div>
             <div class="cards-2">
               <article class="card">
@@ -116,10 +115,9 @@
 }</pre>
               </article>
               <article class="card">
-                <h3>Design constraint</h3>
+                <h3>设计约束</h3>
                 <p>
-                  Configuration is intentionally small. The free layer should not grow a complex
-                  rules DSL or recreate paid governance inside local config.
+                  配置项故意保持克制。免费层不应该长出复杂规则 DSL，更不应该把付费层的治理逻辑偷偷塞回本地配置里。
                 </p>
               </article>
             </div>

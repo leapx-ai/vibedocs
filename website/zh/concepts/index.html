@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>概念 · VibeDocs</title>
+    <meta name="description" content="理解文档角色矩阵、SSOT 纪律和本地优先的规则引擎模型。">
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <script src="../../assets/locale.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="../">
+            <span class="brand-mark">VD</span>
+            <span>VibeDocs</span>
+          </a>
+          <div class="topbar-meta">
+            <nav class="nav" aria-label="主导航">
+              <a href="../">首页</a>
+              <a href="../quickstart/">快速开始</a>
+              <a href="../cli/">CLI</a>
+              <a href="./" aria-current="page">概念</a>
+              <a href="../reference/">参考</a>
+            </nav>
+            <div class="locale-switch" aria-label="语言切换">
+              <a class="locale-link" href="../../concepts/">EN</a>
+              <a class="locale-link" href="./" aria-current="true">中文</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="shell hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">概念</span>
+              <h1>这套系统约束的是文档机制，不是文档气氛。</h1>
+              <p class="lead">
+                VibeDocs 把文档看成协作基础设施。核心关注的是文档角色、生命周期阶段、术语纪律、SSOT 边界和持续巡检能力。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="cards-3">
+              <article class="card">
+                <div class="kicker">结构</div>
+                <h3>文档角色 × 生命周期矩阵</h3>
+                <p>
+                  文档不只是按主题归档，而是按角色职责和生命周期阶段组织。这样才能避免所有信息都挤进一层目录。
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">所有权</div>
+                <h3>SSOT 必须显式声明</h3>
+                <p>
+                  状态、范围、规则等共享信息必须指定单一事实源。否则多个文档同时维护，漂移几乎是必然结果。
+                </p>
+              </article>
+              <article class="card">
+                <div class="kicker">执行</div>
+                <h3>规则语义只能有一份</h3>
+                <p>
+                  本地 CLI、PR 检查和自动巡检可以有不同执行场景，但不应该有不同规则含义。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">核心判断</span>
+              <h2>免费层真正有立场的地方</h2>
+            </div>
+            <div class="cards-2">
+              <article class="card">
+                <h3>Minimal 是产品决策，不是妥协</h3>
+                <p>
+                  Minimal 起步包不是“文档少一点”，而是让团队和 AI 代理都能共享可靠上下文的最小可用系统。
+                </p>
+              </article>
+              <article class="card">
+                <h3>功能包用来隔离局部复杂度</h3>
+                <p>
+                  不是所有改动都应该回写到全局文档。复杂功能应该先在自己的 package 内建立上下文，再决定哪些内容提升为全局 SSOT。
+                </p>
+              </article>
+              <article class="card">
+                <h3>Diff 模式是工作流化的桥梁</h3>
+                <p>
+                  当本地 audit 已经能理解 changed paths 并给出建议更新的文档触点，PR 检查和自动巡检就有了可信的基础。
+                </p>
+              </article>
+              <article class="card">
+                <h3>公开文档必须经过筛选</h3>
+                <p>
+                  公开站点应该解释产品和使用方式，而不是把内部计划、商业判断和未来路线原样暴露出去。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

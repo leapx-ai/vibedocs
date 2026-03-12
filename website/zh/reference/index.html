@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reference · VibeDocs</title>
-    <meta name="description" content="Reference the config model, public exports, schemas, and release process for VibeDocs.">
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/site.css">
-    <script src="../assets/locale.js" defer></script>
+    <title>参考 · VibeDocs</title>
+    <meta name="description" content="查看 VibeDocs 的配置模型、公共导出、schema 和 release 规则。">
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <script src="../../assets/locale.js" defer></script>
   </head>
   <body>
     <div class="page">
@@ -18,16 +18,16 @@
             <span>VibeDocs</span>
           </a>
           <div class="topbar-meta">
-            <nav class="nav" aria-label="Primary">
-              <a href="../">Home</a>
-              <a href="../quickstart/">Quickstart</a>
+            <nav class="nav" aria-label="主导航">
+              <a href="../">首页</a>
+              <a href="../quickstart/">快速开始</a>
               <a href="../cli/">CLI</a>
-              <a href="../concepts/">Concepts</a>
-              <a href="./" aria-current="page">Reference</a>
+              <a href="../concepts/">概念</a>
+              <a href="./" aria-current="page">参考</a>
             </nav>
-            <div class="locale-switch" aria-label="Language switch">
-              <a class="locale-link" href="./" aria-current="true">EN</a>
-              <a class="locale-link" href="../zh/reference/">中文</a>
+            <div class="locale-switch" aria-label="语言切换">
+              <a class="locale-link" href="../../reference/">EN</a>
+              <a class="locale-link" href="./" aria-current="true">中文</a>
             </div>
           </div>
         </div>
@@ -37,11 +37,10 @@
         <section class="hero">
           <div class="shell hero-grid">
             <div class="hero-copy">
-              <span class="eyebrow">Reference</span>
-              <h1>Stable entrypoints, schemas, and release rules.</h1>
+              <span class="eyebrow">参考</span>
+              <h1>稳定入口、schema 和 release 规则。</h1>
               <p class="lead">
-                The package exposes a narrow public surface on purpose. Keep the contract small,
-                document it clearly, and let the paid layer build on top instead of around it.
+                公共包暴露的表面故意保持克制。接口越小，越容易承诺稳定，也越容易让未来付费层建立在它之上，而不是绕开它。
               </p>
             </div>
           </div>
@@ -53,41 +52,41 @@
               <table class="reference-table">
                 <thead>
                   <tr>
-                    <th>Area</th>
-                    <th>Stable contract</th>
-                    <th>Notes</th>
+                    <th>区域</th>
+                    <th>稳定契约</th>
+                    <th>说明</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Package</td>
+                    <td>包名</td>
                     <td><code>@leapx-ai/vibedocs</code></td>
-                    <td>Public npm package for the free open-core layer.</td>
+                    <td>免费开源层对外发布的 npm 包。</td>
                   </tr>
                   <tr>
-                    <td>Binary</td>
+                    <td>命令</td>
                     <td><code>vibedocs</code></td>
-                    <td>CLI entrypoint for local-first docs operations.</td>
+                    <td>本地文档操作 CLI 入口。</td>
                   </tr>
                   <tr>
-                    <td>Public exports</td>
+                    <td>公共导出</td>
                     <td>
                       <code>@leapx-ai/vibedocs</code><br>
                       <code>@leapx-ai/vibedocs/config</code><br>
                       <code>@leapx-ai/vibedocs/reporting</code><br>
                       <code>@leapx-ai/vibedocs/rule-engine</code>
                     </td>
-                    <td>Keep additions backward compatible; do not remove lightly.</td>
+                    <td>新增可以做，但删除或重命名应按 breaking change 处理。</td>
                   </tr>
                   <tr>
                     <td>Report schema</td>
                     <td><code>schemas/report.schema.json</code></td>
-                    <td>Results include diff-aware <code>suggested_docs</code> hints.</td>
+                    <td>结果中包含 diff 模式下的 <code>suggested_docs</code> 建议字段。</td>
                   </tr>
                   <tr>
                     <td>Rule pack schema</td>
                     <td><code>schemas/rule-pack.schema.json</code></td>
-                    <td>Local read-only overrides for severity, suggestion, owner hint, or disable.</td>
+                    <td>本地只读覆盖，允许调整 severity、suggestion、owner hint 或禁用规则。</td>
                   </tr>
                 </tbody>
               </table>
@@ -99,23 +98,23 @@
           <div class="shell">
             <div class="cards-2">
               <article class="card">
-                <div class="kicker">Public files</div>
-                <h3>Repository sources</h3>
+                <div class="kicker">公共文件</div>
+                <h3>仓库中的参考入口</h3>
                 <ul class="list">
                   <li><a href="https://github.com/leapx-ai/vibedocs/blob/main/schemas/report.schema.json">report.schema.json</a></li>
                   <li><a href="https://github.com/leapx-ai/vibedocs/blob/main/schemas/rule-pack.schema.json">rule-pack.schema.json</a></li>
-                  <li><a href="https://github.com/leapx-ai/vibedocs/blob/main/examples/vibedocs.config.json">example config</a></li>
-                  <li><a href="https://github.com/leapx-ai/vibedocs/blob/main/examples/rule-packs/team-defaults.json">example rule pack</a></li>
+                  <li><a href="https://github.com/leapx-ai/vibedocs/blob/main/examples/vibedocs.config.json">示例配置</a></li>
+                  <li><a href="https://github.com/leapx-ai/vibedocs/blob/main/examples/rule-packs/team-defaults.json">示例 rule pack</a></li>
                 </ul>
               </article>
               <article class="card">
-                <div class="kicker">Release rules</div>
-                <h3>Versioning and publish flow</h3>
+                <div class="kicker">发布规则</div>
+                <h3>versioning 与发版流程</h3>
                 <ul class="list">
-                  <li>SemVer for CLI, public exports, and report schema evolution.</li>
-                  <li><code>CHANGELOG.md</code> must move with <code>package.json</code> version updates.</li>
-                  <li>Git tag format: <code>vX.Y.Z</code>.</li>
-                  <li>GitHub Release triggers package publishing.</li>
+                  <li>CLI、公共导出和 report schema 按 SemVer 管理。</li>
+                  <li><code>CHANGELOG.md</code> 必须跟 <code>package.json</code> 一起更新。</li>
+                  <li>Git tag 格式：<code>vX.Y.Z</code>。</li>
+                  <li>GitHub Release 触发 npm 包发布工作流。</li>
                 </ul>
               </article>
             </div>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VibeDocs</title>
+    <meta
+      name="description"
+      content="面向 AI-native 团队的开源文档操作层。模板、scaffold、CLI 与规则引擎合成一套可复用系统。"
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/site.css">
+    <script src="../assets/locale.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="./">
+            <span class="brand-mark">VD</span>
+            <span>VibeDocs</span>
+          </a>
+          <div class="topbar-meta">
+            <nav class="nav" aria-label="主导航">
+              <a href="./" aria-current="page">首页</a>
+              <a href="quickstart/">快速开始</a>
+              <a href="cli/">CLI</a>
+              <a href="concepts/">概念</a>
+              <a href="reference/">参考</a>
+            </nav>
+            <div class="locale-switch" aria-label="语言切换">
+              <a class="locale-link" href="../">EN</a>
+              <a class="locale-link" href="./" aria-current="true">中文</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="shell hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">开源文档操作层</span>
+              <h1>让文档在第一次上线之后依然持续有用。</h1>
+              <p class="lead">
+                VibeDocs 把零散 Markdown 提升为一套文档操作系统：
+                可复用模板、项目 scaffold、本地 CLI，以及一套之后可继续喂给付费工作流的共享规则引擎。
+              </p>
+              <div class="cta-row">
+                <a class="button button-primary" href="quickstart/">5 分钟上手</a>
+                <a class="button button-secondary" href="https://github.com/leapx-ai/vibedocs">查看仓库</a>
+              </div>
+              <div class="pill-row">
+                <span class="pill">CLI: <code>vibedocs</code></span>
+                <span class="pill">Package: <code>@leapx-ai/vibedocs</code></span>
+                <span class="pill">License: Apache-2.0</span>
+              </div>
+            </div>
+
+            <aside class="hero-panel">
+              <div class="glass panel-stack">
+                <div>
+                  <div class="kicker">你会得到什么</div>
+                  <h3>一个免费层，专门为后续工作流继续生长</h3>
+                </div>
+                <div class="stats">
+                  <div class="stat">
+                    <strong>4</strong>
+                    <span>本地命令：init、feature create、audit、glossary check</span>
+                  </div>
+                  <div class="stat">
+                    <strong>2</strong>
+                    <span>可复用资产：templates 与 scaffold</span>
+                  </div>
+                  <div class="stat">
+                    <strong>1</strong>
+                    <span>共享规则引擎，可继续支撑 PR 检查和定时巡检</span>
+                  </div>
+                </div>
+                <pre class="code-block">npm install @leapx-ai/vibedocs
+npx vibedocs init --mode minimal
+npx vibedocs audit --format json</pre>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">产品结构</span>
+              <h2>开源层负责起步，付费层负责持续约束。</h2>
+              <p class="lead">
+                免费层解决的是“如何把文档系统跑起来”，付费层解决的是“如何在团队协作中不继续烂掉”。
+                两者边界要清楚，但规则语义必须保持连续。
+              </p>
+            </div>
+            <div class="cards-2">
+              <article class="card">
+                <div class="kicker">免费层</div>
+                <h3>模板、scaffold、CLI、共享规则</h3>
+                <p>
+                  完全本地优先、纯文件优先。不依赖托管服务，也能初始化文档系统、生成功能包并运行结构巡检。
+                </p>
+                <div class="pill-row">
+                  <span class="pill">Templates</span>
+                  <span class="pill">Scaffold</span>
+                  <span class="pill">CLI</span>
+                  <span class="pill">Rule engine</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="kicker">付费层</div>
+                <h3>团队真正愿意为之付费的工作流压力</h3>
+                <p>
+                  收费的不是“更多文档”，而是执行压力：PR 检查、定时巡检、团队规则包、迁移助手以及行业化模板扩展。
+                </p>
+                <div class="pill-row">
+                  <span class="pill">PR 检查</span>
+                  <span class="pill">定时巡检</span>
+                  <span class="pill">健康面板</span>
+                  <span class="pill">团队规则包</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">工作方式</span>
+              <h2>先把文档系统建起来，再用规则阻止它漂移。</h2>
+            </div>
+            <div class="cards-3">
+              <article class="card">
+                <h3>1. 初始化</h3>
+                <p>从 scaffold 生成 Minimal、Standard 或 Full 文档骨架。</p>
+                <pre>npx vibedocs init --mode minimal</pre>
+              </article>
+              <article class="card">
+                <h3>2. 按功能扩展</h3>
+                <p>为复杂功能生成功能包，补齐 PRD、线框流、技术说明、验收与埋点。</p>
+                <pre>npx vibedocs feature create focus-mode</pre>
+              </article>
+              <article class="card">
+                <h3>3. 持续巡检</h3>
+                <p>在本地用 diff-aware audit 找出建议更新的文档触点，再决定要不要进入提交流程。</p>
+                <pre>npx vibedocs audit --changed src/app.js</pre>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="section-heading">
+              <span class="eyebrow">为什么有效</span>
+              <h2>它约束的是结构和职责，不是你的技术栈。</h2>
+            </div>
+            <div class="cards-3">
+              <article class="card">
+                <h3>文档角色 × 生命周期</h3>
+                <p>
+                  文档不是一堆平铺文件，而是按角色和生命周期阶段组成矩阵，这样上下文才能长期可维护。
+                </p>
+              </article>
+              <article class="card">
+                <h3>SSOT 先声明再协作</h3>
+                <p>
+                  如果没有明确单一事实源，团队和 AI 都会在多个文件里重复维护状态，最后只剩漂移和冲突。
+                </p>
+              </article>
+              <article class="card">
+                <h3>规则只保留一套语义</h3>
+                <p>
+                  本地 audit、未来的 PR 检查和自动巡检应该共享同一套规则结果，而不是各写一份相似逻辑。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="shell">
+            <div class="callout">
+              <div class="kicker">公开文档边界</div>
+              <h3>这个站点是公开产品层，不是内部规划库。</h3>
+              <p>
+                这里承载的是安装方式、CLI、概念和 schema。内部策略判断、商业化细节和未公开路线不应该直接映射到站点内容。
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="shell footer-card">
+          <div>
+            <strong>VibeDocs</strong>
+            <div>面向 AI-native 团队的开源文档操作层。</div>
+          </div>
+          <div class="pill-row">
+            <a class="pill" href="quickstart/">快速开始</a>
+            <a class="pill" href="cli/">CLI</a>
+            <a class="pill" href="reference/">参考</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,8 @@
-# VibeCoding Documentation OS Template
+# VibeDocs
 
 这不是一组零散的 Markdown 模板，而是一套可复用的 VibeCoding 文档操作系统起点。
+
+发布包名确定为 `@leapx-ai/vibedocs`，CLI 命令保持为 `vibedocs`。
 
 仓库现在分成两层：
 
@@ -24,8 +26,11 @@
 ### 开发中实现
 
 - `bin/vibedocs.js`：CLI 入口
+- `src/index.js`：对外 programmatic API 入口
 - `src/commands/`：命令实现
 - `src/rule-engine/`：共享规则引擎最小实现
+- `schemas/`：report 与 rule pack schema
+- `examples/`：配置和 rule pack 示例
 - `tests/`：CLI 与规则引擎基础测试
 
 ## 快速开始
@@ -108,6 +113,49 @@ JSON 输出现在使用稳定 envelope：
 验证方式：
 
 - `npm test`
+- `npm run pack:check`
+
+## 分发与依赖
+
+仓库现在已经具备包形态的基础要素：
+
+- `package.json` `exports`
+- `bin` CLI 入口
+- `files` 白名单
+- 稳定 JSON report envelope
+- 本地 rule pack schema
+
+当前更适合的分发方式有两种：
+
+1. 直接作为仓库依赖或源码依赖使用
+2. 用 `npm pack` 生成 tarball 后在外部项目安装
+
+安装：
+
+```bash
+npm install @leapx-ai/vibedocs
+```
+
+programmatic API 示例：
+
+```js
+import { runAudit } from "@leapx-ai/vibedocs";
+
+const report = await runAudit(undefined, process.cwd(), {
+  changedPaths: ["src/app.js"],
+});
+
+console.log(report.summary);
+```
+
+稳定子路径入口：
+
+- `@leapx-ai/vibedocs`
+- `@leapx-ai/vibedocs/config`
+- `@leapx-ai/vibedocs/reporting`
+- `@leapx-ai/vibedocs/rule-engine`
+
+发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md`。
 
 ## 选择哪一层
 
@@ -126,6 +174,7 @@ JSON 输出现在使用稳定 envelope：
 7. `docs/product/RULE-ENGINE-SPEC.md`
 8. `docs/product/PAID-WORKFLOWS.md`
 9. `docs/plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
-10. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
-11. `scaffold/README.md`
-12. `templates/README.md`
+10. `docs/product/PUBLISHING.md`
+11. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+12. `scaffold/README.md`
+13. `templates/README.md`

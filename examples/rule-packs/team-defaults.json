@@ -1,0 +1,11 @@
+{
+  "id": "team-defaults",
+  "name": "Team Defaults",
+  "rules": {
+    "core.diff.docs_touchpoint_present": {
+      "severity": "high",
+      "ownerHint": "tech-lead",
+      "suggestion": "Update the affected docs before merge."
+    }
+  }
+}

@@ -1,16 +1,56 @@
 {
-  "name": "vibecoding-template",
+  "name": "@leapx-ai/vibedocs",
   "version": "0.1.0",
-  "private": true,
+  "license": "Apache-2.0",
+  "description": "Open-core VibeCoding documentation CLI, templates, scaffold, and shared rule engine.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leapx-ai/vibecoding-template.git"
+  },
+  "homepage": "https://github.com/leapx-ai/vibecoding-template#readme",
+  "bugs": {
+    "url": "https://github.com/leapx-ai/vibecoding-template/issues"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./config": "./src/config/index.js",
+    "./reporting": "./src/reporting/index.js",
+    "./rule-engine": "./src/rule-engine/index.js",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "vibedocs": "./bin/vibedocs.js"
   },
   "scripts": {
     "test": "node --test",
-    "vibedocs": "node ./bin/vibedocs.js"
+    "vibedocs": "node ./bin/vibedocs.js",
+    "pack:check": "npm pack --dry-run --cache ./.npm-cache"
   },
+  "files": [
+    "bin/",
+    "docs/",
+    "examples/",
+    "LICENSE",
+    "scaffold/",
+    "schemas/",
+    "src/",
+    "templates/",
+    "README.md"
+  ],
   "engines": {
     "node": ">=22"
-  }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
+  "keywords": [
+    "vibecoding",
+    "documentation",
+    "cli",
+    "markdown",
+    "ssot"
+  ]
 }

@@ -1,0 +1,13 @@
+{
+  "projectName": "Demo Project",
+  "owner": "Berlin",
+  "defaultMode": "standard",
+  "featureSlugStyle": "snake",
+  "glossaryPaths": [
+    "docs/product",
+    "docs/features"
+  ],
+  "rulePacks": [
+    "examples/rule-packs/team-defaults.json"
+  ]
+}

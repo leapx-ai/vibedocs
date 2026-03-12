@@ -26,6 +26,7 @@
 - `CLI-PRD.md`
 - `RULE-ENGINE-SPEC.md`
 - `PAID-WORKFLOWS.md`
+- `PUBLISHING.md`
 
 ## Plans
 
@@ -53,4 +54,5 @@
 6. `product/RULE-ENGINE-SPEC.md`
 7. `product/PAID-WORKFLOWS.md`
 8. `plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
-9. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+9. `product/PUBLISHING.md`
+10. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`

@@ -767,16 +767,30 @@ html[lang^="zh"] .kicker {
   
   .topbar-meta {
     width: 100%;
-    justify-content: space-between;
-    gap: 16px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
   }
   
   .nav {
-    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+    gap: 8px;
   }
   
+  .nav a {
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
   .locale-switch {
-    order: 1;
+    align-self: flex-end;
   }
 
   .hero {
@@ -831,18 +845,12 @@ html[lang^="zh"] .kicker {
   
   .nav {
     width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+    gap: 6px;
   }
   
   .nav a {
-    padding: 6px 10px;
-  }
-  
-  .topbar-meta {
-    flex-direction: column-reverse;
-    align-items: flex-start;
+    padding: 8px 8px;
   }
   
   .locale-switch {

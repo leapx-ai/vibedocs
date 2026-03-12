@@ -6,11 +6,11 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leapx-ai/vibecoding-template.git"
+    "url": "git+https://github.com/leapx-ai/vibedocs.git"
   },
-  "homepage": "https://github.com/leapx-ai/vibecoding-template#readme",
+  "homepage": "https://github.com/leapx-ai/vibedocs#readme",
   "bugs": {
-    "url": "https://github.com/leapx-ai/vibecoding-template/issues"
+    "url": "https://github.com/leapx-ai/vibedocs/issues"
   },
   "exports": {
     ".": "./src/index.js",

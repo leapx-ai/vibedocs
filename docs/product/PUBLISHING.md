@@ -76,6 +76,8 @@
 
 同时，GitHub Pages 站点由 `.github/workflows/pages.yml` 从 `website/` 部署，站点内容与 npm 包发布解耦。
 
+一次性的仓库外部设置，见 `REPO-SETUP.md`。
+
 ## Non-Goals
 
 这份文档不定义：

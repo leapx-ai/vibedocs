@@ -159,7 +159,7 @@ console.log(report.summary);
 - `@leapx-ai/vibedocs/reporting`
 - `@leapx-ai/vibedocs/rule-engine`
 
-发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md` 和 `docs/product/VERSIONING.md`。
+发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md`、`docs/product/VERSIONING.md`、`docs/product/REPO-SETUP.md`。
 
 ## Public Docs Site
 
@@ -193,6 +193,7 @@ console.log(report.summary);
 9. `docs/plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
 10. `docs/product/PUBLISHING.md`
 11. `docs/product/VERSIONING.md`
-12. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
-13. `scaffold/README.md`
-14. `templates/README.md`
+12. `docs/product/REPO-SETUP.md`
+13. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+14. `scaffold/README.md`
+15. `templates/README.md`

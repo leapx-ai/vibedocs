@@ -28,6 +28,7 @@
 - `PAID-WORKFLOWS.md`
 - `PUBLISHING.md`
 - `VERSIONING.md`
+- `REPO-SETUP.md`
 
 ## Plans
 
@@ -58,4 +59,5 @@
 8. `plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
 9. `product/PUBLISHING.md`
 10. `product/VERSIONING.md`
-11. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+11. `product/REPO-SETUP.md`
+12. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`

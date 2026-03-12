@@ -6,7 +6,7 @@
     <title>VibeDocs</title>
     <meta
       name="description"
-      content="面向 AI-native 团队的开源文档操作层。模板、scaffold、CLI 与规则引擎合成一套可复用系统。"
+      content="面向 AI-native 项目的开源文档工具包。用模板、scaffold 和本地 CLI 初始化文档系统并持续巡检。"
     >
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/site.css">
@@ -40,11 +40,12 @@
         <section class="hero">
           <div class="shell hero-grid">
             <div class="hero-copy">
-              <span class="eyebrow">开源文档操作层</span>
-              <h1>让文档在第一次上线之后依然持续有用。</h1>
+              <span class="eyebrow">开源文档工具包</span>
+              <h1>VibeDocs 让项目更容易把自己说清楚。</h1>
               <p class="lead">
-                VibeDocs 把零散 Markdown 提升为一套文档操作系统：
-                可复用模板、项目 scaffold、本地 CLI，以及一套之后可继续喂给付费工作流的共享规则引擎。
+                VibeDocs 是一套开源文档工具包，用来整理项目文档结构。
+                它提供可复用模板、可直接落仓库的 scaffold，以及本地 CLI，
+                帮你初始化文档系统、生成功能包并持续做巡检。
               </p>
               <div class="cta-row">
                 <a class="button button-primary" href="quickstart/">5 分钟上手</a>
@@ -60,21 +61,21 @@
             <aside class="hero-panel">
               <div class="glass panel-stack">
                 <div>
-                  <div class="kicker">你会得到什么</div>
-                  <h3>一个免费层，专门为后续工作流继续生长</h3>
+                  <div class="kicker">从这里开始</div>
+                  <h3>安装、初始化、巡检。</h3>
                 </div>
                 <div class="stats">
                   <div class="stat">
-                    <strong>4</strong>
-                    <span>本地命令：init、feature create、audit、glossary check</span>
+                    <strong>1</strong>
+                    <span>安装包并获得 <code>vibedocs</code> 这个本地命令。</span>
                   </div>
                   <div class="stat">
                     <strong>2</strong>
-                    <span>可复用资产：templates 与 scaffold</span>
+                    <span>生成文档系统，并为真实功能补齐专属 package。</span>
                   </div>
                   <div class="stat">
-                    <strong>1</strong>
-                    <span>共享规则引擎，可继续支撑 PR 检查和定时巡检</span>
+                    <strong>3</strong>
+                    <span>把 audit 和 glossary check 接进日常开发，保持文档不漂移。</span>
                   </div>
                 </div>
                 <pre class="code-block">npm install @leapx-ai/vibedocs
@@ -88,38 +89,48 @@ npx vibedocs audit --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">产品结构</span>
-              <h2>开源层负责起步，付费层负责持续约束。</h2>
+              <span class="eyebrow">它是什么</span>
+              <h2>一套小而稳的项目文档工具。</h2>
               <p class="lead">
-                免费层解决的是“如何把文档系统跑起来”，付费层解决的是“如何在团队协作中不继续烂掉”。
-                两者边界要清楚，但规则语义必须保持连续。
+                VibeDocs 尽量贴近普通文件工作流。你可以把它放进现有仓库里用，
+                不需要迁移到托管平台，也不需要学习新的编辑器。
               </p>
             </div>
-            <div class="cards-2">
+            <div class="cards-3">
               <article class="card">
-                <div class="kicker">免费层</div>
-                <h3>模板、scaffold、CLI、共享规则</h3>
+                <div class="kicker">Templates</div>
+                <h3>可复用的文档起步模板</h3>
                 <p>
-                  完全本地优先、纯文件优先。不依赖托管服务，也能初始化文档系统、生成功能包并运行结构巡检。
+                  从治理、产品、工程、交付、运营到功能包，直接复用一套结构明确的文档模板。
                 </p>
                 <div class="pill-row">
                   <span class="pill">Templates</span>
-                  <span class="pill">Scaffold</span>
-                  <span class="pill">CLI</span>
-                  <span class="pill">Rule engine</span>
+                  <span class="pill">Markdown</span>
                 </div>
               </article>
               <article class="card">
-                <div class="kicker">付费层</div>
-                <h3>团队真正愿意为之付费的工作流压力</h3>
+                <div class="kicker">Scaffold</div>
+                <h3>可以直接落仓库的目录骨架</h3>
                 <p>
-                  收费的不是“更多文档”，而是执行压力：PR 检查、定时巡检、团队规则包、迁移助手以及行业化模板扩展。
+                  通过 Minimal、Standard、Full 三档目录骨架，快速把第一版文档系统生成出来。
                 </p>
                 <div class="pill-row">
-                  <span class="pill">PR 检查</span>
-                  <span class="pill">定时巡检</span>
-                  <span class="pill">健康面板</span>
-                  <span class="pill">团队规则包</span>
+                  <span class="pill">Minimal</span>
+                  <span class="pill">Standard</span>
+                  <span class="pill">Full</span>
+                </div>
+              </article>
+              <article class="card">
+                <div class="kicker">CLI</div>
+                <h3>本地初始化与巡检命令</h3>
+                <p>
+                  用 <code>init</code>、<code>feature create</code>、<code>audit</code>、
+                  <code>glossary check</code> 让文档持续可维护。
+                </p>
+                <div class="pill-row">
+                  <span class="pill">init</span>
+                  <span class="pill">feature create</span>
+                  <span class="pill">audit</span>
                 </div>
               </article>
             </div>
@@ -129,23 +140,24 @@ npx vibedocs audit --format json</pre>
         <section class="section">
           <div class="shell">
             <div class="section-heading">
-              <span class="eyebrow">工作方式</span>
-              <h2>先把文档系统建起来，再用规则阻止它漂移。</h2>
+              <span class="eyebrow">怎么使用</span>
+              <h2>先做这三步就够了。</h2>
             </div>
             <div class="cards-3">
               <article class="card">
-                <h3>1. 初始化</h3>
-                <p>从 scaffold 生成 Minimal、Standard 或 Full 文档骨架。</p>
-                <pre>npx vibedocs init --mode minimal</pre>
+                <h3>1. 安装</h3>
+                <p>把公共包装进仓库，使用本地命令开始操作。</p>
+                <pre>npm install @leapx-ai/vibedocs</pre>
               </article>
               <article class="card">
-                <h3>2. 按功能扩展</h3>
-                <p>为复杂功能生成功能包，补齐 PRD、线框流、技术说明、验收与埋点。</p>
-                <pre>npx vibedocs feature create focus-mode</pre>
+                <h3>2. 生成文档</h3>
+                <p>先建一套基线文档，再按真实功能继续扩展。</p>
+                <pre>npx vibedocs init --mode minimal
+npx vibedocs feature create focus-mode</pre>
               </article>
               <article class="card">
-                <h3>3. 持续巡检</h3>
-                <p>在本地用 diff-aware audit 找出建议更新的文档触点，再决定要不要进入提交流程。</p>
+                <h3>3. 保持对齐</h3>
+                <p>把 audit 和 glossary check 变成日常动作，而不是拖到发布前再补。</p>
                 <pre>npx vibedocs audit --changed src/app.js</pre>
               </article>
             </div>
@@ -154,41 +166,18 @@ npx vibedocs audit --format json</pre>
 
         <section class="section">
           <div class="shell">
-            <div class="section-heading">
-              <span class="eyebrow">为什么有效</span>
-              <h2>它约束的是结构和职责，不是你的技术栈。</h2>
-            </div>
-            <div class="cards-3">
-              <article class="card">
-                <h3>文档角色 × 生命周期</h3>
-                <p>
-                  文档不是一堆平铺文件，而是按角色和生命周期阶段组成矩阵，这样上下文才能长期可维护。
-                </p>
-              </article>
-              <article class="card">
-                <h3>SSOT 先声明再协作</h3>
-                <p>
-                  如果没有明确单一事实源，团队和 AI 都会在多个文件里重复维护状态，最后只剩漂移和冲突。
-                </p>
-              </article>
-              <article class="card">
-                <h3>规则只保留一套语义</h3>
-                <p>
-                  本地 audit、未来的 PR 检查和自动巡检应该共享同一套规则结果，而不是各写一份相似逻辑。
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="shell">
             <div class="callout">
-              <div class="kicker">公开文档边界</div>
-              <h3>这个站点是公开产品层，不是内部规划库。</h3>
+              <div class="kicker">下一步阅读</div>
+              <h3>第一次跑通看 Quickstart，平时查命令和 schema 看 CLI 与 Reference。</h3>
               <p>
-                这里承载的是安装方式、CLI、概念和 schema。内部策略判断、商业化细节和未公开路线不应该直接映射到站点内容。
+                公开站点只保留产品说明和使用方式。需要更细的命令、概念和输出格式时，
+                继续看 Quickstart、CLI、Concepts、Reference 即可。
               </p>
+              <div class="pill-row">
+                <a class="pill" href="quickstart/">快速开始</a>
+                <a class="pill" href="cli/">CLI</a>
+                <a class="pill" href="reference/">参考</a>
+              </div>
             </div>
           </div>
         </section>
@@ -198,7 +187,7 @@ npx vibedocs audit --format json</pre>
         <div class="shell footer-card">
           <div>
             <strong>VibeDocs</strong>
-            <div>面向 AI-native 团队的开源文档操作层。</div>
+            <div>面向 AI-native 项目的开源文档工具包。</div>
           </div>
           <div class="pill-row">
             <a class="pill" href="quickstart/">快速开始</a>

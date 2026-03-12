@@ -39,6 +39,15 @@
 - `FREE-LAYER-IMPLEMENTATION-PLAN.md`
 - `PAID-LAYER-IMPLEMENTATION-PLAN.md`
 
+## Releases
+
+位置：`docs/releases/`
+
+这一层回答每个公开版本到底交付了什么：
+
+- `README.md`
+- `0.1.0.md`
+
 ## 与仓库其它目录的分工
 
 - `templates/`：单文档模板
@@ -46,6 +55,7 @@
 - `src/`：CLI 与规则引擎实现
 - `tests/`：实现验证
 - `website/`：公开使用文档站源码
+- `scripts/`：发布与验收辅助脚本
 
 ## 推荐阅读顺序
 
@@ -60,4 +70,5 @@
 9. `product/PUBLISHING.md`
 10. `product/VERSIONING.md`
 11. `product/REPO-SETUP.md`
-12. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+12. `releases/0.1.0.md`
+13. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`

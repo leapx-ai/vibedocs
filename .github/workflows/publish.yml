@@ -30,14 +30,8 @@ jobs:
       - name: Upgrade npm for trusted publishing
         run: npm install --global npm@latest
 
-      - name: Run tests
-        run: npm test
-
-      - name: Check tarball contents
-        run: npm run pack:check
-
-      - name: Verify clean install
-        run: npm run smoke:install
+      - name: Run release checks
+        run: npm run release:check
 
       - name: Publish package
         run: npm publish --access public

@@ -37,6 +37,7 @@ Before publishing:
 1. Move the relevant entries from `Unreleased` into a dated version section.
 2. Group changes under `Added`, `Changed`, `Fixed`, `Removed` where applicable.
 3. Keep entries user-facing. Do not dump internal refactors with no external effect.
+4. Keep a matching release notes file in `docs/releases/X.Y.Z.md`.
 
 ## 5. Release Flow
 
@@ -44,13 +45,11 @@ Recommended release flow:
 
 1. Update `package.json` version.
 2. Update `CHANGELOG.md`.
-3. Run `npm test`.
-4. Run `npm run pack:check`.
-5. Run `npm run smoke:install`.
-6. Commit the release changes.
-7. Create tag `vX.Y.Z`.
-8. Create a GitHub Release from that tag.
-9. Let `.github/workflows/publish.yml` publish the npm package.
+3. Run `npm run release:check`.
+4. Commit the release changes.
+5. Create tag `vX.Y.Z`.
+6. Create a GitHub Release from that tag.
+7. Let `.github/workflows/publish.yml` publish the npm package.
 
 ## 6. Breaking Change Bar
 

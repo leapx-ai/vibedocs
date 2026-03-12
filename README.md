@@ -118,6 +118,7 @@ JSON 输出现在使用稳定 envelope：
 - `npm test`
 - `npm run pack:check`
 - `npm run smoke:install`
+- `npm run release:check`
 
 ## 分发与依赖
 
@@ -159,7 +160,7 @@ console.log(report.summary);
 - `@leapx-ai/vibedocs/reporting`
 - `@leapx-ai/vibedocs/rule-engine`
 
-发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md`、`docs/product/VERSIONING.md`、`docs/product/REPO-SETUP.md`。
+发布前和发布时的检查、版本策略、`npm publish` 约束，见 `docs/product/PUBLISHING.md`、`docs/product/VERSIONING.md`、`docs/product/REPO-SETUP.md`，首个版本说明见 `docs/releases/0.1.0.md`。
 
 ## Public Docs Site
 
@@ -194,6 +195,7 @@ console.log(report.summary);
 10. `docs/product/PUBLISHING.md`
 11. `docs/product/VERSIONING.md`
 12. `docs/product/REPO-SETUP.md`
-13. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
-14. `scaffold/README.md`
-15. `templates/README.md`
+13. `docs/releases/0.1.0.md`
+14. `docs/foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+15. `scaffold/README.md`
+16. `templates/README.md`

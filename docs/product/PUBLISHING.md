@@ -52,13 +52,12 @@
 
 1. 更新版本号。
 2. 更新 `CHANGELOG.md`。
-3. 确认 README、website、examples、schema 与当前 CLI 行为一致。
-4. 运行 `npm test`。
-5. 运行 `npm run pack:check`。
-6. 运行 `npm run smoke:install`。
-7. 检查 `npm pack --dry-run` 产物是否只包含应发布文件。
-8. 确认 `LICENSE` 已包含在包内。
-9. 确认没有把付费工作流代码、私有规则或内部凭据打进包。
+3. 更新对应版本的 `docs/releases/X.Y.Z.md`。
+4. 确认 README、website、examples、schema 与当前 CLI 行为一致。
+5. 运行 `npm run release:check`。
+6. 检查 `npm pack --dry-run` 产物是否只包含应发布文件。
+7. 确认 `LICENSE` 已包含在包内。
+8. 确认没有把付费工作流代码、私有规则或内部凭据打进包。
 
 版本更新与 changelog 规则，见 `VERSIONING.md`。
 
@@ -69,7 +68,7 @@
 1. 在主分支完成版本变更和 changelog 回写。
 2. 创建对应 git tag。
 3. 从该 tag 创建 GitHub Release。
-4. 由 `.github/workflows/publish.yml` 执行 `npm test`、`npm run pack:check`、`npm run smoke:install` 后发布包。
+4. 由 `.github/workflows/publish.yml` 执行 `npm run release:check` 后发布包。
 5. 发布后拉取 npm 页面，确认 README、license、bin 和版本元数据正确。
 
 仓库当前采用 GitHub Actions + npm trusted publishing 形态。启用前，需要先在 npm 上为该仓库配置 trusted publisher。

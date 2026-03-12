@@ -26,7 +26,8 @@
     "test": "node --test",
     "vibedocs": "node ./bin/vibedocs.js",
     "pack:check": "npm pack --dry-run --cache ./.npm-cache",
-    "smoke:install": "node ./scripts/smoke-install.mjs"
+    "smoke:install": "node ./scripts/smoke-install.mjs",
+    "release:check": "node ./scripts/release-check.mjs"
   },
   "files": [
     "bin/",

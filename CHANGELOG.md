@@ -6,12 +6,7 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 
 ## [Unreleased]
 
-### Added
-
-- Public docs site source in `website/`
-- GitHub Actions for CI, Pages deployment, and package publishing
-- Clean-install smoke verification via `npm run smoke:install`
-- Initial affected-doc suggestion mapping for diff audits
+No unreleased changes yet.
 
 ## [0.1.0] - 2026-03-12
 
@@ -20,3 +15,8 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 - Open-core VibeDocs CLI with `init`, `feature create`, `audit`, and `glossary check`
 - Shared rule engine, report schema, rule pack schema, templates, and scaffold assets
 - Public package metadata for `@leapx-ai/vibedocs`
+- Public docs site on GitHub Pages with quickstart, CLI, concepts, and reference pages
+- GitHub Actions for CI, Pages deployment, and npm package publishing
+- Clean-install smoke verification via `npm run smoke:install`
+- Initial affected-doc suggestion mapping for diff audits
+- Versioning, changelog, and repository setup documentation for the first public release

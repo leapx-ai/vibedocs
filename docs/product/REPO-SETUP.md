@@ -18,7 +18,7 @@ This keeps the repo publish-ready even when local code changes and external acco
 As of 2026-03-12:
 
 - CI workflow is passing.
-- GitHub Pages has been enabled for the repository, and a fresh deployment should be triggered after enablement.
+- GitHub Pages has been enabled and the public docs site is live.
 - npm CLI on the current machine is not logged in, and trusted publishing has not yet been configured.
 
 ## 3. GitHub Pages One-Time Setup
@@ -57,10 +57,11 @@ Expected outcome:
 Before the first public release:
 
 1. Confirm `package.json`, `CHANGELOG.md`, and docs are aligned.
-2. Confirm `npm test`, `npm run pack:check`, and `npm run smoke:install` all pass.
+2. Confirm `npm run release:check` passes.
 3. Confirm repository links point to `leapx-ai/vibedocs`.
-4. Create tag `vX.Y.Z`.
-5. Create a GitHub Release from that tag.
+4. Prepare the matching `docs/releases/X.Y.Z.md` file for GitHub Release notes.
+5. Create tag `vX.Y.Z`.
+6. Create a GitHub Release from that tag.
 
 ## 6. Non-Goals
 

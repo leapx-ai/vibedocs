@@ -194,6 +194,7 @@ h3 {
   margin: 0;
   font-family: "Fraunces", serif;
   line-height: 1.06;
+  text-wrap: balance;
 }
 
 h1 {
@@ -213,11 +214,12 @@ h3 {
   max-width: 62ch;
   font-size: 1rem;
   line-height: 1.74;
+  text-wrap: pretty;
 }
 
 .hero-home h1 {
-  font-size: clamp(2.9rem, 4.4vw, 4.4rem);
-  max-width: 11ch;
+  font-size: clamp(2.6rem, 3.6vw, 3.8rem);
+  max-width: 16ch;
 }
 
 .hero-subpage {
@@ -238,6 +240,10 @@ h3 {
 
 .hero-subpage .lead {
   max-width: 64ch;
+}
+
+.section-heading .lead {
+  max-width: 78ch;
 }
 
 .hero-subpage.hero-with-panel .hero-copy {
@@ -479,6 +485,10 @@ html[lang^="zh"] h2,
 html[lang^="zh"] h3 {
   font-family: "Noto Serif SC", "Fraunces", serif;
   line-height: 1.16;
+}
+
+html[lang^="zh"] .hero-home h1 {
+  max-width: 12em;
 }
 
 html[lang^="zh"] .eyebrow,

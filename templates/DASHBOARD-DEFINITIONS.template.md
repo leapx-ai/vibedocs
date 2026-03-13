@@ -1,18 +1,18 @@
 # Dashboard Definitions
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
 
-## 1. 目标
+## 1. Goal
 
-- 这份文档定义：
+- This Document Defines:
 
-## 2. 指标清单
+## 2. Metrics
 
-| 指标 | 定义 | 数据来源 | 更新频率 |
+| Metric | Definition | Data Source | Update Frequency |
 |---|---|---|---|
 |  |  |  |  |
 
-## 3. 口径约束
+## 3. Metric Rules
 
 - 

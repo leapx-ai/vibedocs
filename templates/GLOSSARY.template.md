@@ -1,15 +1,15 @@
-# 术语表
+# Glossary
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
 
-## 使用规则
+## Usage Rules
 
 - 一个概念只保留一个标准叫法
 - 禁止把历史叫法继续当成当前口径
 
-## 术语清单
+## Terms
 
-| 术语 | 定义 | 禁止混用 | SSOT |
+| Term | Definition | Banned Synonyms | SSOT |
 |---|---|---|---|
 |  |  |  |  |

@@ -16,6 +16,8 @@ No unreleased changes yet.
 - Removed internal repository docs, website sources, schemas, examples, and other non-runtime assets from the npm tarball
 - Rewrote the package README to focus on installation, commands, config, and public documentation links
 - Pointed the package homepage to the public docs site instead of the repository README
+- Standardized scaffold and template structure in English while keeping narrative guidance in Chinese
+- Updated runtime placeholder hydration and semantic checks to match the new structure-language convention
 
 ## [0.1.0] - 2026-03-13
 

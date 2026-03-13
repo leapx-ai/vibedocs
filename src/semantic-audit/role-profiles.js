@@ -22,6 +22,11 @@ function collectMatches(text, phrases = []) {
 }
 
 export const PRODUCT_SIGNALS = [
+  "background",
+  "current alternative",
+  "user outcome",
+  "rules and boundaries",
+  "acceptance criteria",
   "target user",
   "target users",
   "user problem",
@@ -42,6 +47,16 @@ export const PRODUCT_SIGNALS = [
 ];
 
 export const ENGINEERING_SIGNALS = [
+  "covered modules",
+  "out of scope modules",
+  "inputs",
+  "outputs",
+  "key states",
+  "invariants",
+  "data structures",
+  "interfaces",
+  "validation",
+  "regression",
   "api",
   "api contract",
   "endpoint",
@@ -65,6 +80,11 @@ export const ENGINEERING_SIGNALS = [
 ];
 
 export const PRODUCT_HEADING_SIGNALS = [
+  "background",
+  "user flow",
+  "rules and boundaries",
+  "acceptance criteria",
+  "non-goals",
   "target users",
   "target user",
   "user problem",
@@ -81,6 +101,14 @@ export const PRODUCT_HEADING_SIGNALS = [
 ];
 
 export const ENGINEERING_HEADING_SIGNALS = [
+  "inputs / outputs",
+  "inputs/outputs",
+  "state and constraints",
+  "data structures / interfaces",
+  "data structures/interfaces",
+  "validation and regression points",
+  "key states",
+  "invariants",
   "api",
   "api contract",
   "schema",
@@ -101,6 +129,8 @@ export const ENGINEERING_HEADING_SIGNALS = [
 ];
 
 export const STATUS_SIGNALS = [
+  "status overview",
+  "stage goals",
   "done",
   "in progress",
   "blocked",

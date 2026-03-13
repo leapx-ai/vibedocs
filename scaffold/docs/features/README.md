@@ -20,13 +20,13 @@ Linked SSOT:
 - `docs/governance/DOCUMENT-MAP.md`
 - `docs/governance/GLOSSARY.md`
 
-## 1. 什么时候需要功能包
+## 1. When to Create a Feature Package
 
 - 功能跨多个页面或模块
 - 功能有独立状态机、验收和埋点
 - AI 修改该功能时，加载全局文档成本过高
 
-## 2. 推荐结构
+## 2. Recommended Structure
 
 ```text
 docs/features/<feature>/
@@ -37,7 +37,7 @@ docs/features/<feature>/
   ANALYTICS.md
 ```
 
-## 3. 与全局文档的边界
+## 3. Boundary with Global Docs
 
 - 不在功能包里重写项目宪法和术语表
 - 不在功能包里维护全局路线图

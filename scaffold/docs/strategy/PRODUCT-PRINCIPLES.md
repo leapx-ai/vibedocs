@@ -1,4 +1,4 @@
-# 产品原则
+# Product Principles
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,39 +21,39 @@ Linked SSOT:
 - `docs/governance/GLOSSARY.md`
 - `docs/product/FEATURE-PRD.md`
 
-## 1. 目标
+## 1. Goal
 
-- 这份文档用于约束什么判断：
+- Decision Scope:
 
-## 2. 原则排序
+## 2. Principle Ranking
 
-1. <原则一>
-2. <原则二>
-3. <原则三>
+1. <Principle One>
+2. <Principle Two>
+3. <Principle Three>
 
-## 3. 每条原则的执行要求
+## 3. Execution Requirements Per Principle
 
-### 3.1 <原则一>
+### 3.1 <Principle One>
 
-优先解决的问题：
-
-- 
-
-执行要求：
+Priority Problems:
 
 - 
 
-### 3.2 <原则二>
-
-优先解决的问题：
+Execution Requirements:
 
 - 
 
-执行要求：
+### 3.2 <Principle Two>
+
+Priority Problems:
 
 - 
 
-## 4. 冲突判断法
+Execution Requirements:
+
+- 
+
+## 4. Conflict Resolution
 
 当产品范围、体验、实现成本冲突时，按下面顺序判断：
 

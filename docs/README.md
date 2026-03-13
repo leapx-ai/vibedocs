@@ -38,6 +38,7 @@
 
 - `README.md`
 - `AUDIT-PIPELINE.md`
+- `DOCUMENT-LANGUAGE-CONVENTION.md`
 - `HEURISTIC-SEMANTIC-AUDIT-SPEC.md`
 
 ## Plans
@@ -77,12 +78,13 @@
 5. `plans/FREE-LAYER-IMPLEMENTATION-PLAN.md`
 6. `product/RULE-ENGINE-SPEC.md`
 7. `implementation/AUDIT-PIPELINE.md`
-8. `implementation/HEURISTIC-SEMANTIC-AUDIT-SPEC.md`
-9. `product/PAID-WORKFLOWS.md`
-10. `plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
-11. `product/PUBLISHING.md`
-12. `product/VERSIONING.md`
-13. `product/REPO-SETUP.md`
-14. `releases/0.1.1.md`
-15. `releases/0.1.0.md`
-16. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+8. `implementation/DOCUMENT-LANGUAGE-CONVENTION.md`
+9. `implementation/HEURISTIC-SEMANTIC-AUDIT-SPEC.md`
+10. `product/PAID-WORKFLOWS.md`
+11. `plans/PAID-LAYER-IMPLEMENTATION-PLAN.md`
+12. `product/PUBLISHING.md`
+13. `product/VERSIONING.md`
+14. `product/REPO-SETUP.md`
+15. `releases/0.1.1.md`
+16. `releases/0.1.0.md`
+17. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`

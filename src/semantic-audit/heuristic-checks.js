@@ -40,6 +40,7 @@ const STATUS_LINE_PATTERNS = [
 ];
 
 const STATUS_HEADING_HINTS = [
+  "status overview",
   "current progress",
   "progress",
   "milestone",
@@ -50,6 +51,9 @@ const STATUS_HEADING_HINTS = [
 ];
 
 const GLOBAL_PRINCIPLE_HEADING_HINTS = [
+  "foundational principles",
+  "execution requirements per principle",
+  "conflict resolution",
   "原则排序",
   "执行要求",
   "冲突判断法",
@@ -58,6 +62,12 @@ const GLOBAL_PRINCIPLE_HEADING_HINTS = [
 ];
 
 const GLOBAL_PRINCIPLE_CONTENT_HINTS = [
+  "project constitution",
+  "product principles",
+  "user value first",
+  "correctness first",
+  "consistency first",
+  "maintainability first",
   "项目宪法",
   "术语边界",
   "产品原则",

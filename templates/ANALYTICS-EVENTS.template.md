@@ -1,14 +1,15 @@
-# 埋点事件字典
+# Analytics Events
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
+Owner: <operations-owner / analytics-owner>
 
-## 公共属性
+## Common Properties
 
 - 
 
-## 事件列表
+## Event List
 
-| 事件名 | 触发时机 | 关键字段 | 说明 |
+| Event | Trigger | Key Fields | Notes |
 |---|---|---|---|
 |  |  |  |  |

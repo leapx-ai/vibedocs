@@ -1,21 +1,21 @@
-# 任务条目库
+# Task Library
 
-更新时间：
-状态：Active
+Last Updated:
+Status: Active
 
-说明：
+Notes:
 
 - 本文件是任务候选库，不是当前状态清单
 
-## 使用规则
+## Usage Rules
 
 - 每个条目都应可独立验收
 - 不在这里维护 Done / In Progress / Blocked
 
-## 条目模板
+## Task Template
 
-### T-01 · 标题
+### T-01 · Title
 
-- 背景：
-- 范围：
-- 验收：
+- Background:
+- Scope:
+- Acceptance:

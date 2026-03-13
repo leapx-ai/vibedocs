@@ -31,9 +31,10 @@ test("init creates a minimal docs system with hydrated placeholders", async (t) 
   const constitution = await fs.readFile(path.join(tempDir, "docs", "governance", "PROJECT-CONSTITUTION.md"), "utf8");
 
   assert.match(stdout.toString(), /Created 10 docs files/);
+  assert.ok(readme.startsWith("# Project Docs Index"));
   assert.ok(readme.includes("Owner: Berlin"));
-  assert.ok(readme.includes("- 项目名称：Demo Docs"));
-  assert.ok(readme.includes("- 当前阶段：`Minimal`"));
+  assert.ok(readme.includes("- Project Name: Demo Docs"));
+  assert.ok(readme.includes("- Current Mode: `Minimal`"));
   assert.ok(!readme.includes("<YYYY-MM-DD>"));
   assert.ok(constitution.includes("Owner: Berlin"));
 });

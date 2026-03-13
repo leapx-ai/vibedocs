@@ -1,31 +1,31 @@
-# 产品原则
+# Product Principles
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
 
-## 1. 目标
+## 1. Goal
 
-- 这份文档用于约束：
+- This Document Constrains:
 
-## 2. 原则排序
+## 2. Principle Ranking
 
 1.
 2.
 3.
 
-## 3. 每条原则的执行要求
+## 3. Execution Requirements Per Principle
 
-### 3.1 原则名
+### 3.1 Principle Name
 
-优先问题：
-
-- 
-
-执行要求：
+Priority Problems:
 
 - 
 
-## 4. 冲突判断法
+Execution Requirements:
+
+- 
+
+## 4. Conflict Resolution
 
 判断一个流程或页面时，按以下顺序检查：
 

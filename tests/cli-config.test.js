@@ -44,7 +44,7 @@ test("init and feature create consume defaults from vibedocs.config.json", async
   assert.match(initStdout.toString(), /Config:/);
 
   const rootReadme = await fs.readFile(path.join(tempDir, "docs", "README.md"), "utf8");
-  assert.ok(rootReadme.includes("- 项目名称：Configured Project"));
+  assert.ok(rootReadme.includes("- Project Name: Configured Project"));
   assert.ok(rootReadme.includes("Owner: Configured Owner"));
 
   const featureStdout = createMemoryWriter();

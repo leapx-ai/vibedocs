@@ -14,11 +14,12 @@ export function hydrateScaffoldContent(content, options) {
   }
 
   if (options.projectName) {
-    nextContent = nextContent.replace(/^- 项目名称：\s*$/m, `- 项目名称：${options.projectName}`);
+    nextContent = nextContent.replace(/^- (?:项目名称：|Project Name:)\s*$/m, `- Project Name: ${options.projectName}`);
   }
 
   if (options.mode) {
-    nextContent = nextContent.replace("`Minimal / Standard / Full`", `\`${formatModeLabel(options.mode)}\``);
+    nextContent = nextContent.replace("- Current Mode: `Minimal / Standard / Full`", `- Current Mode: \`${formatModeLabel(options.mode)}\``);
+    nextContent = nextContent.replace("- 当前阶段：`Minimal / Standard / Full`", `- Current Mode: \`${formatModeLabel(options.mode)}\``);
   }
 
   return nextContent;
@@ -31,7 +32,8 @@ export function hydrateTemplateContent(content, options) {
     nextContent = nextContent.replace(/^# .+$/m, `# ${options.title}`);
   }
 
-  nextContent = nextContent.replace(/^更新时间：\s*$/m, `更新时间：${options.date}`);
+  nextContent = nextContent.replace(/^Last Updated:\s*$/m, `Last Updated: ${options.date}`);
+  nextContent = nextContent.replace(/^更新时间：\s*$/m, `Last Updated: ${options.date}`);
 
   if (options.owner) {
     if (/^Owner:\s*.+$/m.test(nextContent)) {

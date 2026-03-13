@@ -1,32 +1,33 @@
 # Tech Spec
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
+Owner: <tech-lead / implementer>
 
-## 1. 目标
+## 1. Goal
 
-- 本文档定义：
+- This Document Defines:
 
-## 2. 范围
+## 2. Scope
 
-- 涉及模块：
-- 不涉及：
+- Covered Modules:
+- Out of Scope:
 
-## 3. 输入 / 输出
+## 3. Inputs / Outputs
 
-- 输入：
-- 输出：
+- Inputs:
+- Outputs:
 
-## 4. 状态与约束
+## 4. State and Constraints
 
-- 关键状态：
-- 不变量：
-- 错误处理：
+- Key States:
+- Invariants:
+- Error Handling:
 
-## 5. 数据结构 / 接口
+## 5. Data Structures / Interfaces
 
 - 
 
-## 6. 验收与回归点
+## 6. Validation and Regression Points
 
 - 

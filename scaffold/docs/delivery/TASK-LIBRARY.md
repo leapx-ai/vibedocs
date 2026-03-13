@@ -1,4 +1,4 @@
-# 任务条目库
+# Task Library
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,16 +21,16 @@ Linked SSOT:
 - `docs/strategy/ROADMAP-STATUS.md`
 - `docs/delivery/ACCEPTANCE-CHECKLIST.md`
 
-## 1. 使用规则
+## 1. Usage Rules
 
 - 每个条目都应可独立验收
 - 每个条目都应指向一个明确目标
 - 当前状态回写到 `ROADMAP-STATUS`
 
-## 2. 条目模板
+## 2. Task Template
 
-### T-01 · <标题>
+### T-01 · <Title>
 
-- 背景：
-- 范围：
-- 验收：
+- Background:
+- Scope:
+- Acceptance:

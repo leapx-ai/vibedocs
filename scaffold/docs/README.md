@@ -1,4 +1,4 @@
-# 项目文档入口
+# Project Docs Index
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -20,14 +20,14 @@ Linked SSOT:
 
 - `docs/governance/DOCUMENT-MAP.md`
 
-## 1. 当前项目阶段
+## 1. Current Project Stage
 
-- 项目名称：
-- 当前阶段：`Minimal / Standard / Full`
-- 核心主流程：
-- 当前最重要目标：
+- Project Name:
+- Current Mode: `Minimal / Standard / Full`
+- Core Flow:
+- Current Top Goal:
 
-## 2. 推荐阅读顺序
+## 2. Recommended Reading Order
 
 1. `docs/governance/PROJECT-CONSTITUTION.md`
 2. `docs/governance/DOCUMENT-MAP.md`
@@ -38,9 +38,9 @@ Linked SSOT:
 7. `docs/engineering/TECH-SPEC.md`
 8. `docs/delivery/ACCEPTANCE-CHECKLIST.md`
 
-## 3. 目录角色说明
+## 3. Directory Roles
 
-| 目录 | 角色 | 主要回答的问题 |
+| Directory | Role | Main Question |
 |---|---|---|
 | `governance/` | 治理 | 谁说了算，术语和边界是什么 |
 | `strategy/` | 策略 | 为什么做，先做什么 |
@@ -51,8 +51,8 @@ Linked SSOT:
 | `operations/` | 运营 | 如何发布、观测、排障、复盘 |
 | `features/` | 功能包 | 某个复杂功能的局部文档集 |
 
-## 4. 使用规则
+## 4. Working Rules
 
 - 任何 Active 文档都要有清晰边界和更新触发器
-- 不要在多个文档重复维护 `Done / Next / Blocked`
+- 不要在多个文档重复维护 `Done / In Progress / Blocked / Next Up`
 - 功能跨多个页面或模块时，再到 `features/` 建功能包

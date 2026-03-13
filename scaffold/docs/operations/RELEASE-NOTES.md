@@ -21,22 +21,22 @@ Linked SSOT:
 - `docs/operations/RUNBOOK.md`
 - `docs/delivery/TESTING-REPORT.md`
 
-## 1. 本次发布内容
+## 1. Release Summary
 
-- 版本：
-- 日期：
-- 主要变更：
+- Version:
+- Date:
+- Primary Changes:
 
-## 2. 影响范围
+## 2. Impact Scope
 
-- 用户可见变化：
-- 数据或配置变化：
-- 风险点：
+- User-Visible Changes:
+- Data or Config Changes:
+- Risks:
 
-## 3. 验收结果
+## 3. Acceptance Result
 
 - 
 
-## 4. 回滚方式
+## 4. Rollback Plan
 
 - 

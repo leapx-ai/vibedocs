@@ -1,4 +1,4 @@
-# 路线图与状态
+# Roadmap Status
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,13 +21,13 @@ Linked SSOT:
 - `docs/product/FEATURE-PRD.md`
 - `docs/delivery/TASK-LIBRARY.md`
 
-## 1. 当前阶段目标
+## 1. Stage Goals
 
-- 阶段名称：
-- 本阶段必须达成：
-- 本阶段明确不做：
+- Stage Name:
+- Must Achieve:
+- Explicit Non-Goals:
 
-## 2. 状态概览
+## 2. Status Overview
 
 ### Done
 
@@ -47,7 +47,7 @@ Linked SSOT:
 2.
 3.
 
-## 3. 文档同步动作
+## 3. Documentation Sync Actions
 
-- 本轮需要更新哪些 SSOT：
-- 哪些旧文档要改成 `Snapshot`：
+- SSOT Documents To Update:
+- Documents To Downgrade To `Snapshot`:

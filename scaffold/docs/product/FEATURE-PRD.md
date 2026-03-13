@@ -22,35 +22,35 @@ Linked SSOT:
 - `docs/engineering/TECH-SPEC.md`
 - `docs/delivery/ACCEPTANCE-CHECKLIST.md`
 
-## 1. 背景
+## 1. Background
 
-- 用户问题：
-- 当前替代方案：
-- 当前成本：
+- User Problem:
+- Current Alternative:
+- Current Cost:
 
-## 2. 目标
+## 2. Goals
 
-- 这次要解决什么：
-- 成功后用户会感知到什么：
+- Problem To Solve:
+- User Outcome If Successful:
 
-## 3. 非目标
+## 3. Non-Goals
 
 - 
 
-## 4. 用户流程
+## 4. User Flow
 
 1.
 2.
 3.
 
-## 5. 规则与边界
+## 5. Rules and Boundaries
 
-- 业务规则：
-- 边界条件：
-- 不支持什么：
+- Business Rules:
+- Boundary Conditions:
+- Unsupported Cases:
 
-## 6. 验收口径
+## 6. Acceptance Criteria
 
-- 正常路径：
-- 异常路径：
-- 数据或状态变化：
+- Happy Path:
+- Edge Cases:
+- Data or State Changes:

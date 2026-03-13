@@ -1,4 +1,4 @@
-# 回归清单
+# Regression Checklist
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,22 +21,22 @@ Linked SSOT:
 - `docs/delivery/ACCEPTANCE-CHECKLIST.md`
 - `docs/strategy/ROADMAP-STATUS.md`
 
-## 1. 本轮变更范围
+## 1. Change Scope
 
 - 
 
-## 2. 必测主流程
+## 2. Critical Flows
 
 1.
 2.
 3.
 
-## 3. 重点风险点
+## 3. High-Risk Points
 
 - 
 
-## 4. 结果记录
+## 4. Results
 
-| 检查项 | 结果 | 备注 |
+| Check Item | Result | Notes |
 |---|---|---|
 |  |  |  |

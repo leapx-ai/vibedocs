@@ -13,7 +13,15 @@ const MINIMAL_DOCS = [
 
 const FEATURE_PACKAGE_FILES = ["PRD.md", "WIREFLOW.md", "TECH-SPEC.md", "ACCEPTANCE.md", "ANALYTICS.md"];
 const REQUIRED_ACTIVE_FIELDS = ["Last Updated", "Owner", "Purpose", "Scope", "Non-Goals", "Update Triggers", "Linked SSOT"];
-const STATUS_HEADINGS = ["## Done", "## In Progress", "## Blocked", "## Next Up"];
+const STATUS_HEADINGS = ["Done", "In Progress", "Blocked", "Next Up"];
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function hasReservedStatusHeading(content) {
+  return STATUS_HEADINGS.some((heading) => new RegExp(`^#{2,6}\\s+${escapeRegExp(heading)}\\s*$`, "m").test(content));
+}
 
 function makeResult(overrides) {
   return {
@@ -195,7 +203,7 @@ export const coreRules = [
       const allowedPath = "docs/strategy/ROADMAP-STATUS.md";
       const offenders = [...context.files.values()]
         .filter((file) => file.relativePath !== allowedPath)
-        .filter((file) => STATUS_HEADINGS.some((heading) => file.content.includes(heading)))
+        .filter((file) => hasReservedStatusHeading(file.content))
         .map((file) => file.relativePath);
 
       if (offenders.length > 0) {

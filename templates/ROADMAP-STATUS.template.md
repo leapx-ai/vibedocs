@@ -1,7 +1,7 @@
-# 研发状态清单
+# Roadmap Status
 
-更新时间：
-状态：Active
+Last Updated:
+Status: Active
 
 ## Done
 

@@ -1,4 +1,4 @@
-# 全局主流程 Wireflow
+# Global Core Flow Wireflow
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,25 +21,25 @@ Linked SSOT:
 - `docs/product/FEATURE-PRD.md`
 - `docs/design/UI-STYLE-GUIDE.md`
 
-## 1. 场景
+## 1. Scenario
 
-- 用户目标：
-- 入口：
-- 完成标志：
+- User Goal:
+- Entry:
+- Completion Signal:
 
-## 2. 主流程
+## 2. Core Flow
 
 1.
 2.
 3.
 
-## 3. 关键状态
+## 3. Key States
 
-- 正常态：
-- 空态：
-- 错误态：
-- 限制态：
+- Normal State:
+- Empty State:
+- Error State:
+- Restricted State:
 
-## 4. 设计决策点
+## 4. Design Decision Points
 
-- 哪些点需要特别说明：
+- Decision Points Requiring Notes:

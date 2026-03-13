@@ -1,4 +1,4 @@
-# 项目宪法
+# Project Constitution
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -20,28 +20,28 @@ Linked SSOT:
 
 - `docs/governance/DOCUMENT-MAP.md`
 
-## 1. 项目使命
+## 1. Mission
 
-- 这个项目要长期解决什么问题：
-- 服务谁：
-- 最重要的不变量：
+- Mission Problem:
+- Primary Users:
+- Non-Negotiables:
 
-## 2. 根本原则
+## 2. Foundational Principles
 
-- 用户价值优先：
-- 正确性优先：
-- 一致性优先：
-- 可维护性优先：
+- User Value First:
+- Correctness First:
+- Consistency First:
+- Maintainability First:
 
-## 3. 关键边界
+## 3. Key Boundaries
 
-- 平台边界：
-- 数据边界：
-- 合规边界：
-- 明确不做什么：
+- Platform Boundary:
+- Data Boundary:
+- Compliance Boundary:
+- Explicit Non-Goals:
 
-## 4. 协作门禁
+## 4. Collaboration Gates
 
-- 哪些改动必须先更新文档：
-- 合并前必须确认什么：
-- 发布前必须确认什么：
+- Changes Requiring Doc Updates First:
+- Merge Checks:
+- Release Checks:

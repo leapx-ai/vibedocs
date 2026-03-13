@@ -1,4 +1,4 @@
-# 埋点事件字典
+# Analytics Events
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,12 +21,12 @@ Linked SSOT:
 - `docs/operations/DASHBOARD-DEFINITIONS.md`
 - `docs/delivery/ACCEPTANCE-CHECKLIST.md`
 
-## 1. 公共属性
+## 1. Common Properties
 
 - 
 
-## 2. 事件列表
+## 2. Event List
 
-| 事件名 | 触发时机 | 关键字段 | 说明 |
+| Event | Trigger | Key Fields | Notes |
 |---|---|---|---|
 |  |  |  |  |

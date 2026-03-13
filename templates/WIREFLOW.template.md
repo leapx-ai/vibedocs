@@ -1,26 +1,27 @@
 # Wireflow
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
+Owner: <design-owner / feature-owner>
 
-## 1. 场景
+## 1. Scenario
 
-- 用户目标：
-- 入口：
+- User Goal:
+- Entry:
 
-## 2. 主流程
+## 2. Core Flow
 
 1.
 2.
 3.
 
-## 3. 关键状态
+## 3. Key States
 
-- 正常态：
-- 空态：
-- 错误态：
-- 限制态：
+- Normal State:
+- Empty State:
+- Error State:
+- Restricted State:
 
-## 4. 决策点
+## 4. Decision Points
 
 - 

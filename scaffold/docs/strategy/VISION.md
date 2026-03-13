@@ -1,4 +1,4 @@
-# 项目愿景
+# Vision
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -20,26 +20,26 @@ Linked SSOT:
 
 - `docs/strategy/ROADMAP-STATUS.md`
 
-## 1. 我们要解决什么问题
+## 1. Problem We Solve
 
-- 核心问题：
-- 当前机会：
-- 为什么现在做：
+- Core Problem:
+- Current Opportunity:
+- Why Now:
 
-## 2. 目标用户与场景
+## 2. Target Users and Scenarios
 
-- 目标用户：
-- 高频场景：
-- 主要痛点：
+- Target Users:
+- Frequent Scenarios:
+- Primary Pain Points:
 
-## 3. 阶段目标
+## 3. Stage Goals
 
-- 3 个月目标：
-- 6 个月目标：
-- 当前不做什么：
+- 3-Month Goal:
+- 6-Month Goal:
+- Current Non-Goals:
 
-## 4. 成功信号
+## 4. Success Signals
 
-- 用户信号：
-- 业务信号：
-- 质量信号：
+- User Signals:
+- Business Signals:
+- Quality Signals:

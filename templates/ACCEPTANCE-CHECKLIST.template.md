@@ -1,26 +1,27 @@
-# 验收清单
+# Acceptance Checklist
 
-更新时间：
-状态：Active
+Last Updated:
+Status: Active
+Owner: <qa-owner / feature-owner>
 
-## 1. 入口路径
+## 1. Entry Paths
 
 - 
 
-## 2. 操作步骤
+## 2. Steps
 
 1.
 2.
 3.
 
-## 3. 预期 UI / 状态
+## 3. Expected UI / State
 
 - 
 
-## 4. 预期事件 / 数据
+## 4. Expected Events / Data
 
 - 
 
-## 5. 异常路径
+## 5. Edge Cases
 
 - 

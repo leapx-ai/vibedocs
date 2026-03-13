@@ -1,4 +1,4 @@
-# 术语表
+# Glossary
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -20,14 +20,14 @@ Linked SSOT:
 
 - `docs/governance/DOCUMENT-MAP.md`
 
-## 1. 使用规则
+## 1. Usage Rules
 
 - 一个概念只保留一个标准叫法
 - 历史叫法写进“禁止混用”
 - 新术语上线前先过这里
 
-## 2. 术语清单
+## 2. Terms
 
-| 术语 | 定义 | 禁止混用 | SSOT |
+| Term | Definition | Banned Synonyms | SSOT |
 |---|---|---|---|
 |  |  |  |  |

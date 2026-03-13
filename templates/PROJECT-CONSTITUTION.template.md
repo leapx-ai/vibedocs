@@ -1,37 +1,37 @@
-# 项目宪法
+# Project Constitution
 
-版本：
-更新时间：
-状态：Draft / Active
+Version:
+Last Updated:
+Status: Draft / Active
 
-## 1. 适用范围
+## 1. Scope
 
-- 本文档适用于：
+- This Document Applies To:
 
-## 2. 根本原则
+## 2. Foundational Principles
 
-- 用户价值优先：
-- 正确性优先：
-- 一致性优先：
+- User Value First:
+- Correctness First:
+- Consistency First:
 
-## 3. 技术边界
+## 3. Technical Boundaries
 
-- 平台：
-- 数据边界：
-- 合规边界：
-- 不做什么：
+- Platform:
+- Data Boundary:
+- Compliance Boundary:
+- Explicit Non-Goals:
 
-## 4. 分层与依赖方向
+## 4. Layering and Dependency Direction
 
 - `interface`
 - `application`
 - `domain`
 - `infrastructure`
 
-依赖方向：
+Dependency Direction:
 
-## 5. 协作规则
+## 5. Collaboration Rules
 
-- 哪些改动必须先更新文档：
-- 哪些文档是 SSOT：
-- 哪些文档只作参考：
+- Changes Requiring Doc Updates First:
+- SSOT Documents:
+- Reference-Only Documents:

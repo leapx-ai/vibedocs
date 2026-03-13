@@ -1,24 +1,24 @@
-# 项目愿景
+# Vision
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
 
-## 1. 我们要解决什么问题
-
-- 
-
-## 2. 目标用户与场景
+## 1. Problem We Solve
 
 - 
 
-## 3. 3-6 个月目标
+## 2. Target Users and Scenarios
 
 - 
 
-## 4. 暂不做什么
+## 3. 3-6 Month Goals
 
 - 
 
-## 5. 成功信号
+## 4. Current Non-Goals
+
+- 
+
+## 5. Success Signals
 
 - 

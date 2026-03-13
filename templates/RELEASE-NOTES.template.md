@@ -1,23 +1,23 @@
 # Release Notes
 
-版本：
-日期：
-状态：Draft / Published
+Version:
+Date:
+Status: Draft / Published
 
-## 1. 本次发布内容
-
-- 
-
-## 2. 影响范围
-
-- 用户可见变化：
-- 数据或配置变化：
-- 风险点：
-
-## 3. 验收结果
+## 1. Release Summary
 
 - 
 
-## 4. 回滚方式
+## 2. Impact Scope
+
+- User-Visible Changes:
+- Data or Config Changes:
+- Risks:
+
+## 3. Acceptance Result
+
+- 
+
+## 4. Rollback Plan
 
 - 

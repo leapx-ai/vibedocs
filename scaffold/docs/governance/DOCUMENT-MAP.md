@@ -1,4 +1,4 @@
-# 文档地图（SSOT Map）
+# Document Map (SSOT Map)
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -20,26 +20,26 @@ Linked SSOT:
 
 - `docs/README.md`
 
-## 1. 核心规则
+## 1. Core Rules
 
 - 一个问题只允许一个 SSOT
 - 参考文档可以有多个，但 SSOT 只能有一个
 - 历史稿必须标记为 `Snapshot` 或 `Archive`
 
-## 2. 问题与 SSOT 对照
+## 2. Question-to-SSOT Mapping
 
-| 问题 | SSOT | 参考文档 | 说明 |
+| Question | SSOT | Supporting Docs | Notes |
 |---|---|---|---|
-| 项目边界 | `docs/governance/PROJECT-CONSTITUTION.md` |  |  |
-| 核心术语 | `docs/governance/GLOSSARY.md` |  |  |
-| 当前优先级 | `docs/strategy/ROADMAP-STATUS.md` |  |  |
-| 功能范围 | `docs/product/FEATURE-PRD.md` |  |  |
-| 技术契约 | `docs/engineering/TECH-SPEC.md` |  |  |
-| 验收执行 | `docs/delivery/ACCEPTANCE-CHECKLIST.md` |  |  |
-| 发布与排障 | `docs/operations/RUNBOOK.md` |  | 按需启用 |
+| Project Boundary | `docs/governance/PROJECT-CONSTITUTION.md` |  |  |
+| Core Terms | `docs/governance/GLOSSARY.md` |  |  |
+| Current Priorities | `docs/strategy/ROADMAP-STATUS.md` |  |  |
+| Feature Scope | `docs/product/FEATURE-PRD.md` |  |  |
+| Technical Contract | `docs/engineering/TECH-SPEC.md` |  |  |
+| Acceptance Execution | `docs/delivery/ACCEPTANCE-CHECKLIST.md` |  |  |
+| Release and Operations | `docs/operations/RUNBOOK.md` |  | Enable when needed |
 
-## 3. 当前不是 SSOT 的文档
+## 3. Current Non-SSOT Documents
 
-| 文档 | 状态 | 原因 |
+| Document | Status | Reason |
 |---|---|---|
 |  |  |  |

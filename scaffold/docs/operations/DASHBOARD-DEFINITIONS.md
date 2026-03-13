@@ -20,14 +20,14 @@ Linked SSOT:
 
 - `docs/operations/ANALYTICS-EVENTS.md`
 
-## 1. 指标清单
+## 1. Metrics
 
-| 指标 | 定义 | 数据来源 | 更新频率 |
+| Metric | Definition | Data Source | Update Frequency |
 |---|---|---|---|
 |  |  |  |  |
 
-## 2. 判断规则
+## 2. Decision Rules
 
-- 哪些指标是北极星：
-- 哪些指标是预警信号：
-- 哪些指标只用于诊断：
+- North Star Metrics:
+- Warning Signals:
+- Diagnostic Only:

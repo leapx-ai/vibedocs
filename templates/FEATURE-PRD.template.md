@@ -1,33 +1,34 @@
 # Feature PRD
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
+Owner: <feature-owner>
 
-## 1. 背景
+## 1. Background
 
-- 用户问题：
-- 当前成本：
+- User Problem:
+- Current Cost:
 
-## 2. 目标
-
-- 
-
-## 3. 非目标
+## 2. Goals
 
 - 
 
-## 4. 用户流程
+## 3. Non-Goals
+
+- 
+
+## 4. User Flow
 
 1.
 2.
 3.
 
-## 5. 规则与边界
+## 5. Rules and Boundaries
 
 - 
 
-## 6. 验收口径
+## 6. Acceptance Criteria
 
-- 正常路径：
-- 异常路径：
-- 数据或状态变化：
+- Happy Path:
+- Edge Cases:
+- Data or State Changes:

@@ -20,22 +20,22 @@ Linked SSOT:
 
 - `docs/delivery/REGRESSION-CHECKLIST.md`
 
-## 1. 测试范围
+## 1. Test Scope
 
-- 版本范围：
-- 功能范围：
+- Version Scope:
+- Feature Scope:
 
-## 2. 执行方式
+## 2. Execution Method
 
-- 手工：
-- 自动化：
+- Manual:
+- Automated:
 
-## 3. 结果摘要
+## 3. Result Summary
 
-- 通过：
-- 未通过：
-- 阻塞：
+- Passed:
+- Failed:
+- Blocked:
 
-## 4. 遗留问题
+## 4. Open Issues
 
 - 

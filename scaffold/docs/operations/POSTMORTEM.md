@@ -21,28 +21,28 @@ Linked SSOT:
 - `docs/operations/RUNBOOK.md`
 - `docs/governance/DOCUMENT-MAP.md`
 
-## 1. 事件摘要
+## 1. Incident Summary
 
-- 发生了什么：
-- 影响了谁：
-- 持续多久：
+- What Happened:
+- Who Was Affected:
+- Duration:
 
-## 2. 时间线
+## 2. Timeline
 
-| 时间 | 事件 |
+| Time | Event |
 |---|---|
 |  |  |
 
-## 3. 根因
+## 3. Root Cause
 
-- 直接原因：
-- 系统性原因：
+- Direct Cause:
+- Systemic Cause:
 
-## 4. 处置动作
+## 4. Response Actions
 
-- 已做：
-- 待做：
+- Completed:
+- Follow-Up:
 
-## 5. 文档回写
+## 5. Documentation Backfill
 
-- 需要更新哪些 SSOT：
+- SSOT Documents To Update:

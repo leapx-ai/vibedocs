@@ -21,30 +21,30 @@ Linked SSOT:
 - `docs/operations/RELEASE-NOTES.md`
 - `docs/operations/POSTMORTEM.md`
 
-## 1. 适用场景
+## 1. Applicable Scenarios
 
 - 这份 Runbook 用于：
 
-## 2. 快速判断
+## 2. Quick Triage
 
-- 现象：
-- 影响范围：
-- 是否需要回滚：
+- Symptoms:
+- Impact Scope:
+- Rollback Needed:
 
-## 3. 处理步骤
+## 3. Response Steps
 
 1.
 2.
 3.
 
-## 4. 对账点
+## 4. Reconciliation Checks
 
-- 日志：
-- 事件：
-- 数据：
+- Logs:
+- Events:
+- Data:
 
-## 5. 升级与回滚
+## 5. Escalation and Rollback
 
-- 升级条件：
-- 回滚条件：
-- 回滚动作：
+- Escalation Conditions:
+- Rollback Conditions:
+- Rollback Actions:

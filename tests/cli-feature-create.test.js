@@ -41,6 +41,11 @@ test("feature create generates a complete feature package", async (t) => {
 
   assert.deepEqual(files.sort(), ["ACCEPTANCE.md", "ANALYTICS.md", "PRD.md", "TECH-SPEC.md", "WIREFLOW.md"]);
   assert.ok(prd.startsWith("# Focus Mode PRD"));
+  assert.ok(prd.includes("Last Updated:"));
+  assert.ok(prd.includes("Owner: Berlin"));
+  assert.ok(!prd.includes("更新时间："));
   assert.ok(analytics.startsWith("# Focus Mode Analytics"));
+  assert.ok(analytics.includes("Last Updated:"));
+  assert.ok(analytics.includes("Owner: Berlin"));
   assert.match(stdout.toString(), /Created feature package/);
 });

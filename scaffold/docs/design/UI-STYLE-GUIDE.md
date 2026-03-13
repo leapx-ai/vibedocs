@@ -20,25 +20,25 @@ Linked SSOT:
 
 - `docs/strategy/PRODUCT-PRINCIPLES.md`
 
-## 1. 核心体验原则
+## 1. Core Experience Principles
 
 - 
 
-## 2. 关键组件规则
+## 2. Key Component Rules
 
-| 组件 | 使用场景 | 必须遵守的规则 |
+| Component | Scenario | Required Rule |
 |---|---|---|
 |  |  |  |
 
-## 3. 状态规范
+## 3. State Rules
 
 - Loading：
 - Empty：
 - Error：
 - Disabled：
 
-## 4. 文案与反馈约束
+## 4. Copy and Feedback Constraints
 
-- 按钮语气：
-- 错误文案：
-- 成功反馈：
+- Button Tone:
+- Error Copy:
+- Success Feedback:

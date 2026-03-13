@@ -1,23 +1,23 @@
 # Testing Report
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
 
-## 1. 测试范围
+## 1. Test Scope
 
 - 
 
-## 2. 执行方式
+## 2. Execution Method
 
-- 手工：
-- 自动化：
+- Manual:
+- Automated:
 
-## 3. 结果摘要
+## 3. Result Summary
 
-- 通过：
-- 未通过：
-- 阻塞：
+- Passed:
+- Failed:
+- Blocked:
 
-## 4. 遗留问题
+## 4. Open Issues
 
 - 

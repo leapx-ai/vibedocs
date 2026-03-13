@@ -1,4 +1,4 @@
-# 验收清单
+# Acceptance Checklist
 
 Last Updated: <YYYY-MM-DD>
 Status: Draft
@@ -21,24 +21,24 @@ Linked SSOT:
 - `docs/product/FEATURE-PRD.md`
 - `docs/engineering/TECH-SPEC.md`
 
-## 1. 入口路径
+## 1. Entry Paths
 
 - 
 
-## 2. 操作步骤
+## 2. Steps
 
 1.
 2.
 3.
 
-## 3. 预期 UI / 状态
+## 3. Expected UI / State
 
 - 
 
-## 4. 预期事件 / 数据
+## 4. Expected Events / Data
 
 - 
 
-## 5. 异常路径
+## 5. Edge Cases
 
 - 

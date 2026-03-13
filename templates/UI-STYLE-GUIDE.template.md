@@ -1,23 +1,23 @@
 # UI Style Guide
 
-更新时间：
-状态：Draft / Active
+Last Updated:
+Status: Draft / Active
 
-## 1. 目标
+## 1. Goal
 
-- 这份文档用于约束：
+- This Document Constrains:
 
-## 2. 核心体验原则
+## 2. Core Experience Principles
 
 - 
 
-## 3. 关键组件规则
+## 3. Key Component Rules
 
-| 组件 | 场景 | 规则 |
+| Component | Scenario | Rule |
 |---|---|---|
 |  |  |  |
 
-## 4. 状态规范
+## 4. State Rules
 
 - Loading：
 - Empty：

@@ -2,135 +2,72 @@
 
 VibeDocs is a local-first documentation toolkit for projects that need to stay understandable to AI and humans.
 
-It helps you:
-
-- initialize a structured docs system
-- create feature-level document packages
-- run local checks before docs drift spreads through the repo
+VibeDocs 是一个本地优先的文档工具，帮助项目更容易被 AI 理解、被团队协作、并保持可持续开发。
 
 Package: `@leapx-ai/vibedocs`  
 CLI: `vibedocs`
 
-## Install
+## Install / 安装
 
-Requirements:
+Requirements / 环境要求:
 
 - Node.js `>= 22`
 
-Install:
-
 ```bash
 npm install @leapx-ai/vibedocs
-```
-
-Run:
-
-```bash
 npx vibedocs --help
 ```
 
-## What It Includes
+## What It Does / 它提供什么
 
-The package ships only the runtime pieces needed by the tool:
+- Initialize a structured docs system inside a repo  
+  在仓库里初始化一套结构化文档系统
+- Create feature-level document packages  
+  为功能生成局部文档包
+- Audit structural drift and semantic drift locally  
+  本地检查结构漂移和语义漂移
+- Run glossary checks before terminology inconsistency spreads  
+  在术语漂移扩散前做巡检
 
-- CLI entrypoint
-- local rule engine
-- bundled scaffold used by `init`
-- bundled templates used by `feature create`
+## Quick Start / 快速开始
 
-It does not need a hosted service to run.
-
-## Commands
-
-### Initialize Docs
-
-Create a baseline docs system inside the current repository:
+Initialize a minimal docs system / 初始化最小文档系统:
 
 ```bash
 npx vibedocs init --mode minimal
 ```
 
-Modes:
-
-- `minimal`
-- `standard`
-- `full`
-
-Optional:
-
-```bash
-npx vibedocs init --mode standard --project-name "Demo" --owner "Berlin"
-```
-
-### Create A Feature Package
-
-Generate a scoped document set for a feature:
+Create a feature package / 生成功能包:
 
 ```bash
 npx vibedocs feature create focus-mode
 ```
 
-This creates:
-
-- `docs/features/focus-mode/PRD.md`
-- `docs/features/focus-mode/WIREFLOW.md`
-- `docs/features/focus-mode/TECH-SPEC.md`
-- `docs/features/focus-mode/ACCEPTANCE.md`
-- `docs/features/focus-mode/ANALYTICS.md`
-
-### Run Audit
-
-Run repository checks:
+Run audit / 运行巡检:
 
 ```bash
 npx vibedocs audit
 ```
 
-Structured output:
-
-```bash
-npx vibedocs audit --format json
-```
-
-Diff-aware audit:
-
-```bash
-npx vibedocs audit --changed src/app.js --format json
-```
-
-Enable heuristic content checks:
+Enable heuristic semantic checks / 开启启发式语义巡检:
 
 ```bash
 npx vibedocs audit --semantic heuristic --format json
 ```
 
-Current audit coverage includes:
-
-- minimal docs presence
-- metadata completeness for active docs
-- SSOT basics
-- feature package completeness
-- glossary existence and term drift
-- snapshot entrypoint misuse
-- diff docs touchpoints
-- heuristic content misplacement and duplication checks
-
-### Check Glossary Drift
-
-Run terminology-focused checks:
+Check glossary drift / 检查术语漂移:
 
 ```bash
 npx vibedocs glossary check --path docs/product --format json
 ```
 
-## Config
+## Config / 配置
 
-The CLI reads either of these files from the project root:
+The CLI reads either of these files from the project root.  
+CLI 会从项目根目录读取以下任一配置文件：
 
 - `vibedocs.config.json`
 - `.vibedocsrc.json`
-
-Example:
 
 ```json
 {
@@ -143,9 +80,7 @@ Example:
 }
 ```
 
-## Programmatic API
-
-You can also call the tool from code:
+## Programmatic API / 编程接口
 
 ```js
 import { runAudit } from "@leapx-ai/vibedocs";
@@ -158,19 +93,14 @@ const report = await runAudit(undefined, process.cwd(), {
 console.log(report.summary);
 ```
 
-Stable exports:
+Stable exports / 稳定导出:
 
 - `@leapx-ai/vibedocs`
 - `@leapx-ai/vibedocs/config`
 - `@leapx-ai/vibedocs/reporting`
 - `@leapx-ai/vibedocs/rule-engine`
 
-## Documentation
+## Docs / 文档
 
-Public docs site:
-
-- [VibeDocs Docs](https://leapx-ai.github.io/vibedocs/)
-
-Repository:
-
-- [github.com/leapx-ai/vibedocs](https://github.com/leapx-ai/vibedocs)
+- Public docs site / 公开文档站: [https://leapx-ai.github.io/vibedocs/](https://leapx-ai.github.io/vibedocs/)
+- Repository / 仓库: [https://github.com/leapx-ai/vibedocs](https://github.com/leapx-ai/vibedocs)

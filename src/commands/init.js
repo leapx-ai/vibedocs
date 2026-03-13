@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { scaffoldDocsDir } from "../assets.js";
+import { guidesDir, scaffoldDocsDir } from "../assets.js";
 import { parseArgs, getBooleanOption, getStringOption } from "../cli/args.js";
 import { loadProjectConfig } from "../config/load-config.js";
 import { collectConflicts, ensureDirectory, listFilesRecursive } from "../filesystem/fs.js";
@@ -63,6 +63,11 @@ async function collectFilesForMode(mode) {
   return MODE_FILES[mode];
 }
 
+async function collectGuideFiles() {
+  const files = await listFilesRecursive(guidesDir);
+  return files.map((entry) => path.relative(guidesDir, entry));
+}
+
 export async function handleInitCommand(argv, io) {
   const { positionals, options } = parseArgs(argv);
   const dryRun = getBooleanOption(options, "dry-run");
@@ -74,7 +79,11 @@ export async function handleInitCommand(argv, io) {
   const owner = getStringOption(options, "owner", config.values.owner ?? "TODO");
   const docsDir = resolveDocsDir(targetRoot);
   const relativeFiles = await collectFilesForMode(mode);
-  const targetPaths = relativeFiles.map((relativePath) => path.join(docsDir, relativePath));
+  const relativeGuideFiles = await collectGuideFiles();
+  const targetPaths = [
+    ...relativeFiles.map((relativePath) => path.join(docsDir, relativePath)),
+    ...relativeGuideFiles.map((relativePath) => path.join(targetRoot, "guides", relativePath)),
+  ];
   const conflicts = force ? [] : await collectConflicts(targetPaths);
 
   if (conflicts.length > 0) {
@@ -107,7 +116,20 @@ export async function handleInitCommand(argv, io) {
     }
   }
 
-  io.stdout.write(`${dryRun ? "Planned" : "Created"} ${relativeFiles.length} docs files in ${docsDir}\n`);
+  for (const relativePath of relativeGuideFiles) {
+    const sourcePath = path.join(guidesDir, relativePath);
+    const targetPath = path.join(targetRoot, "guides", relativePath);
+
+    if (!dryRun) {
+      await ensureDirectory(path.dirname(targetPath));
+      const rawContent = await fs.readFile(sourcePath, "utf8");
+      await fs.writeFile(targetPath, rawContent, "utf8");
+    }
+  }
+
+  io.stdout.write(
+    `${dryRun ? "Planned" : "Created"} ${relativeFiles.length} docs files and ${relativeGuideFiles.length} guide files in ${targetRoot}\n`,
+  );
   io.stdout.write(`Mode: ${mode}\n`);
   if (config.path) {
     io.stdout.write(`Config: ${config.path}\n`);

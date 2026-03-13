@@ -105,6 +105,14 @@ async function main() {
       throw new Error("Smoke install failed: installed package did not expose the expected public API.");
     }
 
+    await run(cliPath, ["init", "--mode", "minimal"], {
+      cwd: consumerDir,
+    });
+
+    await fs.access(path.join(consumerDir, "docs", "README.md"));
+    await fs.access(path.join(consumerDir, "guides", "AI-OPERATING-PROTOCOL.md"));
+    await fs.access(path.join(consumerDir, "guides", "AI-PROMPTS.md"));
+
     process.stdout.write(`Smoke install passed with ${tarballName}\n`);
   } finally {
     await fs.rm(tempRoot, { recursive: true, force: true });

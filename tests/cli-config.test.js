@@ -44,8 +44,10 @@ test("init and feature create consume defaults from vibedocs.config.json", async
   assert.match(initStdout.toString(), /Config:/);
 
   const rootReadme = await fs.readFile(path.join(tempDir, "docs", "README.md"), "utf8");
+  const guideReadme = await fs.readFile(path.join(tempDir, "guides", "README.md"), "utf8");
   assert.ok(rootReadme.includes("- Project Name: Configured Project"));
   assert.ok(rootReadme.includes("Owner: Configured Owner"));
+  assert.ok(guideReadme.includes("AI-OPERATING-PROTOCOL.md"));
 
   const featureStdout = createMemoryWriter();
   const featureExitCode = await runCli(["feature", "create", "Focus Mode"], {

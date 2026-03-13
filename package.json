@@ -32,7 +32,6 @@
   "files": [
     "bin/",
     "CHANGELOG.md",
-    "docs/",
     "examples/",
     "LICENSE",
     "scaffold/",

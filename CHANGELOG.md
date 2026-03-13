@@ -9,6 +9,7 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 ### Added
 
 - Packaged AI operating guides for VibeDocs projects: operating protocol, execution modes, and model bootstrap contract
+- Packaged reusable AI prompt guide for bootstrap, migration, feature creation, iteration updates, release checks, and terminology reviews
 
 ## [0.1.1] - 2026-03-13
 

@@ -108,3 +108,4 @@ Stable exports / 稳定导出:
   - `guides/AI-OPERATING-PROTOCOL.md`
   - `guides/AI-EXECUTION-MODES.md`
   - `guides/MODEL-BOOTSTRAP-CONTRACT.md`
+  - `guides/AI-PROMPTS.md`

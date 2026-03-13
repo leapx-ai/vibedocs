@@ -9,4 +9,7 @@ Rules:
 - Keep the notes user-facing
 - Match `CHANGELOG.md` and `package.json`
 
-The first public release notes are in `0.1.0.md`.
+Current public release notes:
+
+- `0.1.1.md`
+- `0.1.0.md`

@@ -56,6 +56,7 @@
 这一层回答每个公开版本到底交付了什么：
 
 - `README.md`
+- `0.1.1.md`
 - `0.1.0.md`
 
 ## 与仓库其它目录的分工
@@ -82,5 +83,6 @@
 11. `product/PUBLISHING.md`
 12. `product/VERSIONING.md`
 13. `product/REPO-SETUP.md`
-14. `releases/0.1.0.md`
-15. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+14. `releases/0.1.1.md`
+15. `releases/0.1.0.md`
+16. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`

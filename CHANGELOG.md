@@ -8,6 +8,15 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 
 No unreleased changes yet.
 
+## [0.1.1] - 2026-03-13
+
+### Changed
+
+- Reduced the published npm package to runtime-only assets required by the CLI
+- Removed internal repository docs, website sources, schemas, examples, and other non-runtime assets from the npm tarball
+- Rewrote the package README to focus on installation, commands, config, and public documentation links
+- Pointed the package homepage to the public docs site instead of the repository README
+
 ## [0.1.0] - 2026-03-13
 
 ### Added

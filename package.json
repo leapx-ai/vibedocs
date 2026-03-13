@@ -1,6 +1,6 @@
 {
   "name": "@leapx-ai/vibedocs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "description": "Open-core VibeCoding documentation CLI, templates, scaffold, and shared rule engine.",
   "type": "module",
@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/leapx-ai/vibedocs.git"
   },
-  "homepage": "https://github.com/leapx-ai/vibedocs#readme",
+  "homepage": "https://leapx-ai.github.io/vibedocs/",
   "bugs": {
     "url": "https://github.com/leapx-ai/vibedocs/issues"
   },
@@ -31,13 +31,14 @@
   },
   "files": [
     "bin/",
-    "CHANGELOG.md",
-    "examples/",
     "LICENSE",
-    "scaffold/",
-    "schemas/",
+    "scaffold/docs/",
     "src/",
-    "templates/",
+    "templates/ACCEPTANCE-CHECKLIST.template.md",
+    "templates/ANALYTICS-EVENTS.template.md",
+    "templates/FEATURE-PRD.template.md",
+    "templates/TECH-SPEC.template.md",
+    "templates/WIREFLOW.template.md",
     "README.md"
   ],
   "engines": {

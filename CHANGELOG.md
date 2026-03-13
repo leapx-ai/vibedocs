@@ -8,12 +8,13 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 
 No unreleased changes yet.
 
-## [0.1.0] - 2026-03-12
+## [0.1.0] - 2026-03-13
 
 ### Added
 
 - Open-core VibeDocs CLI with `init`, `feature create`, `audit`, and `glossary check`
 - Shared rule engine, report schema, rule pack schema, templates, and scaffold assets
+- Initial heuristic semantic audit layer for content misplacement, status leakage, duplicated global principles, glossary-like tables, and duplicate same-role definition sections
 - Public package metadata for `@leapx-ai/vibedocs`
 - Public docs site on GitHub Pages with quickstart, CLI, concepts, and reference pages
 - GitHub Actions for CI, Pages deployment, and npm package publishing

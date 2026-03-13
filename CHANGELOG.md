@@ -6,6 +6,13 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-03-13
+
+### Changed
+
+- `vibedocs init` now creates a project-level `guides/` directory by default so AI operating guides and prompts are available inside the initialized repo
+- Smoke install verification now confirms that installed packages can initialize both `docs/` and `guides/`
+
 ## [0.1.2] - 2026-03-13
 
 ### Added

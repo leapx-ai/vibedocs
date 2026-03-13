@@ -1,7 +1,7 @@
 # Acceptance Checklist
 
 Last Updated:
-Status: Active
+Status: Draft / Active
 Owner: <qa-owner / feature-owner>
 
 ## 1. Entry Paths

@@ -45,3 +45,38 @@ test("audit passes on a freshly initialized minimal repository", async (t) => {
   assert.ok(ruleIds.includes("core.structure.minimal_docs_exist"));
   assert.ok(ruleIds.includes("core.ssot.document_map_exists"));
 });
+
+test("audit does not warn on a freshly generated feature package", async (t) => {
+  const tempDir = await makeTempDir();
+  t.after(async () => {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await runCli(["init", "--mode", "minimal"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  await runCli(["feature", "create", "focus-mode", "--owner", "Berlin"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  const stdout = createMemoryWriter();
+  const exitCode = await runCli(["audit", "--format", "json"], {
+    cwd: tempDir,
+    stdout,
+    stderr: createMemoryWriter(),
+  });
+
+  assert.equal(exitCode, 0);
+
+  const report = JSON.parse(stdout.toString());
+  const metadataResult = report.results.find((result) => result.rule_id === "core.metadata.active_doc_required_fields");
+
+  assert.equal(report.summary.failed, 0);
+  assert.equal(report.summary.warned, 0);
+  assert.equal(metadataResult.status, "skip");
+});

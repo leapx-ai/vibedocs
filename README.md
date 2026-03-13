@@ -104,3 +104,7 @@ Stable exports / 稳定导出:
 
 - Public docs site / 公开文档站: [https://leapx-ai.github.io/vibedocs/](https://leapx-ai.github.io/vibedocs/)
 - Repository / 仓库: [https://github.com/leapx-ai/vibedocs](https://github.com/leapx-ai/vibedocs)
+- Packaged guides / 随包指南:
+  - `guides/AI-OPERATING-PROTOCOL.md`
+  - `guides/AI-EXECUTION-MODES.md`
+  - `guides/MODEL-BOOTSTRAP-CONTRACT.md`

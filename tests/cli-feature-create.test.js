@@ -37,6 +37,7 @@ test("feature create generates a complete feature package", async (t) => {
   const featureDir = path.join(tempDir, "docs", "features", "focus-mode");
   const files = await fs.readdir(featureDir);
   const prd = await fs.readFile(path.join(featureDir, "PRD.md"), "utf8");
+  const acceptance = await fs.readFile(path.join(featureDir, "ACCEPTANCE.md"), "utf8");
   const analytics = await fs.readFile(path.join(featureDir, "ANALYTICS.md"), "utf8");
 
   assert.deepEqual(files.sort(), ["ACCEPTANCE.md", "ANALYTICS.md", "PRD.md", "TECH-SPEC.md", "WIREFLOW.md"]);
@@ -44,6 +45,8 @@ test("feature create generates a complete feature package", async (t) => {
   assert.ok(prd.includes("Last Updated:"));
   assert.ok(prd.includes("Owner: Berlin"));
   assert.ok(!prd.includes("更新时间："));
+  assert.ok(acceptance.includes("Status: Draft / Active"));
+  assert.ok(acceptance.includes("Owner: Berlin"));
   assert.ok(analytics.startsWith("# Focus Mode Analytics"));
   assert.ok(analytics.includes("Last Updated:"));
   assert.ok(analytics.includes("Owner: Berlin"));

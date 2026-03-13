@@ -194,10 +194,57 @@ Status: Active
 
 每份文档都应标出状态：
 
-- `Active`：当前仍在维护
-- `Snapshot`：历史快照，仅保留背景
-- `Archive`：归档，不再引用
-- `Draft`：草案，尚未成为 SSOT
+- `Draft`：刚生成、仍在补齐、尚未成为可依赖入口
+- `Active`：当前仍在维护，且可以作为稳定事实来源
+- `Snapshot`：历史快照，仅保留背景，不再作为当前入口
+- `Archive`：归档，不再引用，也不参与当前判断
+
+推荐的默认流程：
+
+1. 先生成 `Draft`
+2. 补齐 metadata 和核心内容
+3. 再切到 `Active`
+4. 被新事实替代后降级为 `Snapshot`
+5. 长期不再使用时转为 `Archive`
+
+一句话：
+
+- Generate first
+- Complete second
+- Activate last
+
+### 8.1 何时从 `Draft` 切到 `Active`
+
+至少同时满足以下条件：
+
+- `Last Updated / Status / Owner / Purpose / Scope / Non-Goals / Update Triggers / Linked SSOT` 已补齐
+- 该文档的核心章节已达到可依赖状态
+- 团队和 AI 可以把它当作当前事实来源，而不是草稿参考
+
+### 8.2 何时从 `Active` 降到 `Snapshot`
+
+出现以下任一情况时，应考虑降级：
+
+- 已有新的 SSOT 文档取代它
+- 该文档只保留背景价值，不再维护当前事实
+- 继续挂在当前入口会误导团队或 AI
+
+### 8.3 何时从 `Snapshot` 进入 `Archive`
+
+出现以下情况时，可进一步归档：
+
+- 仅需保留历史留痕
+- 已不需要在日常工作中引用
+- 不再作为回溯上下文的高频入口
+
+### 8.4 给 AI 的明确规则
+
+如果 AI 参与创建或更新文档，应明确遵守：
+
+- 新生成文档默认从 `Draft` 开始，除非上下文已经证明它可立即成为当前入口
+- 不要在内容未补齐时擅自把文档改成 `Active`
+- 如果文档已被新的 SSOT 取代，应建议降级为 `Snapshot`
+- 如果文档只是历史保留，不再进入当前入口，应建议改成 `Archive`
 
 每份 Active 文档还应至少有一个“更新触发条件”：
 

@@ -56,3 +56,23 @@ Linked SSOT:
 - 任何 Active 文档都要有清晰边界和更新触发器
 - 不要在多个文档重复维护 `Done / In Progress / Blocked / Next Up`
 - 功能跨多个页面或模块时，再到 `features/` 建功能包
+
+## 5. Status Lifecycle
+
+- `Draft`: 刚生成、仍在补齐、尚未成为稳定入口
+- `Active`: 已补齐 metadata 和核心内容，可作为当前事实来源
+- `Snapshot`: 历史快照，仅保留背景，不再作为当前入口
+- `Archive`: 归档，不再进入当前判断
+
+Recommended default flow:
+
+1. Generate as `Draft`
+2. Complete the document
+3. Promote to `Active`
+4. Downgrade replaced docs to `Snapshot`
+5. Move retired docs to `Archive`
+
+Rule of thumb:
+
+- Do not mark a new document `Active` just because it has been created
+- Promote it only after the document is complete enough for people and AI to rely on

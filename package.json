@@ -1,6 +1,6 @@
 {
   "name": "@leapx-ai/vibedocs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "Apache-2.0",
   "description": "Open-core VibeCoding documentation CLI, templates, scaffold, and shared rule engine.",
   "type": "module",

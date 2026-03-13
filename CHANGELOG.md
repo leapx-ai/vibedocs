@@ -6,6 +6,8 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-03-13
+
 ### Added
 
 - Packaged AI operating guides for VibeDocs projects: operating protocol, execution modes, and model bootstrap contract

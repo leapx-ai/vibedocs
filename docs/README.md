@@ -17,11 +17,20 @@
 
 这一层回答文档系统本身如何成立：
 
+- `WHY-AGENT-OPERABLE-PRODUCTS.md`
 - `DOC-STRUCTURE-RESEARCH.md`
 - `DOC-CREATION-ENGINE.md`
 - `DOC-CREATION-WORKFLOW.md`
 - `LIFECYCLE-DOC-SYSTEM.md`
 - `AI-DOC-BOOTSTRAP-PROMPTS.md`
+
+## Repository Structure
+
+位置：`docs/`
+
+这一层回答仓库目录各自承担什么职责：
+
+- `DIRECTORY-RESPONSIBILITIES.md`
 
 ## Releases
 
@@ -47,12 +56,14 @@
 
 ## 推荐阅读顺序
 
-1. `foundations/DOC-STRUCTURE-RESEARCH.md`
-2. `foundations/DOC-CREATION-ENGINE.md`
-3. `foundations/LIFECYCLE-DOC-SYSTEM.md`
-4. `foundations/DOC-CREATION-WORKFLOW.md`
-5. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
-6. `releases/0.1.3.md`
-7. `releases/0.1.2.md`
-8. `releases/0.1.1.md`
-9. `releases/0.1.0.md`
+1. `DIRECTORY-RESPONSIBILITIES.md`
+2. `foundations/WHY-AGENT-OPERABLE-PRODUCTS.md`
+3. `foundations/DOC-STRUCTURE-RESEARCH.md`
+4. `foundations/DOC-CREATION-ENGINE.md`
+5. `foundations/LIFECYCLE-DOC-SYSTEM.md`
+6. `foundations/DOC-CREATION-WORKFLOW.md`
+7. `foundations/AI-DOC-BOOTSTRAP-PROMPTS.md`
+8. `releases/0.1.3.md`
+9. `releases/0.1.2.md`
+10. `releases/0.1.1.md`
+11. `releases/0.1.0.md`

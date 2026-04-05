@@ -1,8 +1,10 @@
 import { HELP_TEXT } from "./help.js";
+import { TOOL_VERSION } from "../meta.js";
 import { handleAuditCommand } from "../commands/audit.js";
 import { handleFeatureCreateCommand } from "../commands/feature-create.js";
 import { handleGlossaryCheckCommand } from "../commands/glossary-check.js";
 import { handleInitCommand } from "../commands/init.js";
+import { handleRuntimeRunCommand } from "../commands/runtime-run.js";
 
 export async function runCli(argv, io = {}) {
   const stdout = io.stdout ?? process.stdout;
@@ -15,7 +17,7 @@ export async function runCli(argv, io = {}) {
   }
 
   if (argv.includes("--version")) {
-    stdout.write("0.1.0\n");
+    stdout.write(`${TOOL_VERSION}\n`);
     return 0;
   }
 
@@ -32,6 +34,10 @@ export async function runCli(argv, io = {}) {
 
     if (command === "audit") {
       return await handleAuditCommand([subcommand, ...rest].filter(Boolean), { cwd, stdout, stderr });
+    }
+
+    if (command === "runtime" && subcommand === "run") {
+      return await handleRuntimeRunCommand(rest, { cwd, stdout, stderr });
     }
 
     if (command === "glossary" && subcommand === "check") {

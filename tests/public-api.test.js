@@ -4,7 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { REPORT_SCHEMA_VERSION, TOOL_NAME, TOOL_VERSION, runAudit } from "@leapx-ai/vibedocs";
+import { REPORT_SCHEMA_VERSION, TOOL_NAME, TOOL_VERSION, runAudit, runRuntime } from "@leapx-ai/vibedocs";
 import { createReport } from "@leapx-ai/vibedocs/reporting";
 import { loadRulePacks } from "@leapx-ai/vibedocs/rule-engine";
 
@@ -22,7 +22,7 @@ test("package exports expose the stable programmatic API", async (t) => {
   });
 
   assert.equal(TOOL_NAME, "vibedocs");
-  assert.equal(TOOL_VERSION, "0.1.0");
+  assert.equal(TOOL_VERSION, "0.1.3");
   assert.equal(REPORT_SCHEMA_VERSION, "v1alpha1");
 
   await runCli(["init", "--mode", "minimal"], {
@@ -41,6 +41,15 @@ test("package exports expose the stable programmatic API", async (t) => {
   assert.equal(report.run.mode, "diff");
   assert.equal(report.run.semanticMode, "heuristic");
   assert.ok(Array.isArray(report.results));
+
+  const runtimeReport = await runRuntime(undefined, tempDir, {
+    task: "Update API contract for the demo flow",
+    changedPaths: ["src/demo/api.js"],
+    semantic: "heuristic",
+  });
+  assert.equal(runtimeReport.runtimeVersion, "v1alpha1");
+  assert.equal(runtimeReport.classification.changeType, "contract_change");
+  assert.ok(Array.isArray(runtimeReport.routing.mustUpdate));
 
   const synthetic = createReport([], { mode: "repository" });
   assert.equal(synthetic.schemaVersion, "v1alpha1");

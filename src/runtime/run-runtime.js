@@ -7,6 +7,7 @@ import { inferProjectState } from "./infer-state.js";
 import { createRuntimeReport } from "./report.js";
 import { resolveGates } from "./resolve-gates.js";
 import { routeTask } from "./route-task.js";
+import { syncNavigation } from "./sync-navigation.js";
 
 function summarizeVerification(report) {
   const summary = report.summary ?? {};
@@ -60,16 +61,22 @@ export async function runRuntime(targetPath, cwd, options = {}) {
     attempted: 0,
     writes: [],
   };
+  let navigationSummary = {
+    summary: options.writeDrafts ? "not-run" : "not-requested",
+    updatedFiles: [],
+  };
 
   if (options.writeDrafts && !gates.blocked) {
-    const writeResult = await applyDraftDocUpdates(createRuntimeReport({
+    const baseReport = createRuntimeReport({
       input: {
         projectRoot: runtimeContext.context.projectRoot,
         task: options.task,
+        featureSlug: runtimeContext.loadedContext.featureContext?.slug ?? null,
       },
       classification,
       routing,
-    }), {
+    });
+    const writeResult = await applyDraftDocUpdates(baseReport, {
       owner: config.values.owner ?? "TODO",
     });
 
@@ -78,8 +85,11 @@ export async function runRuntime(targetPath, cwd, options = {}) {
       summary: `${writeResult.updated} updated / ${writeResult.created} created / ${writeResult.unchanged} unchanged / ${writeResult.skipped} skipped`,
     };
     actions.push("draft_doc_update");
+    navigationSummary = await syncNavigation(baseReport);
+    actions.push("sync_navigation");
   } else if (options.writeDrafts && gates.blocked) {
     actions.push("skip_draft_doc_update");
+    actions.push("skip_navigation_sync");
   }
 
   const verificationReport = await runAudit(targetPath, cwd, {
@@ -126,6 +136,7 @@ export async function runRuntime(targetPath, cwd, options = {}) {
       auditReport: verificationReport,
     },
     writes: writeSummary,
+    navigation: navigationSummary,
     actions,
     finalStatus: gates.blocked ? "needs_human_decision" : "completed",
   });

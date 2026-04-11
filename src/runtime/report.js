@@ -16,6 +16,7 @@ export function createRuntimeReport(payload = {}) {
     gates: payload.gates ?? {},
     verification: payload.verification ?? {},
     writes: payload.writes ?? {},
+    navigation: payload.navigation ?? {},
     actions: payload.actions ?? [],
     finalStatus: payload.finalStatus ?? "completed",
   };
@@ -49,6 +50,7 @@ export function formatRuntimeReport(report, options = {}) {
     `Routing Rationale: ${report.routing.rationale ?? "none"}`,
     "",
     `Draft Writes: ${report.writes.summary ?? "not-applied"}`,
+    `Navigation Sync: ${report.navigation.summary ?? "not-run"}`,
     "",
     `Structural Audit: ${report.verification.structural?.summary ?? "not-run"}`,
     `Semantic Audit: ${report.verification.semantic?.summary ?? "not-run"}`,

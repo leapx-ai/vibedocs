@@ -97,11 +97,18 @@ test("runtime run can apply draft updates to routed docs when explicitly request
 
   const report = JSON.parse(stdout.toString());
   const spec = await fs.readFile(path.join(tempDir, "docs", "features", "focus-mode", "TECH-SPEC.md"), "utf8");
+  const docsReadme = await fs.readFile(path.join(tempDir, "docs", "README.md"), "utf8");
+  const decisionLog = await fs.readFile(path.join(tempDir, "docs", "governance", "DECISION-LOG.md"), "utf8");
 
   assert.ok(report.actions.includes("draft_doc_update"));
+  assert.ok(report.actions.includes("sync_navigation"));
   assert.match(report.writes.summary, /updated|created/);
   assert.ok(spec.includes("## Runtime Draft Update"));
   assert.ok(spec.includes("Task: Update API contract for focus mode"));
+  assert.equal(report.navigation.summary, "synced 3 navigation file(s)");
+  assert.ok(docsReadme.includes("## 6. Feature Packages"));
+  assert.ok(docsReadme.includes("docs/features/focus-mode/"));
+  assert.ok(decisionLog.includes("# Decision Log"));
 });
 
 test("runtime run blocks when the repository has no clear SSOT context", async (t) => {
@@ -164,4 +171,43 @@ test("runtime run raises release readiness gate when release docs are missing", 
   assert.ok(report.gates.gates.includes("release_readiness_decision"));
   assert.ok(report.state.releaseState.missingForRelease.includes("docs/operations/RELEASE-NOTES.md"));
   assert.ok(report.state.releaseState.missingForRelease.includes("docs/operations/RUNBOOK.md"));
+});
+
+test("runtime decide records a human decision in the project decision log", async (t) => {
+  const tempDir = await makeTempDir();
+  t.after(async () => {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await runCli(["init", "--mode", "minimal", "--project-name", "Decision Demo", "--owner", "Berlin"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  const stdout = createMemoryWriter();
+  const stderr = createMemoryWriter();
+  const exitCode = await runCli([
+    "runtime",
+    "decide",
+    "--gate",
+    "draft_to_active_promotion",
+    "--decision",
+    "Keep the document in Draft until acceptance coverage is complete",
+    "--status",
+    "deferred",
+    "--feature",
+    "focus-mode",
+    "--note",
+    "Wait for QA review before promoting.",
+  ], { cwd: tempDir, stdout, stderr });
+
+  assert.equal(exitCode, 0);
+  assert.equal(stderr.toString(), "");
+  assert.match(stdout.toString(), /Recorded decision/);
+
+  const decisionLog = await fs.readFile(path.join(tempDir, "docs", "governance", "DECISION-LOG.md"), "utf8");
+  assert.ok(decisionLog.includes("draft_to_active_promotion"));
+  assert.ok(decisionLog.includes("Keep the document in Draft until acceptance coverage is complete"));
+  assert.ok(decisionLog.includes("Wait for QA review before promoting."));
 });

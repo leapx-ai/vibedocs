@@ -4,5 +4,7 @@ export { classifyChange } from "./classify-change.js";
 export { routeTask } from "./route-task.js";
 export { resolveGates } from "./resolve-gates.js";
 export { applyDraftDocUpdates } from "./draft-doc-update.js";
+export { syncNavigation } from "./sync-navigation.js";
+export { recordHumanDecision } from "./record-human-decision.js";
 export { createRuntimeReport, formatRuntimeReport } from "./report.js";
 export { runRuntime } from "./run-runtime.js";

@@ -58,6 +58,52 @@ test("runtime run emits a structured report for a feature-level contract change"
   assert.equal(report.input.featureSlug, "focus-mode");
 });
 
+test("runtime run can apply draft updates to routed docs when explicitly requested", async (t) => {
+  const tempDir = await makeTempDir();
+  t.after(async () => {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await runCli(["init", "--mode", "minimal", "--project-name", "Draft Demo", "--owner", "Berlin"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  await runCli(["feature", "create", "focus-mode", "--owner", "Berlin"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  const stdout = createMemoryWriter();
+  const stderr = createMemoryWriter();
+  const exitCode = await runCli([
+    "runtime",
+    "run",
+    "--task",
+    "Update API contract for focus mode",
+    "--feature",
+    "focus-mode",
+    "--changed",
+    "src/focus-mode/api.ts",
+    "--write-drafts",
+    "--format",
+    "json",
+  ], { cwd: tempDir, stdout, stderr });
+
+  assert.equal(exitCode, 0);
+  assert.equal(stderr.toString(), "");
+
+  const report = JSON.parse(stdout.toString());
+  const spec = await fs.readFile(path.join(tempDir, "docs", "features", "focus-mode", "TECH-SPEC.md"), "utf8");
+
+  assert.ok(report.actions.includes("draft_doc_update"));
+  assert.match(report.writes.summary, /updated|created/);
+  assert.ok(spec.includes("## Runtime Draft Update"));
+  assert.ok(spec.includes("Task: Update API contract for focus mode"));
+});
+
 test("runtime run blocks when the repository has no clear SSOT context", async (t) => {
   const tempDir = await makeTempDir();
   t.after(async () => {
@@ -84,6 +130,7 @@ test("runtime run blocks when the repository has no clear SSOT context", async (
   const report = JSON.parse(stdout.toString());
   assert.equal(report.finalStatus, "needs_human_decision");
   assert.ok(report.gates.gates.includes("no_clear_ssot"));
+  assert.ok(!report.actions.includes("draft_doc_update"));
 });
 
 test("runtime run raises release readiness gate when release docs are missing", async (t) => {

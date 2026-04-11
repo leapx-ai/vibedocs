@@ -15,6 +15,7 @@ export function createRuntimeReport(payload = {}) {
     routing: payload.routing ?? {},
     gates: payload.gates ?? {},
     verification: payload.verification ?? {},
+    writes: payload.writes ?? {},
     actions: payload.actions ?? [],
     finalStatus: payload.finalStatus ?? "completed",
   };
@@ -46,6 +47,8 @@ export function formatRuntimeReport(report, options = {}) {
     `Gating Docs: ${(report.routing.gatingDocs ?? []).join(", ") || "none"}`,
     `Gates: ${(report.gates.gates ?? []).join(", ") || "none"}`,
     `Routing Rationale: ${report.routing.rationale ?? "none"}`,
+    "",
+    `Draft Writes: ${report.writes.summary ?? "not-applied"}`,
     "",
     `Structural Audit: ${report.verification.structural?.summary ?? "not-run"}`,
     `Semantic Audit: ${report.verification.semantic?.summary ?? "not-run"}`,

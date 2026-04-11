@@ -1,6 +1,8 @@
 import { runAudit } from "../api/run-audit.js";
+import { loadProjectConfig } from "../config/load-config.js";
 import { bootstrapRuntime } from "./bootstrap.js";
 import { classifyChange } from "./classify-change.js";
+import { applyDraftDocUpdates } from "./draft-doc-update.js";
 import { inferProjectState } from "./infer-state.js";
 import { createRuntimeReport } from "./report.js";
 import { resolveGates } from "./resolve-gates.js";
@@ -22,6 +24,7 @@ export async function runRuntime(targetPath, cwd, options = {}) {
     changedPaths,
     featureSlug: options.featureSlug,
   });
+  const config = await loadProjectConfig(runtimeContext.context.projectRoot);
   const state = inferProjectState(runtimeContext, {
     task: options.task,
   });
@@ -45,10 +48,46 @@ export async function runRuntime(targetPath, cwd, options = {}) {
     classification,
     routing,
   });
+  const actions = [
+    "bootstrap_context",
+    "infer_state",
+    "classify_change",
+    "route_task",
+    "resolve_gates",
+  ];
+  let writeSummary = {
+    summary: options.writeDrafts ? "blocked-before-write" : "not-requested",
+    attempted: 0,
+    writes: [],
+  };
+
+  if (options.writeDrafts && !gates.blocked) {
+    const writeResult = await applyDraftDocUpdates(createRuntimeReport({
+      input: {
+        projectRoot: runtimeContext.context.projectRoot,
+        task: options.task,
+      },
+      classification,
+      routing,
+    }), {
+      owner: config.values.owner ?? "TODO",
+    });
+
+    writeSummary = {
+      ...writeResult,
+      summary: `${writeResult.updated} updated / ${writeResult.created} created / ${writeResult.unchanged} unchanged / ${writeResult.skipped} skipped`,
+    };
+    actions.push("draft_doc_update");
+  } else if (options.writeDrafts && gates.blocked) {
+    actions.push("skip_draft_doc_update");
+  }
+
   const verificationReport = await runAudit(targetPath, cwd, {
     changedPaths,
     semantic: semanticMode,
   });
+  actions.push("run_structural_audit");
+  actions.push(semanticMode === "heuristic" ? "run_semantic_audit" : "skip_semantic_audit");
 
   return createRuntimeReport({
     input: {
@@ -86,6 +125,8 @@ export async function runRuntime(targetPath, cwd, options = {}) {
       },
       auditReport: verificationReport,
     },
+    writes: writeSummary,
+    actions,
     finalStatus: gates.blocked ? "needs_human_decision" : "completed",
   });
 }

@@ -4,7 +4,7 @@ Usage:
   vibedocs init [target] [--mode minimal|standard|full] [--project-name NAME] [--owner OWNER] [--force] [--dry-run]
   vibedocs feature create <name> [target] [--owner OWNER] [--force] [--dry-run]
   vibedocs audit [target] [--format text|json|markdown] [--semantic off|heuristic] [--changed path] [--rule-pack FILE] [--output FILE]
-  vibedocs runtime run [target] --task TEXT [--feature SLUG] [--semantic off|heuristic] [--changed path] [--format text|json] [--output FILE]
+  vibedocs runtime run [target] --task TEXT [--feature SLUG] [--semantic off|heuristic] [--changed path] [--write-drafts] [--format text|json] [--output FILE]
   vibedocs glossary check [target] [--path docs/product --path docs/features] [--rule-pack FILE] [--format text|json|markdown] [--output FILE]
   vibedocs --help
   vibedocs --version

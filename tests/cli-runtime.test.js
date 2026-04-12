@@ -5,6 +5,7 @@ import path from "node:path";
 import test from "node:test";
 
 import { runCli } from "../src/cli/run.js";
+import { loadResumeInputFromReport } from "../src/runtime/index.js";
 import { createMemoryWriter } from "./helpers/io.js";
 
 async function makeTempDir() {
@@ -210,4 +211,110 @@ test("runtime decide records a human decision in the project decision log", asyn
   assert.ok(decisionLog.includes("draft_to_active_promotion"));
   assert.ok(decisionLog.includes("Keep the document in Draft until acceptance coverage is complete"));
   assert.ok(decisionLog.includes("Wait for QA review before promoting."));
+});
+
+test("runtime resume continues after an approved gate decision", async (t) => {
+  const tempDir = await makeTempDir();
+  t.after(async () => {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await runCli(["init", "--mode", "minimal", "--project-name", "Resume Demo", "--owner", "Berlin"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  const blockedStdout = createMemoryWriter();
+  const blockedStderr = createMemoryWriter();
+  const blockedExitCode = await runCli([
+    "runtime",
+    "run",
+    "--task",
+    "Update roadmap status for the next sprint",
+    "--format",
+    "json",
+  ], { cwd: tempDir, stdout: blockedStdout, stderr: blockedStderr });
+
+  assert.equal(blockedExitCode, 2);
+  assert.equal(blockedStderr.toString(), "");
+  const blockedReport = JSON.parse(blockedStdout.toString());
+  assert.ok(blockedReport.gates.gates.includes("draft_to_active_promotion"));
+
+  const decideStdout = createMemoryWriter();
+  const decideStderr = createMemoryWriter();
+  const decideExitCode = await runCli([
+    "runtime",
+    "decide",
+    "--gate",
+    "draft_to_active_promotion",
+    "--decision",
+    "Proceed with the status update while keeping the document in Draft",
+    "--status",
+    "accepted",
+  ], { cwd: tempDir, stdout: decideStdout, stderr: decideStderr });
+
+  assert.equal(decideExitCode, 0);
+  assert.equal(decideStderr.toString(), "");
+
+  const resumeStdout = createMemoryWriter();
+  const resumeStderr = createMemoryWriter();
+  const resumeExitCode = await runCli([
+    "runtime",
+    "resume",
+    "--task",
+    "Update roadmap status for the next sprint",
+    "--gate",
+    "draft_to_active_promotion",
+    "--write-drafts",
+    "--format",
+    "json",
+  ], { cwd: tempDir, stdout: resumeStdout, stderr: resumeStderr });
+
+  assert.equal(resumeExitCode, 0);
+  assert.equal(resumeStderr.toString(), "");
+
+  const resumedReport = JSON.parse(resumeStdout.toString());
+  const roadmapStatus = await fs.readFile(path.join(tempDir, "docs", "strategy", "ROADMAP-STATUS.md"), "utf8");
+
+  assert.equal(resumedReport.finalStatus, "completed");
+  assert.ok(resumedReport.gates.approvedGates.includes("draft_to_active_promotion"));
+  assert.equal(resumedReport.input.resumedFrom.gate, "draft_to_active_promotion");
+  assert.ok(resumedReport.actions.includes("draft_doc_update"));
+  assert.ok(roadmapStatus.includes("## Runtime Draft Update"));
+});
+
+test("runtime can restore task context from a previous runtime report", async (t) => {
+  const tempDir = await makeTempDir();
+  t.after(async () => {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await runCli(["init", "--mode", "minimal", "--project-name", "Resume Report Demo", "--owner", "Berlin"], {
+    cwd: tempDir,
+    stdout: createMemoryWriter(),
+    stderr: createMemoryWriter(),
+  });
+
+  const blockedReportPath = path.join(tempDir, "blocked-runtime.json");
+  const blockedStdout = createMemoryWriter();
+  const blockedStderr = createMemoryWriter();
+  const blockedExitCode = await runCli([
+    "runtime",
+    "run",
+    "--task",
+    "Update roadmap status for the next sprint",
+    "--format",
+    "json",
+    "--output",
+    blockedReportPath,
+  ], { cwd: tempDir, stdout: blockedStdout, stderr: blockedStderr });
+
+  assert.equal(blockedExitCode, 2);
+  assert.equal(blockedStderr.toString(), "");
+
+  const resumeInput = await loadResumeInputFromReport(tempDir, blockedReportPath);
+  assert.equal(resumeInput.task, "Update roadmap status for the next sprint");
+  assert.equal(resumeInput.featureSlug, null);
+  assert.ok(resumeInput.sourceReport.endsWith("blocked-runtime.json"));
 });

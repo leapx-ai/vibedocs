@@ -1,5 +1,6 @@
 export function resolveGates(input = {}) {
   const gates = new Set(input.routing?.gates ?? []);
+  const approvedGates = new Set(input.approvedGates ?? []);
   const loadedContext = input.loadedContext ?? {};
   const changedPaths = input.changedPaths ?? [];
   const ssotHealth = input.projectState?.ssotHealth ?? {};
@@ -45,9 +46,12 @@ export function resolveGates(input = {}) {
     gates.add("cross_feature_scope_change");
   }
 
+  const unresolvedGates = [...gates].filter((gate) => !approvedGates.has(gate));
+
   return {
-    gates: [...gates],
-    blocked: gates.size > 0,
-    humanDecisionRequired: gates.size > 0 || Boolean(input.routing?.humanDecisionRequired),
+    gates: unresolvedGates,
+    approvedGates: [...approvedGates].filter((gate) => gates.has(gate)),
+    blocked: unresolvedGates.length > 0,
+    humanDecisionRequired: unresolvedGates.length > 0 || (Boolean(input.routing?.humanDecisionRequired) && unresolvedGates.length > 0),
   };
 }

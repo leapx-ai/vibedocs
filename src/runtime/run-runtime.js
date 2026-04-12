@@ -48,6 +48,7 @@ export async function runRuntime(targetPath, cwd, options = {}) {
     projectState: state,
     classification,
     routing,
+    approvedGates: options.approvedGates,
   });
   const actions = [
     "bootstrap_context",
@@ -106,6 +107,7 @@ export async function runRuntime(targetPath, cwd, options = {}) {
       changedPaths,
       featureSlug: runtimeContext.loadedContext.featureContext?.slug ?? null,
       semanticMode,
+      resumedFrom: options.resumedFrom ?? null,
     },
     loadedContext: runtimeContext.loadedContext,
     state,

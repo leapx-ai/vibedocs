@@ -6,5 +6,7 @@ export { resolveGates } from "./resolve-gates.js";
 export { applyDraftDocUpdates } from "./draft-doc-update.js";
 export { syncNavigation } from "./sync-navigation.js";
 export { recordHumanDecision } from "./record-human-decision.js";
+export { readHumanDecisions, findLatestDecisionForGate } from "./read-human-decisions.js";
+export { loadResumeInputFromReport } from "./load-resume-input.js";
 export { createRuntimeReport, formatRuntimeReport } from "./report.js";
 export { runRuntime } from "./run-runtime.js";

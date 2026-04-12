@@ -5,6 +5,7 @@ import { handleFeatureCreateCommand } from "../commands/feature-create.js";
 import { handleGlossaryCheckCommand } from "../commands/glossary-check.js";
 import { handleInitCommand } from "../commands/init.js";
 import { handleRuntimeDecideCommand } from "../commands/runtime-decide.js";
+import { handleRuntimeResumeCommand } from "../commands/runtime-resume.js";
 import { handleRuntimeRunCommand } from "../commands/runtime-run.js";
 
 export async function runCli(argv, io = {}) {
@@ -43,6 +44,10 @@ export async function runCli(argv, io = {}) {
 
     if (command === "runtime" && subcommand === "decide") {
       return await handleRuntimeDecideCommand(rest, { cwd, stdout, stderr });
+    }
+
+    if (command === "runtime" && subcommand === "resume") {
+      return await handleRuntimeResumeCommand(rest, { cwd, stdout, stderr });
     }
 
     if (command === "glossary" && subcommand === "check") {

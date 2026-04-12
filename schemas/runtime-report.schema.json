@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leapx-ai.github.io/vibedocs/schemas/runtime-report.schema.json",
+  "title": "VibeDocs Runtime Report",
+  "type": "object",
+  "required": [
+    "runtimeVersion",
+    "tool",
+    "generatedAt",
+    "input",
+    "classification",
+    "routing",
+    "gates",
+    "actions",
+    "finalStatus"
+  ],
+  "properties": {
+    "runtimeVersion": {
+      "type": "string"
+    },
+    "tool": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "generatedAt": {
+      "type": "string"
+    },
+    "input": {
+      "type": "object",
+      "required": ["projectRoot", "task", "changedPaths", "semanticMode"],
+      "properties": {
+        "projectRoot": { "type": "string" },
+        "task": { "type": "string" },
+        "featureSlug": { "type": ["string", "null"] },
+        "semanticMode": { "type": "string" },
+        "changedPaths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "resumedFrom": {
+          "type": ["object", "null"],
+          "properties": {
+            "gate": { "type": "string" },
+            "decision": { "type": "string" },
+            "status": { "type": "string" },
+            "sourceReport": { "type": ["string", "null"] }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "loadedContext": {
+      "type": "object"
+    },
+    "state": {
+      "type": "object"
+    },
+    "classification": {
+      "type": "object",
+      "required": ["changeType"],
+      "properties": {
+        "changeType": { "type": "string" },
+        "confidence": { "type": "string" },
+        "rationale": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "routing": {
+      "type": "object",
+      "required": ["executionMode", "mustUpdate", "shouldReview", "suggestedActions"],
+      "properties": {
+        "executionMode": { "type": "string" },
+        "mustUpdate": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "shouldReview": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "suggestedActions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "gates": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "derivedReviews": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "gatingDocs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "gates": {
+      "type": "object",
+      "required": ["gates", "blocked"],
+      "properties": {
+        "gates": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "approvedGates": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rejectedGates": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "deferredGates": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "blocked": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "object"
+    },
+    "writes": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "attempted": { "type": "integer", "minimum": 0 },
+        "updated": { "type": "integer", "minimum": 0 },
+        "created": { "type": "integer", "minimum": 0 },
+        "unchanged": { "type": "integer", "minimum": 0 },
+        "skipped": { "type": "integer", "minimum": 0 },
+        "writes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "action", "reason"],
+            "properties": {
+              "path": { "type": "string" },
+              "action": { "type": "string" },
+              "reason": { "type": "string" },
+              "anchorHeading": { "type": ["string", "null"] },
+              "insertionStrategy": { "type": "string" }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "updatedFiles": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "finalStatus": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "completed_with_draft_updates",
+        "resumed",
+        "resumed_with_draft_updates",
+        "needs_human_decision"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

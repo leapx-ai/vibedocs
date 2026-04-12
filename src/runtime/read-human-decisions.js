@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { pathExists } from "../filesystem/fs.js";
+import { buildGateDecisionMap, normalizeGateDecisionStatus } from "./gate-decisions.js";
 
 export async function readHumanDecisions(projectRoot) {
   const decisionLogPath = path.join(projectRoot, "docs", "governance", "DECISION-LOG.md");
@@ -18,6 +19,10 @@ export async function findLatestDecisionForGate(projectRoot, gate) {
   const decisions = await readHumanDecisions(projectRoot);
 
   return [...decisions].reverse().find((entry) => entry.gate === gate) ?? null;
+}
+
+export async function getLatestGateDecisionMap(projectRoot) {
+  return buildGateDecisionMap(await readHumanDecisions(projectRoot));
 }
 
 function parseDecisionLog(content) {
@@ -56,7 +61,7 @@ function parseDecisionLog(content) {
     } else if (key === "decision") {
       current.decision = value;
     } else if (key === "status") {
-      current.status = value;
+      current.status = normalizeGateDecisionStatus(value);
     } else if (key === "feature") {
       current.featureSlug = value;
     } else if (key === "note") {

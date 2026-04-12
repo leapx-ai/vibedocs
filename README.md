@@ -28,6 +28,8 @@ npx vibedocs --help
   本地检查结构漂移和语义漂移
 - Run glossary checks before terminology inconsistency spreads  
   在术语漂移扩散前做巡检
+- Run a human-in-the-loop agent runtime flow with `run -> decide -> resume`  
+  用 `run -> decide -> resume` 跑一条有人类裁决的 agent runtime 流程
 
 ## Quick Start / 快速开始
 
@@ -59,6 +61,12 @@ Check glossary drift / 检查术语漂移:
 
 ```bash
 npx vibedocs glossary check --path docs/product --format json
+```
+
+Run the agent runtime / 运行 agent runtime:
+
+```bash
+npx vibedocs runtime run --task "Update API contract for focus mode" --feature focus-mode --changed src/focus-mode/api.ts --write-drafts --format json
 ```
 
 ## Config / 配置
@@ -105,7 +113,8 @@ Stable exports / 稳定导出:
 - Public docs site / 公开文档站: [https://leapx-ai.github.io/vibedocs/](https://leapx-ai.github.io/vibedocs/)
 - Repository / 仓库: [https://github.com/leapx-ai/vibedocs](https://github.com/leapx-ai/vibedocs)
 - Packaged guides / 随包指南:
-  - `guides/AI-OPERATING-PROTOCOL.md`
-  - `guides/AI-EXECUTION-MODES.md`
-  - `guides/MODEL-BOOTSTRAP-CONTRACT.md`
-  - `guides/AI-PROMPTS.md`
+- `guides/AI-OPERATING-PROTOCOL.md`
+- `guides/AI-EXECUTION-MODES.md`
+- `guides/MODEL-BOOTSTRAP-CONTRACT.md`
+- `guides/AGENT-RUNTIME.md`
+- `guides/AI-PROMPTS.md`

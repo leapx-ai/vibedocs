@@ -6,6 +6,23 @@ The format follows Keep a Changelog and the versioning policy is documented in `
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-04-12
+
+### Added
+
+- Agent runtime workflow with `runtime run`, `runtime decide`, and `runtime resume`
+- Runtime report schema and report IO helpers for stable machine-readable runtime outputs
+- Runtime gate decision semantics with explicit `accepted`, `rejected`, and `deferred` handling
+- Packaged `AGENT-RUNTIME.md` guide for human-in-the-loop runtime usage
+
+### Changed
+
+- Runtime draft updates now generate document-type-specific draft structures instead of a single generic block
+- Runtime draft updates now try to insert under a more appropriate target section before falling back to append
+- Runtime reports now record draft write placement details such as `anchorHeading` and `insertionStrategy`
+- Runtime final status now distinguishes `completed`, `completed_with_draft_updates`, `resumed`, `resumed_with_draft_updates`, and `needs_human_decision`
+- Package positioning and README now describe VibeDocs as an agent-operable documentation workflow, not only a docs scaffold and audit CLI
+
 ## [0.1.3] - 2026-03-13
 
 ### Changed

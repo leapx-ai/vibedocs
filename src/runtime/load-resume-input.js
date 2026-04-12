@@ -1,10 +1,7 @@
-import fs from "node:fs/promises";
-import path from "node:path";
+import { readRuntimeReport } from "./runtime-report-io.js";
 
 export async function loadResumeInputFromReport(projectRoot, reportPath) {
-  const absolutePath = path.resolve(projectRoot, reportPath);
-  const raw = await fs.readFile(absolutePath, "utf8");
-  const report = JSON.parse(raw);
+  const { absolutePath, report } = await readRuntimeReport(projectRoot, reportPath);
 
   return {
     task: report.input?.task ?? null,

@@ -1,6 +1,11 @@
 export function resolveGates(input = {}) {
   const gates = new Set(input.routing?.gates ?? []);
-  const approvedGates = new Set(input.approvedGates ?? []);
+  const gateDecisions = input.gateDecisions ?? {};
+  const approvedGates = new Set(
+    Object.entries(gateDecisions)
+      .filter(([, value]) => value?.status === "accepted")
+      .map(([gate]) => gate),
+  );
   const loadedContext = input.loadedContext ?? {};
   const changedPaths = input.changedPaths ?? [];
   const ssotHealth = input.projectState?.ssotHealth ?? {};
@@ -47,10 +52,15 @@ export function resolveGates(input = {}) {
   }
 
   const unresolvedGates = [...gates].filter((gate) => !approvedGates.has(gate));
+  const rejectedGates = [...gates].filter((gate) => gateDecisions[gate]?.status === "rejected");
+  const deferredGates = [...gates].filter((gate) => gateDecisions[gate]?.status === "deferred");
 
   return {
     gates: unresolvedGates,
     approvedGates: [...approvedGates].filter((gate) => gates.has(gate)),
+    rejectedGates,
+    deferredGates,
+    gateDecisions,
     blocked: unresolvedGates.length > 0,
     humanDecisionRequired: unresolvedGates.length > 0 || (Boolean(input.routing?.humanDecisionRequired) && unresolvedGates.length > 0),
   };

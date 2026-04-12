@@ -1,8 +1,8 @@
 {
   "name": "@leapx-ai/vibedocs",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "license": "Apache-2.0",
-  "description": "Open-core VibeCoding documentation CLI, templates, scaffold, and shared rule engine.",
+  "description": "Agent-operable VibeCoding documentation CLI with scaffold, audits, and runtime workflows.",
   "type": "module",
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "./config": "./src/config/index.js",
     "./reporting": "./src/reporting/index.js",
     "./rule-engine": "./src/rule-engine/index.js",
+    "./schemas/runtime-report.schema.json": "./schemas/runtime-report.schema.json",
     "./package.json": "./package.json"
   },
   "bin": {
@@ -34,6 +35,7 @@
     "guides/",
     "LICENSE",
     "scaffold/docs/",
+    "schemas/runtime-report.schema.json",
     "src/",
     "templates/ACCEPTANCE-CHECKLIST.template.md",
     "templates/ANALYTICS-EVENTS.template.md",

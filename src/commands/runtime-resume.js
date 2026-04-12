@@ -2,7 +2,7 @@ import { getBooleanOption, getListOption, getStringOption, parseArgs } from "../
 import { emitReport } from "../reporting/write-report.js";
 import { resolveProjectRoot } from "../lib/project.js";
 import { loadResumeInputFromReport } from "../runtime/load-resume-input.js";
-import { findLatestDecisionForGate, runRuntime } from "../runtime/index.js";
+import { findLatestDecisionForGate, getLatestGateDecisionMap, isHumanDecisionRuntimeStatus, runRuntime, writeRuntimeReport } from "../runtime/index.js";
 import { formatRuntimeReport } from "../runtime/report.js";
 
 export async function handleRuntimeResumeCommand(argv, io) {
@@ -33,6 +33,10 @@ export async function handleRuntimeResumeCommand(argv, io) {
     throw new Error(`Gate "${gate}" is recorded as rejected, so runtime cannot resume from it.`);
   }
 
+  if (decision.status === "deferred") {
+    throw new Error(`Gate "${gate}" is recorded as deferred, so runtime cannot resume until a later acceptance decision is recorded.`);
+  }
+
   const resumeInput = reportPath
     ? await loadResumeInputFromReport(projectRoot, reportPath)
     : null;
@@ -49,7 +53,7 @@ export async function handleRuntimeResumeCommand(argv, io) {
     semantic: semanticMode,
     changedPaths: changedPaths.length > 0 ? changedPaths : (resumeInput?.changedPaths ?? []),
     writeDrafts,
-    approvedGates: [gate],
+    gateDecisions: await getLatestGateDecisionMap(projectRoot),
     resumedFrom: {
       gate,
       decision: decision.decision,
@@ -58,6 +62,11 @@ export async function handleRuntimeResumeCommand(argv, io) {
     },
   });
   const content = formatRuntimeReport(report, { format });
-  await emitReport(content, io, outputPath, io.cwd);
-  return report.finalStatus === "needs_human_decision" ? 2 : 0;
+  if (format === "json" && outputPath) {
+    io.stdout.write(content);
+    await writeRuntimeReport(report, outputPath, io.cwd);
+  } else {
+    await emitReport(content, io, outputPath, io.cwd);
+  }
+  return isHumanDecisionRuntimeStatus(report.finalStatus) ? 2 : 0;
 }

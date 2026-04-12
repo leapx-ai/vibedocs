@@ -4,7 +4,7 @@ import { bootstrapRuntime } from "./bootstrap.js";
 import { classifyChange } from "./classify-change.js";
 import { applyDraftDocUpdates } from "./draft-doc-update.js";
 import { inferProjectState } from "./infer-state.js";
-import { createRuntimeReport } from "./report.js";
+import { createRuntimeReport, deriveRuntimeFinalStatus } from "./report.js";
 import { resolveGates } from "./resolve-gates.js";
 import { routeTask } from "./route-task.js";
 import { syncNavigation } from "./sync-navigation.js";
@@ -48,7 +48,7 @@ export async function runRuntime(targetPath, cwd, options = {}) {
     projectState: state,
     classification,
     routing,
-    approvedGates: options.approvedGates,
+    gateDecisions: options.gateDecisions,
   });
   const actions = [
     "bootstrap_context",
@@ -140,6 +140,10 @@ export async function runRuntime(targetPath, cwd, options = {}) {
     writes: writeSummary,
     navigation: navigationSummary,
     actions,
-    finalStatus: gates.blocked ? "needs_human_decision" : "completed",
+    finalStatus: deriveRuntimeFinalStatus({
+      blocked: gates.blocked,
+      resumedFrom: options.resumedFrom,
+      writeSummary,
+    }),
   });
 }

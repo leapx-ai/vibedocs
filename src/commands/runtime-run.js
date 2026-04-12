@@ -1,7 +1,8 @@
 import { getBooleanOption, getListOption, getStringOption, parseArgs } from "../cli/args.js";
-import { runRuntime } from "../runtime/index.js";
+import { isHumanDecisionRuntimeStatus, runRuntime } from "../runtime/index.js";
 import { emitReport } from "../reporting/write-report.js";
 import { formatRuntimeReport } from "../runtime/report.js";
+import { writeRuntimeReport } from "../runtime/index.js";
 
 export async function handleRuntimeRunCommand(argv, io) {
   const { positionals, options } = parseArgs(argv);
@@ -21,6 +22,11 @@ export async function handleRuntimeRunCommand(argv, io) {
     writeDrafts,
   });
   const content = formatRuntimeReport(report, { format });
-  await emitReport(content, io, outputPath, io.cwd);
-  return report.finalStatus === "needs_human_decision" ? 2 : 0;
+  if (format === "json" && outputPath) {
+    io.stdout.write(content);
+    await writeRuntimeReport(report, outputPath, io.cwd);
+  } else {
+    await emitReport(content, io, outputPath, io.cwd);
+  }
+  return isHumanDecisionRuntimeStatus(report.finalStatus) ? 2 : 0;
 }

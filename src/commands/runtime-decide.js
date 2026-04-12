@@ -1,7 +1,7 @@
 import { getStringOption, parseArgs } from "../cli/args.js";
 import { loadProjectConfig } from "../config/load-config.js";
 import { resolveProjectRoot } from "../lib/project.js";
-import { recordHumanDecision } from "../runtime/index.js";
+import { normalizeGateDecisionStatus, recordHumanDecision } from "../runtime/index.js";
 
 export async function handleRuntimeDecideCommand(argv, io) {
   const { positionals, options } = parseArgs(argv);
@@ -12,7 +12,7 @@ export async function handleRuntimeDecideCommand(argv, io) {
   const decision = getStringOption(options, "decision");
   const featureSlug = getStringOption(options, "feature");
   const note = getStringOption(options, "note");
-  const status = getStringOption(options, "status", "accepted");
+  const status = normalizeGateDecisionStatus(getStringOption(options, "status", "accepted"));
 
   if (!gate) {
     throw new Error('Missing required --gate for "vibedocs runtime decide".');
@@ -31,6 +31,6 @@ export async function handleRuntimeDecideCommand(argv, io) {
     owner: config.values.owner ?? "TODO",
   });
 
-  io.stdout.write(`Recorded decision for ${gate} in ${result.path}\n`);
+  io.stdout.write(`Recorded ${status} decision for ${gate} in ${result.path}\n`);
   return 0;
 }

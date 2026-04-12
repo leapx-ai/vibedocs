@@ -9,6 +9,7 @@ These guides are shipped with the npm package.
 - `AI-OPERATING-PROTOCOL.md`
 - `AI-EXECUTION-MODES.md`
 - `MODEL-BOOTSTRAP-CONTRACT.md`
+- `AGENT-RUNTIME.md`
 - `AI-PROMPTS.md`
 
 ## Recommended Reading Order
@@ -16,13 +17,15 @@ These guides are shipped with the npm package.
 1. `AI-OPERATING-PROTOCOL.md`
 2. `MODEL-BOOTSTRAP-CONTRACT.md`
 3. `AI-EXECUTION-MODES.md`
-4. `AI-PROMPTS.md`
+4. `AGENT-RUNTIME.md`
+5. `AI-PROMPTS.md`
 
 ## How To Use
 
 - Use `AI-OPERATING-PROTOCOL.md` to define how the model should read, trust, and update project docs.
 - Use `MODEL-BOOTSTRAP-CONTRACT.md` to define the minimum context a model should load before acting.
 - Use `AI-EXECUTION-MODES.md` to choose the right working mode for the current task.
+- Use `AGENT-RUNTIME.md` when you want a human-in-the-loop runtime flow with `run -> decide -> resume`.
 - Use `AI-PROMPTS.md` when you want reusable prompt scaffolds for bootstrap, migration, feature creation, iteration updates, release checks, and terminology reviews.
 
 如果你要把这套指南直接给 AI 使用，最稳的做法是：
